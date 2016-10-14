@@ -1,1 +1,1 @@
-.tools{margin-top:5%}.tools .form-group{width:500px;margin:0 auto}.tools .form-group:first-child~div.form-group{padding-top:50px}
+.tools{margin-top:5%}.tools .form-group{width:calc(80%);margin:0 auto}.tools .form-group:first-child~div.form-group{padding-top:50px}.tools .cred{color:red;padding:0 5px;font-style:normal}.tools .input-group-addon:first-child{font-weight:bold}
