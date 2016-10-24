@@ -1,0 +1,55 @@
+@fs12:12px;
+@fs13:13px;
+@fs14:14px;
+@fs16:16px;
+@fs18:18px;
+@fs22:22px;
+@ff:"微软雅黑","宋体";
+//颜色分级
+@zzblack:black;
+@zzLight-0:#ffffff;
+@zzLight-1:#f5f5f5;
+@zzLight-2:#bfbfbf;
+@zzblue:#225d98;
+@zzblueLight:#a5caef;
+ 
+a:link,a:visited  {color: @zzblack;text-decoration: none;}     /* 未访问的链接 */
+a:hover,a:active {color: @zzblue;text-decoration: underline;}    /* 鼠标移动到链接上 */
+img{border:none;}
+ul,li,p,table,tr,td,a,dl, dd, dt,input,em{margin:0px;padding:0px;list-style: none;text-decoration: none;font-style:normal;}
+ h1, h2, h3, h4, h5, h6{margin:0px;padding:0px;font-weight: normal;font-size: @fs14;line-height: @fs18;}
+
+
+//首页新闻块标题样式
+.newBoxTitle(){
+    font-size:@fs14;
+    font-family: @ff;
+    font-weight:bold;
+    color:black;
+}
+.mpBox(){
+ margin:0px;
+ padding:0px;   
+}
+
+.container-fluid(){
+    width:100%;
+    display: block;
+}
+
+.container(){
+    width:998px;
+    margin:0px auto;
+}
+.lf{
+    float: left;
+}
+.rf{
+    float:right;
+}
+
+body{
+   .mpBox;
+    font-size:@fs14;
+    font-family: @ff;
+}
