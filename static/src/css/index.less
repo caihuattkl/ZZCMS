@@ -44,19 +44,21 @@
             width: 456px;
             height: 26px;
             border: 1px solid transparent;
-            margin: 3px 4px;
+            margin: 5px;
             padding: 0 5px;
         }
         input[type="button"] {
             background-color: @zzblue;
             color: @zzLight-0;
             border: none;
-            width: 45px;
+            width: 55px;
             height: 30px;
             font-weight: bold;
             font-size: @fs14;
+            cursor: pointer;
         }
         .hot_words {
+            margin-top: 3px;
             font-size: @fs12;
             &>a {
                 margin: 0 3px;
@@ -98,6 +100,7 @@
         >li {
             float: left;
             height: 35px;
+            line-height: 35px;
             >a {
                 display: block;
                 color: @zzLight-0;
@@ -113,6 +116,7 @@
     }
     .nav-sub {
         height: 35px;
+        line-height: 35px;
         border: 1px solid @zzLight-1;
         padding-left: 16px;
         >li {
@@ -132,7 +136,7 @@
     .container;
     .section-left {
         position: relative;
-        z-index: 1;
+        z-index: 3;
         padding-left: 15px;
         margin-top: 15px;
         background-color: #fff7f5;
@@ -151,6 +155,7 @@
             filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9ac80', endColorstr='#f7834a',GradientType=0);
             /* 标准的语法 */
             height: 35px;
+            line-height: 35px;
             display: block;
             margin-left: -15px;
             padding-left: 15px;
@@ -168,8 +173,8 @@
                 border: none;
                 border-top: 1px solid #e6d9d0;
                 border-bottom: 1px solid #e6d9d0;
-                width: 200px;
-                height: 30px;
+                width: 199px;
+                height: 32px;
                 line-height: 30px;
                 text-decoration: none;
                 margin-left: -15px;
@@ -177,6 +182,13 @@
                 content: "";
             }
         }
+        //      >ul>li>h3{
+        //          cursor: pointer;
+        //          text-decoration: none;
+        //          color: @zzblack;
+        //          border-top: 1px solid transparent;
+        //          border-bottom: 1px solid transparent;
+        //      }
         ul li h3>a {
             border: none;
             border-top: 1px solid transparent;
@@ -210,16 +222,17 @@
         .sectionSubContent {
             overflow: hidden;
             display: none;
-            min-height: 546px;
+            min-height: 548px;
+            height: 548px;
             width: 600px;
             border: 1px solid #e6d9d0;
             position: absolute;
-            top: 0px;
-            left: 214px;
+            top: 0;
+            left: 198px;
             background: @zzLight-0;
             z-index: -99;
             .sectionLeftContent {
-                float: left; 
+                float: left;
                 padding: 10px;
                 width: 330px;
                 //overflow: hidden;
@@ -234,7 +247,7 @@
                         float: left;
                         font-weight: bold;
                         text-align: right;
-                        padding-right:10px;
+                        padding-right: 10px;
                     }
                     >dd {
                         overflow: hidden;
@@ -245,8 +258,8 @@
                         margin-top: 3px;
                         height: auto;
                         >em {
-                            margin: 5px 0px;
-                            padding:0px 6px 0px 9px;
+                            margin: 5px 0;
+                            padding: 0 6px 0 9px;
                             display: inline-block;
                             white-space: nowrap;
                             cursor: pointer;
@@ -258,7 +271,7 @@
                 }
             }
             div.subContent {
-                right: 0px;
+                right: 0;
                 position: absolute;
                 background-color: #fff8f0;
                 width: 135px;
@@ -271,6 +284,176 @@
                     line-height: 20px;
                     &:hover {
                         color: red;
+                    }
+                }
+            }
+        }
+    }
+    //右边内容
+    .section-right {
+        margin-left: 10px;
+        margin-top: 15px;
+        width: 788px;
+        overflow: hidden;
+        .hotBox {
+            border: 1px solid @zzLight-1;
+            width: 100%;
+            height: 120px;
+            background-image: url(@hotIco);
+            background-repeat: no-repeat;
+            h1 {
+                a {
+                    color: @zzblue;
+                }
+                font-size: @fs24;
+                font-weight: bold;
+                font-family: @ff;
+                text-align: center;
+                margin-top: 20px;
+            }
+            >ul {
+                margin: 20px 20px 0 15px;
+                li {
+                    float: left;
+                    width: 245px;
+                    white-space: nowrap; //强制不换行
+                    overflow: hidden;
+                    padding: 0 25px 10px;
+                }
+            }
+        }
+        .bannerBox {
+            overflow: hidden;
+            position: relative;
+            >a.left {
+                position: absolute;
+                background-image: url(@bannerIco);
+                background-repeat: no-repeat;
+                background-position: 0 -49px;
+                width: 45px;
+                height: 43px;
+                top: 35%;
+                right: 15px;
+                opacity: 0.3;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+            a.right {
+                position: absolute;
+                background-image: url(@bannerIco);
+                background-repeat: no-repeat;
+                background-position: 0 0;
+                width: 45px;
+                height: 43px;
+                top: 35%;
+                left: 15px;
+                opacity: 0.3;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+            margin: 10px 0;
+            height: 200px;
+            overflow: hidden;
+            img {
+                height: 200px;
+                width: 788px;
+                
+            }
+            >ul li {
+                float: left;
+            }
+            &:after {
+                content: "";
+            }
+            .bannerText {
+                .marsk {
+                    background: @zzblack;
+                    opacity: 0.5;
+                    height: 35px;
+                    width: 100%;
+                    position: absolute;
+                    bottom: 0;
+                    z-index: 1;
+                }
+                .text {
+                    position: absolute;
+                    bottom: 0;
+                    z-index: 2;
+                    line-height: 35px;
+                    color: @zzblueLight;
+                }
+                .jump {
+                    cursor: pointer;
+                    position: absolute;
+                    bottom: 5px;
+                    right: 5px;
+                    z-index: 10;
+                    height: 19px;
+                    padding: 1px 0;
+                    overflow: hidden;
+                    background: none;
+                    span {
+                        cursor:pointer;
+                        display: inline-block;
+                        height: 15px;
+                        width: 17px;
+                        background: url(@bannerIco);
+                        background-position: 22px -126px;
+                        &:hover{
+                        background: url(@bannerIco);
+                        background-position: -9px -127px;
+                        height: 15px;
+                        width: 17px;
+                        }
+                    }
+                }
+            }
+        }
+        .trendNews {
+            background-image: url(@soleImg);
+            background-repeat: no-repeat;
+            border: 1px solid @zzLight-1;
+            height: auto;
+            overflow: hidden;
+            padding: 10px 20px 5px;
+            >ul {
+                li {
+                    span {
+                        color: @zzblue;
+                        font-weight: bold;
+                    }
+                    width: 373px;
+                    overflow: hidden;
+                    white-space: nowrap; //强制不换行
+                    padding: 5px 10px;
+                    float: left;
+                    &:nth-child(even) {
+                        text-align: left;
+                        padding-left: 35px;
+                    }
+                }
+            }
+        }
+        .reportBox {
+            height: auto;
+            overflow: hidden;
+            padding: 10px 0 5px 20px;
+            >ul {
+                margin-right: 10px;
+                li {
+                    text-indent: 0.5em;
+                    //margin:5px 0px;
+                    border-left: 8px solid red;
+                    width: 373px;
+                    overflow: hidden;
+                    white-space: nowrap; //强制不换行
+                    background: @zzblueLight-1;
+                    height: 26px;
+                    line-height: 26px;
+                    &:first-child~li {
+                        margin-top: 7px;
                     }
                 }
             }
