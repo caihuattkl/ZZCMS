@@ -137,6 +137,7 @@
         margin-top: 15px;
         background-color: #fff7f5;
         border: 1px solid #e6d9d0;
+        border-top: 1px solid transparent;
         width: 200px;
         .section-left-ico {
             background: -webkit-linear-gradient(left, #f9ac80 , #f7834a);
@@ -186,7 +187,7 @@
             padding-left: 15px;
             line-height: 30px;
             color: @zzblack;
-            &:after {
+            &:first-child:after {
                 content: url("data:image/png;base64,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");
                 position: absolute;
                 right: 10px;
@@ -209,33 +210,35 @@
         .sectionSubContent {
             overflow: hidden;
             display: none;
-            height: 545px;
-            width: 500px;
-            border: 1px solid #ddd;
+            min-height: 546px;
+            width: 600px;
+            border: 1px solid #e6d9d0;
             position: absolute;
-            top: 0;
+            top: 0px;
             left: 214px;
             background: @zzLight-0;
-            z-index: -1;
+            z-index: -99;
             .sectionLeftContent {
-                float: left;
+                float: left; 
                 padding: 10px;
                 width: 330px;
-                overflow: hidden;
+                //overflow: hidden;
                 height: 100%;
                 dl {
                     float: left;
-                    width: 100%;
+                    width: 465px;
                     border-bottom: 1px solid @zzLight-1;
                     padding: 10px 0;
                     >dt {
+                        width: 80px;
                         float: left;
                         font-weight: bold;
-                        text-align: left;
-                        padding: 0 15px;
+                        text-align: right;
+                        padding-right:10px;
                     }
                     >dd {
-                        width: 270px;
+                        overflow: hidden;
+                        width: 330px;
                         float: left;
                         height: 13px;
                         line-height: 13px;
@@ -255,9 +258,10 @@
                 }
             }
             div.subContent {
+                right: 0px;
+                position: absolute;
                 background-color: #fff8f0;
                 width: 135px;
-                margin-top: -12px;
                 height: 100%;
                 padding-top: 15px;
                 padding-left: 15px;
