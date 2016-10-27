@@ -5,7 +5,7 @@ $('#section-left>ul>li').on({
 	},
 	mouseleave: function(e) {
 		$(this).children("#sectionSubContent").hide();
-	}
+	} 
 });
 
 function autoPlay() {
@@ -62,7 +62,8 @@ function autoPlay() {
 
 $(function() {
 	//判断是否是ie8及以下版本
-	isIe(8) ? $('body').empty() && alert("本站不支持IE8及其以下浏览器访问,请更新至IE9或chome,火狐浏览器!") : '';
+	isIe(8) || isIe(7) || isIe(6)  ? $('body').empty() && alert("本站不支持IE8及其以下浏览器访问,请更新至IE9或chome,火狐浏览器!") : '';
 	//首页图片轮播
 	autoPlay(); 
 })
+

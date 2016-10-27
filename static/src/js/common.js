@@ -34,7 +34,7 @@ $.extend({
 				}
 			}
 		};
-		$.ajax(_config.url, _config);
+		$.ajax(_config.url, _config); 
 	}
 })
 
