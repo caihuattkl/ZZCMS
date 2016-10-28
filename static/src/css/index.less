@@ -475,7 +475,8 @@ section.sectionMain {
             .index-ad-001,
             .index-ad-002,
             .index-ad-003,
-            .index-ad-004 {
+            .index-ad-004,
+             {
                 width: 100%;
                 height: 100px;
                 background: @zzLight-2;
@@ -593,21 +594,26 @@ section.sectionMain {
                         padding: 10px 3px;
                         ul li {
                             background: @zzLight-3;
-                            span{color:@zzred-1;}
-                            &:first-child,&:first-child+li,&:first-child+li+li{
-                                margin-bottom:9px;
+                            span {
+                                color: @zzred-1;
+                            }
+                            &:first-child,
+                            &:first-child+li,
+                            &:first-child+li+li {
+                                margin-bottom: 9px;
                             }
                             padding: 10px;
-                            p{
+                            p {
                                 color: @zzLight-5;
                             }
                             h5 {
-                                span{margin-right: 5px;}
+                                span {
+                                    margin-right: 5px;
+                                }
                                 font-weight: bold;
                                 line-height: 30px;
                                 .textEllipsis;
                                 width: 230px;
-                                
                             }
                         }
                     }
@@ -615,16 +621,23 @@ section.sectionMain {
                         padding: 10px 3px;
                         ul li {
                             background: @zzblueLight-1;
-                            span{color:@zzred-1;}
-                            &:first-child,&:first-child+li,&:first-child+li+li{
-                                margin-bottom:9px;
+                            span {
+                                color: @zzred-1;
+                            }
+                            &:first-child,
+                            &:first-child+li,
+                            &:first-child+li+li {
+                                margin-bottom: 9px;
                             }
                             padding: 10px;
-                            p{
+                            p {
                                 color: @zzLight-5;
                             }
                             h5 {
-                                span{margin-right: 5px;color: @zzblueLight-2;}
+                                span {
+                                    margin-right: 5px;
+                                    color: @zzblueLight-2;
+                                }
                                 font-weight: bold;
                                 line-height: 30px;
                                 color: @zzblueLight-2;
@@ -796,6 +809,527 @@ section.sectionMain {
                             .newlistIcon;
                         }
                     }
+                }
+            }
+        }
+        .mainRightBox {
+            width: 340px;
+            overflow: hidden;
+            .index-ad-005 {
+                width: 100%;
+                height: 500px;
+                background: @zzLight-2;
+            }
+            .index-ad-006 {
+                width: 100%;
+                height: 300px;
+                background: @zzLight-2;
+            }
+            .index-ad-007 {
+                width: 100%;
+                height: 298px;
+                background: @zzLight-2;
+            }
+            .content {
+                margin: 10px 0;
+                background: @zzLight-0;
+                overflow: hidden;
+                padding: 10px;
+                .paihangbang {
+                    ul.title {
+                        margin-bottom: 10px;
+                        overflow: hidden;
+                        li {
+                            float: left;
+                            h4 {
+                                font-weight: bold;
+                                font-size: @fs16;
+                                a {
+                                    border-left: 4px solid transparent;
+                                    padding-left: 5px;
+                                    color: @zzblack;
+                                }
+                                &:first-child {
+                                    margin-right: 15px;
+                                }
+                            }
+                            h4.current {
+                                font-weight: bold;
+                                font-size: @fs16;
+                                a {
+                                    border-left: 4px solid @zzred-1;
+                                    padding-left: 5px;
+                                    color: @zzred-1;
+                                }
+                            }
+                        }
+                    }
+                    ul.newsListWeek li {
+                        .textEllipsis;
+                        width: 320px;
+                        line-height: 25px;
+                        color: @zzLight-6;
+                        &:first-child h5,
+                        &:first-child h5 a {
+                            float: right;
+                            width: 242px;
+                            .textEllipsis;
+                            font-weight: bold;
+                            &:before {
+                                content: "";
+                            }
+                        }
+                        &:first-child a {
+                            float: left;
+                        }
+                        &:first-child p,
+                        &:first-child p a {
+                            float: right;
+                            color: @zzLight-5;
+                            width: 242px;
+                            white-space: pre-wrap;
+                            font-size: @fs12;
+                            line-height: 25px;
+                        }
+                        &:first-child {
+                            border-bottom: 1px dashed @zzLight-4;
+                            &:before {
+                                content: "";
+                            }
+                        }
+                        &:first-child+li {
+                            color: red!important;
+                        }
+                        &:first-child+li+li {
+                            color: #ff6600;
+                        }
+                        &:first-child+li+li +li {
+                            color: #ffcc00;
+                        }
+                        &:before {
+                            .newListRound;
+                        }
+                    }
+                    ul.newsListMonth li {
+                        .textEllipsis;
+                        width: 320px;
+                        line-height: 25px;
+                        color: @zzLight-6;
+                        &:first-child h5,
+                        &:first-child h5 a {
+                            width: 242px;
+                            .textEllipsis;
+                            font-weight: bold;
+                            float: right;
+                            &:before {
+                                content: "";
+                            }
+                        }
+                        &:first-child a {
+                            float: left;
+                        }
+                        &:first-child p,
+                        &:first-child p a {
+                            float: right;
+                            color: @zzLight-5;
+                            width: 242px;
+                            white-space: pre-wrap;
+                            font-size: @fs12;
+                        }
+                        &:first-child {
+                            border-bottom: 1px dashed @zzLight-4;
+                            &:before {
+                                content: "";
+                            }
+                        }
+                        &:first-child+li {
+                            color: red!important;
+                        }
+                        &:first-child+li+li {
+                            color: #ff6600;
+                        }
+                        &:first-child+li+li +li {
+                            color: #ffcc00;
+                        }
+                        &:before {
+                            .newListRound;
+                        }
+                    }
+                }
+                .dataCenter {
+                    ul.title {
+                        margin-bottom: 10px;
+                        overflow: hidden;
+                        li {
+                            h4 {
+                                font-weight: bold;
+                                font-size: @fs16;
+                                border-left: 4px solid @zzblue;
+                                padding-left: 5px;
+                                color: @zzblack;
+                                span {
+                                    color: @zzLight-4;
+                                    font-size: @fs12;
+                                    float: right;
+                                }
+                            }
+                        }
+                    }
+                    ul.dataNewsList li {
+                        .textEllipsis;
+                        width: 320px;
+                        line-height: 25px;
+                        color: @zzLight-6;
+                        &:first-child h5,
+                        &:first-child h5 a {
+                            width: 242px;
+                            .textEllipsis;
+                            font-weight: bold;
+                            float: right;
+                            &:before {
+                                content: "";
+                            }
+                        }
+                        &:first-child a {
+                            float: left;
+                        }
+                        &:first-child p,
+                        &:first-child p a {
+                            float: right;
+                            color: @zzLight-5;
+                            width: 242px;
+                            white-space: pre-wrap;
+                            font-size: @fs12;
+                        }
+                        &:first-child {
+                            border-bottom: 1px dashed @zzLight-4;
+                        }
+                        &:first-child+li {
+                            color: red!important;
+                        }
+                        &:first-child+li+li {
+                            color: #ff6600;
+                        }
+                        &:first-child+li+li +li {
+                            color: #ffcc00;
+                        }
+                        i {
+                            display: inline-block;
+                            width: 18px;
+                            height: 18px;
+                            line-height: 18px;
+                            text-align: center;
+                            background: @zzblack;
+                            background: @zzLight-6;
+                            margin-right: 8px;
+                            color: @zzLight-0;
+                        }
+                        &:first-child+li>i {
+                            background: red;
+                        }
+                        &:first-child+li+li>i {
+                            background: #ff6600;
+                        }
+                        &:first-child+li+li+li>i {
+                            background: #ffcc00;
+                        }
+                    }
+                }
+                .hotKey {
+                    ul.title {
+                        margin-bottom: 10px;
+                        overflow: hidden;
+                        background: @zzLight-4;
+                        height: 40px;
+                        margin-top: -10px;
+                        margin-left: -10px;
+                        margin-right: -10px;
+                        padding-right: 10px;
+                        li {
+                            h4 {
+                                line-height: 40px;
+                                font-weight: bold;
+                                font-size: @fs16;
+                                border-left: 4px solid @zzblue;
+                                padding-left: 10px;
+                                color: @zzblack;
+                                span {
+                                    color: @zzLight-4;
+                                    font-size: @fs12;
+                                    float: right;
+                                }
+                            }
+                        }
+                    }
+                    #hotKey {
+                        height: 600px;
+                        overflow: hidden;
+                    }
+                }
+                .special {
+                    ul.title {
+                        //宽度是自适应,根据内容撑开的
+                        margin-bottom: 10px;
+                        overflow: hidden;
+                        background: @zzLight-4;
+                        height: 40px;
+                        margin-top: -10px;
+                        margin-left: -10px;
+                        margin-right: -10px;
+                        padding-right: 10px;
+                        li {
+                            h4 {
+                                line-height: 40px;
+                                font-weight: bold;
+                                font-size: @fs16;
+                                border-left: 4px solid @zzblue;
+                                padding-left: 10px;
+                                color: @zzblack;
+                                span {
+                                    color: @zzLight-4;
+                                    font-size: @fs12;
+                                    float: right;
+                                }
+                            }
+                        }
+                    }
+                    .specialImg {
+                        a {
+                            margin: 0;
+                            float: left;
+                            overflow: hidden;
+                            border:1px solid transparent;
+                            img {
+                                margin: 0;
+                                padding: 0;
+                                background-size: cover;
+                            }
+                            &:hover{
+                                border:1px solid @zzred-1;
+                            }
+                        }
+                        a:first-child,a:first-child img {
+                            width: 160px;
+                            height: 120px;
+                        }
+                        a:first-child + a,a:first-child + a img {
+                            width: 160px;
+                            height: 120px;
+                        }
+                        a:first-child + a + a,a:first-child + a + a>img {
+                            width: 320px;
+                            height: 240px;
+                        }
+                        a:first-child + a + a + a,a:first-child + a + a + a>img {
+                            width: 160px;
+                            height: 120px;
+                        }
+                        a:first-child + a + a + a + a,a:first-child + a + a + a + a>img {
+                            width: 160px;
+                            height: 120px;
+                        }
+                    }
+                };
+                .viewpoint {
+                    ul.title {
+                        margin-bottom: 10px;
+                        overflow: hidden;
+                        background: @zzLight-4;
+                        height: 40px;
+                        margin-top: -10px;
+                        margin-left: -10px;
+                        margin-right: -10px;
+                        padding-right: 10px;
+                        li {
+                            h4 {
+                                line-height: 40px;
+                                font-weight: bold;
+                                font-size: @fs16;
+                                border-left: 4px solid @zzblue;
+                                padding-left: 10px;
+                                color: @zzblack;
+                                span {
+                                    color: @zzLight-4;
+                                    font-size: @fs12;
+                                    float: right;
+                                }
+                            }
+                        }
+                    }
+                    ul.viewpointNewsList li {
+                        .textEllipsis;
+                        width: 320px;
+                        line-height: 25px;
+                        color: @zzLight-6;
+                        &:first-child h5,
+                        &:first-child h5 a {
+                            width: 242px;
+                            white-space: pre-wrap;
+                            font-weight: bold;
+                            float: right;
+                            &:before {
+                                content: "";
+                            }
+                        }
+                        &:first-child a {
+                            float: left;
+                        }
+                        &:first-child p,
+                        &:first-child p a {
+                            float: right;
+                            color: @zzblueLight-2;
+                            width: 242px;
+                            white-space: pre-wrap;
+                            font-size: @fs12;
+                        }
+                        &:first-child {
+                            border-bottom: 1px dashed @zzLight-4;
+                        }
+                        &:first-child+li {
+                            color: red!important;
+                            margin-top: 5px;
+                        }
+                        &:first-child+li+li {
+                            color: #ff6600;
+                        }
+                        &:first-child+li+li +li {
+                            color: #ffcc00;
+                        }
+                        &:last-child {
+                            border-bottom: 1px dashed @zzLight-4;
+                            padding-bottom: 5px;
+                        }
+                    }
+                    .viewpointNewsImg li {
+                        position: relative;
+                        left: 20px;
+                        float: left;
+                        text-align: center;
+                        margin-right: 30px;
+                        margin-top: 10px;
+                        img {
+                            border: 1px solid @zzLight-4;
+                            padding: 2px;
+                            &:hover {
+                                border: 1px solid @zzred-1;
+                            }
+                        }
+                        .marsk {
+                            position: absolute;
+                            background: @zzblack;
+                            opacity: 0.6;
+                            height: 20px;
+                            width: 100%;
+                            bottom: 0;
+                            a {
+                                color: @zzLight-0;
+                            }
+                            &:hover {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+                .journal{
+                    ul.title {
+                        margin-bottom: 10px;
+                        overflow: hidden;
+                        background: @zzLight-4;
+                        height: 40px;
+                        margin-top: -10px;
+                        margin-left: -10px;
+                        margin-right: -10px;
+                        padding-right: 10px;
+                        li {
+                            h4 {
+                                line-height: 40px;
+                                font-weight: bold;
+                                font-size: @fs16;
+                                border-left: 4px solid @zzblue;
+                                padding-left: 10px;
+                                color: @zzblack;
+                                span {
+                                    color: @zzLight-4;
+                                    font-size: @fs12;
+                                    float: right;
+                                }
+                            }
+                        }
+                    }
+                    ul.journalList li {
+                        .textEllipsis;
+                        width: 320px;
+                        line-height: 25px;
+                        color: @zzLight-6;
+                        &:first-child h5,
+                        &:first-child h5 a {
+                            width: 212px;
+                            white-space: pre-wrap;
+                            font-weight: bold;
+                            float: right;
+                            &:before {
+                                content: "";
+                            }
+                        }
+                        &:first-child a {
+                            float: left;
+                        }
+                        &:first-child p,
+                        &:first-child p a {
+                            float: right;
+                            color: @zzLight-5;
+                            width: 212px;
+                            white-space: pre-wrap;
+                            font-size: @fs12;
+                        }
+                        &:first-child {
+                            border-bottom: 1px dashed @zzLight-4;
+                        }
+                        &:first-child+li {
+                            color: red!important;
+                            margin-top: 5px;
+                        }
+                        &:first-child+li+li {
+                            color: #ff6600;
+                        }
+                        &:first-child+li+li +li {
+                            color: #ffcc00;
+                        }
+                        &:last-child {
+                            border-bottom: 1px dashed @zzLight-4;
+                            padding-bottom: 5px;
+                        }
+                    }
+                    .journalListImg li {
+                        position: relative;
+                        left: 20px;
+                        float: left;
+                        text-align: center;
+                        margin-right: 20px;
+                        margin-top: 10px;
+                        img {
+                            border: 1px solid @zzLight-4;
+                            padding: 2px;
+                            &:hover {
+                                border: 1px solid @zzred-1;
+                            }
+                        }
+                        .marsk {
+                            position: absolute;
+                            background: @zzblack;
+                            opacity: 0.6;
+                            height: 20px;
+                            width: 100%;
+                            bottom: 0;
+                            a {
+                                color: @zzLight-0;
+                            }
+                            &:hover {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                
                 }
             }
         }
