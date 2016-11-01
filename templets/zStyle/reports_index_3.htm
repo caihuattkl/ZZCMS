@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>中国能源行业工业产业市场现状前景分析报告，现状分析，前景预测，研究报告</title>
+		<meta name="keywords" content="{dede:field name='keywords'/}" />
+		<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+		<link href="{dede:global.cfg_templets_skin/}/style/reports.css" rel="stylesheet" media="screen" type="text/css" />
+	</head>
+
+	<body>
+		<!--引入公共头部-->
+		{dede:include filename="head.htm"/}
+		<!--主体-->
+		<div class="main">
+			<div class="main-left">
+				<!--面包屑-->
+				<div class="breadcrumb">
+					{dede:field name='position'/}
+				</div>
+				<!--报告列表-->
+				<div class="repostTitle">
+					<h2>{dede:field.typename/}研究报告</h2>
+				</div>
+				<div class="search_box">
+					<dl>
+						<dt>行业分类：</dt>
+						<dd>
+							{dede:channel type='son' row='7'}
+							<a href="[field:typelink/]" title="[field:typename/]">[field:typename/]</a>
+							{/dede:channel}
+						</dd>
+					</dl>
+				</div>
+				<div class="list">
+					<ul>
+						{dede:list pagesize='5' addfields='title,litpic,descriptions' channelid='-17'}
+						<li>
+							<a title="[field:fulltitle/]" href="[field:arcurl /]">[field:title /]</a>
+							<div class="ptxt">
+								<p class="pic">
+									<a href="[field:arcurl /]" target="_blank">
+										<img src="[field:litpic/]" alt="[field:fulltitle/]" width="110" height="110"></a>
+								</p>
+								<p class="txt">[field:descriptions function='cn_substr(@me,380)'/]...［
+									<a href="[field:arcurl /]" target="_blank" class="fontblue">详细</a>］</p>
+							</div>
+						</li>
+						{/dede:list}
+					</ul>
+				</div>
+				<div class="paginationBox">
+					<ul class="pagination">
+						{dede:pagelist istitem="index,pre,next,end,option,info," listsize="5"/}
+					</ul>
+				</div>
+			</div>
+			<div class="main-right">
+
+			</div>
+		</div>
+
+		<!--<script src="{dede:global.cfg_templets_skin/}/js/reports.min.js" type="text/javascript"></script>-->
+	</body>
+
+</html>

@@ -98,6 +98,7 @@ function lib_arclistsg(&$ctag,&$refObj)
          }
     }
     $arclistquery = join(',', $listarcs);
+    //$arclistquery="arc.*"; 个人添加的
     $arclistquery .= ",arc.aid AS id,arc.senddate AS pubdate";
 
     //按不同情况设定SQL条件 排序方式

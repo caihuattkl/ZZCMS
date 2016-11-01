@@ -131,7 +131,8 @@ function DelArc($aid, $type='ON', $onlyfile=FALSE,$recycle=0)
     if(empty($arcRow['ismake'])) $arcRow['ismake'] = 1;
     if(empty($arcRow['arcrank'])) $arcRow['arcrank'] = 0;
     if(empty($arcRow['filename'])) $arcRow['filename'] = '';
-
+	
+	
     //删除HTML
     if($arcRow['ismake']==-1 || $arcRow['arcrank']!=0 || $arcRow['typeid']==0 || $arcRow['money']>0)
     {
