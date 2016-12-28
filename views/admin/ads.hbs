@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>广告管理</title>
+		<link rel="stylesheet" href="../src/less/users.css" />
+	</head>
+
+	<body>
+		<div class="main">
+			<table class="table table-bordered" id="Ads">
+				<thead>
+					<tr>
+						<th width="50">序号</th>
+						<th>广告编号</th>
+						<th>备注</th>
+						<th>添加时间</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+			<div class="modifyAd" id="modifyAd" style="display: none;">
+				<form id="modifyAdForm" action="/api/Ads" method="put" role="form">
+					<table class="table">
+						<tr>
+							<td width="100">用户名:</td>
+							<input type="hidden" class="form-control" value="" name="uid" placeholder="id" />
+							<td width="600"><input type="text" class="form-control" value="" name="name" placeholder="用户名" /></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td width="100">密　码:</td>
+							<td width="600"><input type="password" class="form-control" value="" name="password" placeholder="修改密码(不修改请为空)" /></td>
+						</tr>
+						<tr>
+							<td width="100">确　认:</td>
+							<td width="600"><input type="password" class="form-control" value="" placeholder="确认修改密码(不修改请为空)" /></td>
+						</tr>
+						<tr>
+							<td width="100">时　间:</td>
+							<td><input type="text" class="form-control" name="time" value="" placeholder="发布时间(该项自动填写,如要手动输入,请点击此表单)" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" readonly="readonly" /></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="btnLeft" colspan="3"><input type="submit" class="btn btn-md btn-success" value="修改" />&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-md btn-default" type="reset">重置</button></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+
+		<script src="/lib/js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/lib/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/lib/My97DatePicker/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				getAds();
+				putAd();
+			});
+
+			function getAds() {
+				var html = '<tr><td colspan="5">没有数据哦,请先添加!...</td></tr>';
+				$.get(ajaxConfig.Ads, function(res) {
+					if(res.code == 200 && res.datas.length != 0) {
+						res.datas.forEach(function(val, index) {
+							html="";
+							html += '<tr><td>' + val.id + '</td><td>' + val.name + '</td><td></td><td>' + formatDate(val.time) + '</td><td><a href="JavaScript:void(0)" onclick="getAd(this)">修改</a>　<a href="javascript:void(0)" onclick="delAd(this)">删除</a></td><tr/>'
+						})
+					}
+					$("#Ads tbody").empty().append(html);
+				})
+			}
+
+			function getAd(_this) {
+				$("#Ads").hide();
+				$("#modifyAd").show();
+				var uid = $(_this).parents("tr").children("td:first").html();
+				$.get(ajaxConfig.Ads + '/' + uid, function(res) {
+					if(res.code == 200 && res.datas.length != 0) {
+						$("#modifyAdForm input[name='name']").val(res.datas[0].name)
+						$("#modifyAdForm input[name='time']").val(formatDate(res.datas[0].time))
+						$("#modifyAdForm input[name='uid']").val(uid)
+					}
+				})
+			}
+
+			function putAd() {
+				$("#modifyAdForm").on('submit', function(e) {
+					e.preventDefault();
+					var action = $(this).attr('action');
+					var $container = $(this).closest('#modifyAd');
+					var form = $(this).closest('#modifyAdForm').serializeObject();
+					$.ajax({
+						url: action,
+						type: 'put',
+						data: form,
+						success: function(res) {
+							if(res.code == 200) {
+								alert(res.message);
+								getAd();
+								return;
+							}
+							alert(res.message);
+						},
+						error: function() {
+							alert("修改失败!请刷新重试!")
+						}
+					})
+				})
+			}
+			
+			function delAd(_this){
+				var uid = $(_this).parents("tr").children("td:first").html();
+				$.ajax({
+					type:"delete",
+					url:ajaxConfig.Ads + '/' + uid,
+					success:function(res){
+						if(res.code == 200) {
+								alert(res.message);
+								getAds();
+								return;
+							}
+							alert(res.message);
+					},
+					error:function(){
+						alert("删除失败!请刷新重试!")
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>

@@ -6923,7 +6923,8 @@ div.bottom {
 }
 .navLeft #users,
 .navLeft #class,
-.navLeft #navNewsClass {
+.navLeft #navNewsClass,
+.navLeft #ads {
   border-top: 1px solid #e5e5e5;
 }
 .navLeft #navNewsClass > li {

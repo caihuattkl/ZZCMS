@@ -124,8 +124,8 @@
 			function fillRightInput(_this) {
 				//格式化时间,拼凑url
 				var formatDate = Date.parse(new Date($("input[name='time']").val())) / 1000,
-					keyword = $('input[name="subKeywords"]').val().match(/[^\s|,|，|、]+/g) ? $('input[name="subKeywords"]').val().match(/[^\s|,|，|、]+/g) : "0";
-				$('input[name="newsUrl"]').val("{{directoryName}}"+'/'+getNowFormatDate().match(/^[\d-]+\w/).toString().replace(/-/g,'') +'/'+ ConvertPinyin(keyword[0]) + formatDate + '.html');
+					keyword = $('input[name="subKeywords"]').val().match(/[^\s|,|，|、]+/g) ? $('input[name="subKeywords"]').val().match(/[^\s|,|，|、]+/g) : " ";
+				$('input[name="newsUrl"]').val("{{directoryName}}"+'/'+getNowFormatDate().match(/^[\d-]+\w/).toString().replace(/-/g,'') +'/'+ ConvertPinyin(keyword[0]) + parseInt(1000*Math.random())+formatDate + '.html');
 				$('input[name="title"]').val($('input[name="subTitle"]').val());
 				$('input[name="keywords"]').val($('input[name="subKeywords"]').val())
 				$('input[name="description"]').val($('input[name="subTitle"]').val())

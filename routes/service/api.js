@@ -320,10 +320,9 @@ exports.newsClassDetail=function(req,res){
 
 //添加新闻
 exports.addNews=function(req,res){
-	var classFirstId = req.body.classFirstId,
+	var uuid= (req.body.newsUrl).match(/[\d]{13}/),
+		classFirstId = req.body.classFirstId,
 		classChildId = req.body.classChildId,
-		classFirstText = req.body.classFirstText,
-		classChildText = req.body.classChildText,
 		newsUrl = req.body.newsUrl,
 		subTitle = req.body.subTitle,
 		title = req.body.title,
@@ -334,7 +333,7 @@ exports.addNews=function(req,res){
 		author = req.body.author,
 		time = req.body.time,
 		nContent = formatStr(req.body.nContent);
-	var sql = 'insert into news(id,classFirstId,classChildId,classFirstText,classChildText,newsUrl,subTitle,title,subKeywords,keywords,source,description,author,time,nContent)values("id","' + classFirstId + '","' + classChildId + '","' + classFirstText + '","' + classChildText + '","' + newsUrl + '","' + subTitle + '","' + title + '","' + subKeywords + '","' + keywords + '","' + source + '","' + description + '","' + author + '","' + time + '","' + nContent + '")'
+	var sql = 'insert into news(id,uuid,classFirstId,classChildId,newsUrl,subTitle,title,subKeywords,keywords,source,description,author,time,nContent)values("id","' + uuid + '","'+ classFirstId + '","' + classChildId + '","' + newsUrl + '","' + subTitle + '","' + title + '","' + subKeywords + '","' + keywords + '","' + source + '","' + description + '","' + author + '","' + time + '","' + nContent + '")'
 	db.query(sql, function(err, rows) {
 		if(err) {
 			res.json({

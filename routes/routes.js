@@ -8,7 +8,6 @@ Authenticated = require("../routes/service/auth.Authenticated")
 module.exports = function(app) {
 
 	//前台路由
-	console.log(app.locals);
 	app.get("/", home.index);
 	app.get("/zhengquan/*.html", home.zhengquan);
 	app.get("/qiche/*.html", home.qiche);
