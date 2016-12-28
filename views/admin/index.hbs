@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>ZZCMS系统管理</title>
+		<link rel="stylesheet" type="text/css" href="/src/less/home.css">
+	</head>
+
+	<body>
+		<div class="navbar navbar-default">
+			<div class="container-fuild">
+				<div class="navbar-header">
+					<a href="./index.html" class="navbar-brand"><img src="/src/images/logo.png"></a>
+					<a href="/#mymenu" class="navbar-toggle" data-toggle="collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span>
+						<span class="icon-bar"></span></a>
+				</div>
+				<div class="navbar-collapse collapse" id="mymenu">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/logout">{{username}}</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<nav id="nav" class="navLeft">
+			<ul class="nav-list" id="sidebar">
+				<li>
+					<a href="./index.html"><i class="glyphicon glyphicon-home"></i><span class="menu-text">首页</span>
+					</a>
+				</li>
+				<li>
+					<a href="/#users" data-toggle="collapse"><i class="glyphicon glyphicon-user"></i> <span class="menu-text">用户管理</span><b class="arrow icon-angle-down"></b>
+					</a>
+					<ul class="submenu collapse" id="users">
+						<li>
+							<a href="./users.html" target="main">用户列表</a> | <a href="./userAdd.html" target="main">添加</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="/#class" data-toggle="collapse"><i class="glyphicon glyphicon-menu-hamburger"></i> <span class="menu-text">分类管理</span><b class="arrow icon-angle-down"></b>
+					</a>
+					<ul class="submenu collapse" id="class">
+						<li>
+							<a href="./reportClassList.html" target="main">报告分类</a> | <a href="./reportClassAdd.html" target="main">添加</a>
+						</li>
+						<li>
+							<a href="./newsClassList.html" target="main">新闻分类</a> | <a href="./newsClassAdd.html" target="main">添加</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="/#navNewsClass" data-toggle="collapse"> <i class="glyphicon glyphicon glyphicon-list"></i> <span class="menu-text">新闻管理</span> <b class="arrow icon-angle-down"></b>
+					</a>
+					<ul class="submenu collapse" id="navNewsClass"></ul>
+				</li>
+			</ul>
+		</nav>
+		<div class="clickSide"></div>
+		<article class="article">
+			<div class="crumbs" id="crumbs">
+				<ul>
+					<li>首页<span class="s"> / </span></li>
+					<li>欢迎页<span class="s"> / </span></li>
+					<li></li>
+				</ul>
+			</div>
+			<iframe width="100%" height="100%" name="main" src="./reportClassList.html" frameborder="no" border="0"> 您的浏览器不支持框架!</iframe>
+		</article>
+
+		<script src="/lib/js/jquery-1.11.1.js"></script>
+		<script src="/lib/js/bootstrap.min.js"></script>
+		<script src="/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/js/index.js"></script>
+		<script type="text/javascript">
+			if('{{success}}') alert('{{success}}');
+		</script>
+	</body>
+
+</html>

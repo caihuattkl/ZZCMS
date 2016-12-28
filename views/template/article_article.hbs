@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>中智cms</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link href="/dist/article_article.css" rel="stylesheet" media="screen" type="text/css" />
+	</head>
+
+	<body>
+		<!--头部-->
+		{{>head_article}}
+		<div class="main">
+			<div class="plan">
+				<div class="left">
+					<ul class="crumbs" id="crumbs">
+						<li>
+							<a href="/"><img src="http://n.sinaimg.cn/780c44e8/20150702/logo_fnc.png" /></a>
+						</li>
+						<li>
+							<a href="/{{toPinYin classFirstText}}/">{{classFirstText}}</a>
+						</li>
+						<li>
+							<a href="/{{toPinYin classFirstText}}/{{toPinYin classChildText}}/">{{classChildText}}</a>
+						</li>
+						<li>正文</li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div class="articleBox">
+				<div class="left">
+					<div class="newsinfo">
+						<h1>{{subTitle}}</h1>
+						<div class="date">
+							<span class="blue">{{time}}</span>
+							<a href="/" target="_blank">中智顾问</a>
+							<a class="addSize" href="javascript:void(0)" onclick="addSize(-1)">A-</a>
+							<a class="addSize" href="javascript:void(0)" onclick="addSize(1)">A+</a>
+						</div>
+						<div class="newsContent" id="ncontent">{{{nContent}}}</div>
+					</div>
+				</div>
+				<div class="right">
+					<div class="pic-box">
+						<div class="img1"><img src="http://ubmcmm.baidustatic.com/media/v1/0f00057m9JWxdlCAKCGPP6.jpg" id="img_14" class="figure" style="opacity: 1;"></div>
+					</div>
+					<div class="newsR1">
+						<h4 class="title">热点行业研究报告推荐<span class="more"><a href="#">更多</a></span></h4>
+						<div class="content">
+							<ul>
+								<li><i class="fa fa-book">&nbsp;&nbsp;</i>
+									<a href="javascript:void(0)">中国服务机器人产业深度调研及投资报告</a>
+								</li>
+								<li><i class="fa fa-book">&nbsp;&nbsp;</i>
+									<a href="javascript:void(0)">中国服务机器人产业深度调研及投资报告</a>
+								</li>
+								<li><i class="fa fa-book">&nbsp;&nbsp;</i>
+									<a href="javascript:void(0)">中国服务机器人产业深度调研及投资报告</a>
+								</li>
+								<li><i class="fa fa-book">&nbsp;&nbsp;</i>
+									<a href="javascript:void(0)">中国服务机器人产业深度调研及投资报告</a>
+								</li>
+								<li><i class="fa fa-book">&nbsp;&nbsp;</i>
+									<a href="javascript:void(0)">中国服务机器人产业深度调研及投资报告</a>
+								</li>
+								<li><i class="fa fa-book">&nbsp;&nbsp;</i>
+									<a href="javascript:void(0)">中国服务机器人产业深度调研及投资报告</a>
+								</li>
+								<li><i class="fa fa-book">&nbsp;&nbsp;</i>
+									<a href="javascript:void(0)">中国服务机器人产业深度调研及投资报告</a>
+								</li>
+								<li><i class="fa fa-book">&nbsp;&nbsp;</i>
+									<a href="javascript:void(0)">中国服务机器人产业深度调研及投资报告</a>
+								</li>
+								<li><i class="fa fa-book">&nbsp;&nbsp;</i>
+									<a href="javascript:void(0)">中国服务机器人产业深度调研及投资报告</a>
+								</li>
+								<li><i class="fa fa-book">&nbsp;&nbsp;</i>
+									<a href="javascript:void(0)">中国服务机器人产业深度调研及投资报告</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="newsR2">
+						<h4 class="title">奇闻异图<span class="more"><a href="#">更多</a></span></h4>
+						<div class="content">
+							<ul>
+								<li>
+									<a href="javascript:void(0)"><img src="http://img3.qianzhan123.com/news/201612/19/20161219-a80b6bdca45e5533_150x150x21.jpg" /></a>
+								</li>
+								<li>
+									<a href="javascript:void(0)"><img src="http://img3.qianzhan123.com/news/201612/19/20161219-a80b6bdca45e5533_150x150x21.jpg" /></a>
+								</li>
+								<li>
+									<a href="javascript:void(0)"><img src="http://img3.qianzhan123.com/news/201612/19/20161219-a80b6bdca45e5533_150x150x21.jpg" /></a>
+								</li>
+								<li>
+									<a href="javascript:void(0)"><img src="http://img3.qianzhan123.com/news/201612/19/20161219-a80b6bdca45e5533_150x150x21.jpg" /></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="pic-box">
+						<div class="img1"><img src="http://ubmcmm.baidustatic.com/media/v1/0f00057m9JWxdlCAKCGPP6.jpg" id="img_14" class="figure" style="opacity: 1;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{{>footer_article}}
+	</body>
+
+</html>

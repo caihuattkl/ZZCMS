@@ -1,0 +1,134 @@
+@import "../../lib/css/bootstrap.less";
+@import "common.less"; 
+//头部
+.header {
+  height: 60px;
+}
+  
+.container-fluid {
+  background:#fff;
+  overflow: hidden;
+}
+.clickSide {
+  width:5px;
+  span{line-height: 500px;}
+  float: left;
+  height: 700px;
+  background: #dcdcdc;
+  overflow: hidden;
+  cursor: pointer;
+  color: #585858;    
+  //padding-bottom:9999px; margin-bottom:-9999px;
+  display:inline;
+}
+div.bottom { 
+  display: block;
+  overflow: hidden;
+}
+
+//左侧导航菜单
+.navLeft {
+    #users,#class,#navNewsClass{
+        border-top:1px solid #e5e5e5;
+    }
+    #navNewsClass{
+        >li{
+            border-bottom: 1px solid #E5E5E5;
+            &:last-child{
+                border:1px solid transparent;
+            }
+        }
+    }
+  //padding-bottom:9999px; margin-bottom:-9999px;
+  background:#fbfbfb;
+  display:inline;
+  float: left;
+  width: 200px;
+  height: 700px;
+  overflow-x: hidden;
+  -moz-box-shadow: -5px 0 10px #eee inset; /* For Firefox3.6+ */
+  -webkit-box-shadow: -5px 0 10px #eee inset; /* For Chrome5+, Safari5+ */
+  box-shadow: -5px 0 10px #eee inset; /* For Latest Opera */
+  border-right: 1px solid #ddd;
+  
+  .nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    > li {
+      display: block;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      //text-align: center;
+      border-bottom: 1px solid #e5e5e5;
+      position: relative;
+      line-height: 35px;
+      .submenu > li > a {
+        position: relative;
+        color: #616161;
+        margin: 0;
+      }
+      .submenu > li { 
+
+        text-indent: 3em;
+      }
+      > a {
+        display: block;
+        height: 38px;
+        line-height: 36px;
+        padding: 0 16px 0 7px;
+        background-color: #f9f9f9;
+        color: #585858;
+        text-shadow: none !important;
+        text-decoration: none;
+        padding-left: 20px;
+        > [class*="icon-"]:first-child {
+          display: inline-block;
+          vertical-align: middle;
+          min-width: 30px;
+          text-align: center;
+          font-size: 18px;
+          font-weight: normal;
+          margin-right: 2px;
+        }
+      }
+      [id^="firstId"]>a {
+          font-weight: bold;
+      color:#585858!important;
+      background:#eee ;
+      border-bottom: 1px solid #eee;
+      width:100%;
+      display: block;
+      cursor: pointer; 
+      text-decoration: none;
+      }
+    }
+  }
+  
+}
+
+//右侧内容
+.article {
+  margin-left: 206px;
+  height: 700px;
+  overflow-x:hidden;
+  overflow-y:hidden;
+}
+//crumbs
+.crumbs {
+  ul {
+    padding: 8px 15px;
+    /*margin-bottom: 20px;*/
+    list-style: none;
+    background-color: #e9edf8;
+    border-radius: 4px;
+    li {
+      color: #616161;
+      display: inline-block;
+      span.s {
+        color: #ddd;
+      }
+    }
+  }
+}

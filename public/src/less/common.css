@@ -1,0 +1,32 @@
+body {
+  color: #000000;
+  font-family: "微软雅黑", "microsoft yahei", "simHei", "Times New Roman", "Georgia", "Serif";
+  font-size: 12px;
+}
+a:link,
+a:visited {
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  text-decoration: underline;
+}
+ul,
+li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+.navbar {
+  margin-bottom: 0px;
+}
+a {
+  color: #585858;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: #F1F1F1;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #C1C1C1;
+}

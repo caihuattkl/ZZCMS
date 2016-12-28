@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>新闻分类列表</title>
+		<link rel="stylesheet" href="/src/less/reportClassList.css" />
+	</head>
+
+	<body>
+		<div class="main">
+			<table class="table table-bordered" id="newsList">
+				<thead>
+					<tr>
+						<th width="50">序号</th>
+						<th>新闻标题</th>
+						<th>添加时间</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+				</tbody>
+			</table>
+
+
+		</div>
+		<script src="/lib/js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/lib/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				getNewsList();
+				delNews();
+			})
+			
+			//所有对应栏目新闻列表
+			function getNewsList(){
+				var html="<tr><td colspan=4>没有数据哦...</td></tr>";
+				$.get(ajaxConfig.newsList+"?newsClassId="+{{newsClassId}},function(res){
+					if(res.code==200&&res.data.length!=0){
+						html="";
+						res.data.forEach(function(val,index){
+							html+='<tr><td>'+val.id+'</td><td><a href="./editNews?newsId='+val.id+'&classFirstId='+val.classFirstId+'&classChildId='+val.classChildId+'">'+val.subTitle+'</a></td><td>'+formatDate(val.time)+'</td><td><a href="./editNews?newsId='+val.id+'&classFirstId='+val.classFirstId+'&classChildId='+val.classChildId+'" id="edit">编辑</a>&nbsp;&nbsp;<a href="javascript:void(0)" id="delNews" data-newsid="'+val.id+'">删除</a></td></tr>';
+						})
+					}
+					$("#newsList tbody").empty().append(html);
+				})
+			}
+			//删除新闻
+			function delNews(){
+				$("#newsList").on("click","#delNews",function(){
+					$.ajax({
+						type:"delete",
+						url:ajaxConfig.news+'/'+$(this).data('newsid'),
+						success:function(res){
+							if(res.code==200){
+								alert(res.message);
+								getNewsList();
+								return;
+							}
+							alert(res.message)
+						},
+						error:function(res){
+							alert(res)
+						}
+					});
+				})
+			}
+			
+		
+			//关闭模态框后刷新一下页面.重置表单不好使
+			$('#newsClassModel,#subNewsClassModel').on('hidden.bs.modal', function() {
+				location.reload();
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>添加报告分类</title>
+		<link rel="stylesheet" href="/src/less/addNews.css" />
+	</head>
+
+	<body>
+		<div class="main">
+			<form id="reportClassForm">
+				<table class="table">
+					<tr>
+						<td width="100">分类名称:</td>
+						<td width="600"><input type="text" class="form-control" value="" name="reportSubTitle" placeholder="分类名称" /></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>分类标题:</td>
+						<td><input type="text" class="form-control" name="reportTitle" value="" placeholder="分类的SEO标题" /></td>
+						<td width="100"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>关&nbsp;键&nbsp;词&nbsp;:</td>
+						<td><input type="text" class="form-control" name="reportKeywords" value="" placeholder="分类的SEO关键词" /></td>
+						<td width="100"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>分类描述:</td>
+						<td><input type="text" class="form-control" name="reportDescription" value="" placeholder="分类的SEO描述词" /></td>
+						<td width="100"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td width="100">添加时间:</td>
+						<td><input type="text" class="form-control" name="time" value="" placeholder="发布时间(该项自动填写,如要手动输入,请点击此表单)" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" readonly="readonly" /></td>
+						<td><input type="hidden" class="form-control" name="reportUrl" placeholder="url" /></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="btnLeft" colspan="3"><button type="button" id="reportClassBtn" class="btn btn-md btn-success">添加</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-md btn-default" type="reset">重置</button></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<script src="/lib/js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/lib/My97DatePicker/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				//打开就加载新闻时间
+				$("input[name='time']").val(getNowFormatDate());
+
+				$('input[name="reportUrl"]').val("reportClassList.html")
+					//获取表单
+				$("#reportClassBtn").click(function() {
+					
+					var reportClassDetail = $("#reportClassForm").serializeObject();
+					reportClassDetail.reportFristClassId=0;//默认顶级栏目
+					$.post("/api/reportClass", reportClassDetail, function(data) {
+						if(data.code == 200) {
+							alert(data.message);
+							location.reload();
+							return;
+						}
+						
+							alert(data.message);
+					})
+				})
+
+			})
+		</script>
+	</body>
+
+</html>
