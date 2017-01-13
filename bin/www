@@ -8,6 +8,11 @@ var app = require('../app');
 var debug = require('debug')('test:server');
 var http = require('http');
 
+/*
+ * 请求头配置
+ * */
+app.disable('x-powered-by'); //屏蔽服务器信息
+
 /**
  * Get port from environment and store in Express.
  */

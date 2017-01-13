@@ -3,8 +3,9 @@ const
 	fs = require("fs"),
 	async = require('async'),
 	logger = require('morgan'),
-	categoriesServices = require("../services/home.service"),
-	passport = require('passport');
+	adminModel = require("../models/admin.model"),
+	passport = require('passport'),
+	captchapng=require('captchapng');
 
 exports.login = function(req, res, next) {
 	res.render('admin/login')
@@ -74,13 +75,14 @@ exports.newsList = function(req, res, next) {
 
 exports.addNews = function(req, res, next) {
 
-	res.render('admin/addNews', {
-		classChildId: req.query.classChildId,
-		directoryName: req.query.directoryName,
-		classFirstText: req.query.directoryName,
-		classChildText: req.query.classChildText,
-		classFirstId: req.query.classFirstId
-	});
+	return adminModel.addNews(req, res, function(data) {
+		console.log(data);
+		res.render('admin/addNews', {
+			classChildId: req.query.classChildId,
+			classFirstId: req.query.classFirstId,
+			url:data[0].directoryName+'/'+new Date().getFullYear()+''+(new Date().getMonth()+1)+''+new Date().getDate()+'/'+parseInt(1000*Math.random())+(+new Date()).toString().substr(8,5)+".html"
+		});
+	})
 
 };
 

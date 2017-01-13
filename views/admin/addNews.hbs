@@ -9,18 +9,16 @@
 
 	<body>
 		<div class="main">
-			<form id="newsForm">
+			<form id="newsForm" action="/api/news" method="post" name= "newsForm">
 				<table class="table">
 					<tr>
 						<td width="100">*新闻分类:</td>
 						<td>
 							<input type="hidden" class="form-control" name="classFirstId" value="{{classFirstId}}" placeholder="classFirstId" />
-							<input type="hidden" class="form-control" name="classFirstText" value="{{classFirstText}}" placeholder="classFirstText" />
-							<input type="hidden" class="form-control" name="classChildText" value="{{classChildText}}" placeholder="classChildText" />
 							<select name="classChildId" class="form-control" id="newsClassSelect"></select>
 						</td>
 						<td>Url:</td>
-						<td><input type="text" class="form-control" name="newsUrl" value="" placeholder="该项自动填写,如要手动输入,请点击此表单" readonly="readonly" /></td>
+						<td><input type="text" class="form-control" name="newsUrl" value="{{url}}" placeholder="该项自动填写,如要手动输入,请点击此表单" readonly="readonly" /></td>
 					</tr>
 					<tr>
 						<td>*新闻标题:</td>
@@ -54,7 +52,7 @@
 
 					<tr>
 						<td></td>
-						<td class="btnLeft" colspan="3"><button type="button" id="addNewsBtn" class="btn btn-md btn-success">添加</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-md btn-default" type="reset">重置</button></td>
+						<td class="btnLeft" colspan="3"><button type="submit" id="addNewsBtn" class="btn btn-md btn-success">添加</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-md btn-default" type="reset">重置</button></td>
 					</tr>
 				</table>
 			</form>
@@ -79,7 +77,6 @@
 				});
 				getNewsClass();
 				hoverInput();
-				addnews();
 				fillRightInput();
 			})
 
@@ -121,31 +118,39 @@
 			}
 
 			//根据左侧内容,自动填写右侧表单
-			function fillRightInput(_this) {
-				//格式化时间,拼凑url
-				var formatDate = Date.parse(new Date($("input[name='time']").val())) / 1000,
-					keyword = $('input[name="subKeywords"]').val().match(/[^\s|,|，|、]+/g) ? $('input[name="subKeywords"]').val().match(/[^\s|,|，|、]+/g) : " ";
-				$('input[name="newsUrl"]').val("{{directoryName}}"+'/'+getNowFormatDate().match(/^[\d-]+\w/).toString().replace(/-/g,'') +'/'+ ConvertPinyin(keyword[0]) + parseInt(1000*Math.random())+formatDate + '.html');
+			function fillRightInput() {			
 				$('input[name="title"]').val($('input[name="subTitle"]').val());
 				$('input[name="keywords"]').val($('input[name="subKeywords"]').val())
 				$('input[name="description"]').val($('input[name="subTitle"]').val())
 			}
 			//新增新闻
-			function addnews() {
-				$("#addNewsBtn").click(function() {
+
+				$("#newsForm").on('submit',function(e) {
+					//设置url
+					if($('input[name="newsUrl"]').val()!=''||$('input[name="newsUrl"]').val()!='undefined')
+					$('input[name="newsUrl"]').val($('input[name="newsUrl"]').val().replace(/(\d+.html$)/,ConvertPinyin($('input[name="subKeywords"]').val().match(/[^\s|,|，|、]+/g)[0])+"$1"))
+					e.preventDefault();
 					editor.sync();
-					var html = $("#editor_1").val();
-					var newsData = $("#newsForm").serializeObject();
-					$.post(ajaxConfig.news, newsData, function(data) {
-						if(data.code === 200) {
-							alert(data.message);
-							location.reload();
-							return;
+					var action = $(this).attr('action');
+					var form = $(this).closest('#newsForm').serializeObject();
+					$.ajax({
+						url: action,
+						type: 'post',
+						data: form,
+						success: function(res) {
+							if(res.code == 200) {
+								alert(res.message);
+								location.reload();
+								return;
+							}
+							alert(res.message);
+						},
+						error: function() {
+							alert("添加失败!请刷新重试!")
 						}
-						alert(data.message)
 					})
 				})
-			}
+
 		</script>
 	</body>
 

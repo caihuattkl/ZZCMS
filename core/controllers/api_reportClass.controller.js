@@ -127,7 +127,6 @@ exports.putReportClass = function(req, res){
 	var sql = 'UPDATE reportclass SET reportSubTitle="' + reportSubTitle + '",reportTitle="' + reportTitle + '",reportKeywords="' + reportKeywords + '",reportDescription="' + reportDescription + '",time="' + time + '" WHERE id =' + id
 	db.query(sql, function(err, rows) {
 		if(err) {
-			console.log(err)
 			res.json({
 				code: 500,
 				message: '修改失败,请检查!',

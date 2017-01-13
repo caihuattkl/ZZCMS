@@ -2,8 +2,10 @@ var cache = require('../../lib/cache.lib');
 var async = require('async');
 var _ = require('lodash');
 var homeModel = require('../models/home.model');
+var channel = require('../models/channel.model');
 var db = require("../../lib/db.lib.js");
 var filter = require("../../lib/filter.lib");
+
 //缓存顶级和子目录信息
 exports.cacheDirectory = function(callback) {
 	var cacheDirectory = cache.get('cacheDirectory');
@@ -57,26 +59,43 @@ exports.articlesRender = function(req, res, next) {
 };
 
 
-//返回渲染页面数据
+//返回栏目渲染页面数据
 exports.classRender = function(req, res, next) {
 	var sql="SELECT * from newsclass where id='"+req.params.id+"'";
 	db.query(sql, function(err, rows) {
 		if(!err) {
 			res.render('template/article_class',{
-				title:rows[0].title
+				title:rows[0].title,
+				keywords:rows[0].keywords,
+				description:rows[0].description,
+				directoryName:rows[0].DirectoryName,
+				subTitle:rows[0].subTitle
 			});
 		}
 	})
 };
 
-//返回渲染页面数据
-exports.channelRender = function(req, res, next) {
-	var sql="SELECT * from newsclass where id='"+req.params.id+"'";
-	db.query(sql, function(err, rows) {
-		if(!err) {
-			res.render('template/article_channel',{
-				title:rows[0].title
-			});
-		}
-	})
-};
+
+	
+	
+	
+//	var infoSql="SELECT * from newsclass where id='"+req.params.id+"'"+"UNION ALL SELECT * from newsclass where firstId='"+req.params.id+"'"
+//	db.query(infoSql, function(err, rows) {
+//		if(!err) {
+//			console.log(rows)
+//			var childClass=[];
+//			for(var i=1;i<rows.length;i++){
+//				childClass.push(rows[i])
+//			}
+//			res.render('template/article_channel',{
+//				title:rows[0].title,
+//				keywords:rows[0].keywords,
+//				description:rows[0].description,
+//				directoryName:rows[0].directoryName,
+//				subTitle:rows[0].subTitle,
+//				id:rows[0].id,
+//				childClass:childClass
+//			});
+//		}
+//	});
+	

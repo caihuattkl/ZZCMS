@@ -5,10 +5,10 @@
  * @param {Function} next
  */
 exports.notFound = function(req, res, next) {
-var err = new Error('Not Found');
-err.status = 404;
-res.send('Not Found')
-next(err);
+	var err = new Error('Not Found');
+	err.status = 404;
+	res.send('Not Found')
+	next(err);
 
 };
 

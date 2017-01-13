@@ -117,7 +117,6 @@ exports.putNewsClass = function(req, res) {
 	var sql = 'UPDATE newsclass SET url="' + url + '",directoryName="' + directoryName + '",subTitle="' + subTitle + '",title="' + title + '",keywords="' + keywords + '",description="' + description + '",time="' + time + '" WHERE  id =' + id
 	db.query(sql, function(err, rows) {
 		if(err) {
-			console.log(err)
 			res.json({
 				code: 500,
 				message: '修改失败,请检查!',

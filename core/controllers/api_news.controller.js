@@ -4,8 +4,7 @@ var	db = require("../../lib/db.lib.js"),
 		
 //添加新闻
 exports.addNews=function(req,res){
-	var uuid= (req.body.newsUrl).match(/[\d]{13}/),
-		classFirstId = req.body.classFirstId,
+	var classFirstId = req.body.classFirstId,
 		classChildId = req.body.classChildId,
 		newsUrl = req.body.newsUrl,
 		subTitle = req.body.subTitle,
@@ -17,7 +16,7 @@ exports.addNews=function(req,res){
 		author = req.body.author,
 		time = req.body.time,
 		nContent = filter.formatStr(req.body.nContent);
-	var sql = 'insert into news(id,uuid,classFirstId,classChildId,newsUrl,subTitle,title,subKeywords,keywords,source,description,author,time,nContent)values("id","' + uuid + '","'+ classFirstId + '","' + classChildId + '","' + newsUrl + '","' + subTitle + '","' + title + '","' + subKeywords + '","' + keywords + '","' + source + '","' + description + '","' + author + '","' + time + '","' + nContent + '")'
+	var sql = 'insert into news(id,classFirstId,classChildId,newsUrl,subTitle,title,subKeywords,keywords,source,description,author,time,nContent)values("id","' + classFirstId + '","' + classChildId + '","' + newsUrl + '","' + subTitle + '","' + title + '","' + subKeywords + '","' + keywords + '","' + source + '","' + description + '","' + author + '","' + time + '","' + nContent + '")'
 	db.query(sql, function(err, rows) {
 		if(err) {
 			res.json({

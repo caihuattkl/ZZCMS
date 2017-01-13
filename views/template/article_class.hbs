@@ -1,16 +1,64 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>{{title}}_中智顾问_中智投资咨询网</title>
-		<meta name="keywords" content="关键词" />
-		<meta name="description" content="描述" />
-		<link href="dist/index.css" rel="stylesheet" media="screen" type="text/css" />
-	</head>
+{{>head_article}} 
+{{#contentFor "cssStyle"}}<link href="/dist/article_class.css" rel="stylesheet" media="screen" type="text/css" />{{/contentFor}}
+{{#contentFor "title"}}{{subTitle}}_中智顾问_中智投资资讯网{{/contentFor}}
+{{#contentFor "keywords"}}{{keywords}}{{/contentFor}}
+{{#contentFor "description"}}{{description}}{{/contentFor}}
+{{#contentFor "NavConn"}}
+	<li>
+			<a href="/">首页</a>
+	</li>
+	{{#each conNav}}
+	<li>
+			<a href="/">{{subTitle}}</a>
+	</li>
+	{{/each}}
+{{/contentFor}}
 
-	<body>
-		{{title}}
-	</body>
-</html>
+<div class="plan">
+				<div class="left">
+					<ul class="crumbs" id="crumbs">
+						<li>
+							<a href="/"><img src="http://n.sinaimg.cn/780c44e8/20150702/logo_fnc.png" /></a>
+						</li>
+						<li>
+							<a href="/{{crumbs.0.directoryName}}/{{crumbs.0.id}}">{{crumbs.0.subTitle}}</a>
+						</li>
+						<li>
+							<a href="/{{crumbs.0.directoryName}}/{{crumbs.1.directoryName}}/{{crumbs.1.id}}">{{crumbs.1.subTitle}}</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+		<div class="main">
+			<div class="nav">
+				<ul>
+					<li>
+						<a href="/{{crumbs.0.directoryName}}/{{crumbs.0.id}}">首页</a>
+					</li>
+					{{#each classNav}}
+					<li>
+						<a href="../{{crumbs.0.directoryName}}{{directoryName}}/{{id}}">{{subTitle}}</a>
+					</li>
+					{{/each}}
+				</ul>
+			</div>
+			<div class="content">
+				<div class="leftBox">
+					<ul class="newslist">
+						{{#each classNewsList}}
+						<li>
+							<h3 class="title"><a href="/{{newsUrl}}" target="_blank">{{subTitle}}</a></h3>
+							<div class="dec">
+								{{nContentStr nContent}}...
+							</div>
+							</li>
+						{{/each}}
+					</ul>
+				</div>
+				<div class="right">
+					<img src="http://d8.sina.com.cn/pfpghc2/201612/31/427c8c37e06046e492752ba53a40e216.jpg" />
+				</div>
+			</div>
+		</div>
+		{{>footer_article}}

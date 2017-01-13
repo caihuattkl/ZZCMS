@@ -1994,12 +1994,24 @@ body {
 .footer .f-content a {
   color: #666666 !important;
 }
+.redBg {
+  background: #F9E0E1;
+  color: red;
+}
+.greenBg {
+  background: #E1FCE1;
+  color: green;
+}
+.redff {
+  color: red;
+}
+.greenff {
+  color: green;
+}
 .plan {
   width: 998px;
   margin: 0px auto;
-}
-.plan:after {
-  content: "";
+  height: 50px;
 }
 .plan .crumbs {
   padding: 8px 0;
@@ -2023,125 +2035,42 @@ body {
 .main {
   width: 998px;
   margin: 0px auto;
-}
-.main .articleBox {
-  display: inline-block;
-}
-.main .articleBox .left {
-  vertical-align: top;
-  display: inline-block;
-  width: 70%;
-}
-.main .articleBox .left .newsinfo h1 {
-  font-weight: bold;
-  font-size: 24px;
-  margin: 25px 0 30px;
-}
-.main .articleBox .left .newsinfo .date {
-  height: 25px;
-  border-bottom: 1px solid #dddddd;
-}
-.main .articleBox .left .newsinfo .date .blue {
-  margin-right: 1em;
-}
-.main .articleBox .left .newsinfo .date .addSize {
-  border: 1px solid #eeeeee;
-  padding: 0 5px;
-  text-decoration: none;
-  float: right;
-}
-.main .articleBox .left .newsinfo .date a {
-  color: #7F7F7F;
-}
-.main .articleBox .left .newsinfo .date a:last-child {
-  margin-right: 8px;
-}
-.main .articleBox .left .newsinfo .newsContent {
-  padding: 20px 0;
-  font-family: "微软雅黑", "宋体";
-  font-size: 14px;
-  line-height: 30px;
-}
-.main .articleBox .left .newsinfo .newsContent a {
-  color: #225d98;
-}
-.main .articleBox .right {
-  padding: 5px;
-  float: right;
-  background: #dddddd;
-  vertical-align: top;
-  display: inline-block;
-  width: 29%;
   overflow: hidden;
 }
-.main .articleBox .right .pic-box {
-  height: auto;
-  overflow: hidden;
-  text-align: center;
-  background: #ffffff;
+.nav {
+  background: #225d98;
+  height: 40px;
 }
-.main .articleBox .right .pic-box .img1 img {
-  width: 275px;
-  padding: 3px;
-}
-.main .articleBox .right .newsR1 {
-  padding: 10px 0;
-  background: #ffffff;
-}
-.main .articleBox .right .newsR1 h4.title {
-  color: #C81629;
-  padding: 15px 5px;
-  font-weight: bold;
+.nav ul li {
+  line-height: 40px;
+  display: inline-block;
+  margin: 0 20px;
   font-size: 16px;
-  padding-left: 15px;
 }
-.main .articleBox .right .newsR1 h4.title span.more {
-  float: right;
-  font-size: 12px;
+.nav ul li a {
+  color: #ffffff;
 }
-.main .articleBox .right .newsR1 h4.title span.more a {
-  color: #7F7F7F;
+.content .leftBox {
+  display: inline-block;
+  width: 755px;
 }
-.main .articleBox .right .newsR1 h4.title span.more a:after {
-  content: "...";
+.content .leftBox .newslist li {
+  padding: 10px 0px;
+  border-bottom: 1px solid #f5f5f5;
 }
-.main .articleBox .right .newsR1 .content ul li {
-  font-size: 13px;
-  line-height: 26px;
-  text-align: center;
-}
-.main .articleBox .right .newsR2 {
-  margin-top: 10px;
-  padding: 10px 0;
-  background: #ffffff;
-}
-.main .articleBox .right .newsR2 h4.title {
-  padding: 15px 5px;
-  font-weight: bold;
+.content .leftBox .newslist li h3 {
   font-size: 16px;
-  padding-left: 15px;
+  line-height: 40px;
+  font-weight: bold;
 }
-.main .articleBox .right .newsR2 h4.title span.more {
-  float: right;
-  font-size: 12px;
+.content .leftBox .newslist li .dec {
+  color: #bfbfbf;
 }
-.main .articleBox .right .newsR2 h4.title span.more a {
-  color: #7F7F7F;
-}
-.main .articleBox .right .newsR2 h4.title span.more a:after {
-  content: "...";
-}
-.main .articleBox .right .newsR2 .content {
-  width: 100%;
+.content .right {
+  text-align: right;
+  margin: 10px 0 0 10px;
+  display: inline-block;
+  vertical-align: top;
+  width: 228px;
   overflow: hidden;
-}
-.main .articleBox .right .newsR2 .content ul li {
-  float: left;
-  text-align: center;
-  padding: 0 0 0 5px;
-}
-.main .articleBox .right .newsR2 .content ul li img {
-  border: 1px solid #dddddd;
-  width: 130px;
-  height: 115px;
 }

@@ -26,7 +26,7 @@ function getNewsClassList() {
 				if(val.child.length != 0) {
 					var children = '<ul id="' + val.id + '">';
 					val.child.forEach(function(v, i) {
-						children += '<li><a href="./newsList?newsClassId=' + v.id + '" target="main"> ' + v.subTitle + '</a> | <a href="./addNews?classChildId=' + v.id +'&&classChildText='+v.subTitle +'&&directoryName=' + val.directoryName + '&&classFirstId=' + val.id + '" target="main">添加</a></li>';
+						children += '<li><a href="./newsList?newsClassId=' + v.id + '" target="main"> ' + v.subTitle + '</a> | <a href="./addNews?classChildId=' + v.id + '&&classFirstId=' + val.id + '" target="main">添加</a></li>';
 					})
 					children += '</ul>'
 				}else{
