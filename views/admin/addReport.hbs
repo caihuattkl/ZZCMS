@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>添加报告</title>
+		<link rel="stylesheet" href="/src/less/addReport.css" />
+		<style>
+			.ke-icon-diyFormat {
+				background: url("/lib/ueditor/themes/default/paiban.gif");
+				width: 16px;
+				height: 16px;
+			}
+			
+			.ke-icon-paging {
+				background: url("/lib/ueditor/themes/default/fenye.gif");
+				width: 16px;
+				height: 16px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="main">
+			<form id="newsForm" action="/api/news" method="post" name="newsForm">
+				<table class="table">
+					<tbody>
+						<tr>
+							<td width="100">所属行业(大)：</td>
+							<td colspan="2"><select name="classChildId" class="form-control" id="newsClassSelect"></select></td>
+							<td >所属行业(小)：</td>
+							<td colspan="2"><select name="classChildId" class="form-control" id="newsClassSelect"></select></td>
+							<td >报告地址：</td>
+							<td colspan="5" width="1000"><input type="text" class="form-control" name="" id="" value="" readonly="readonly" /></td>
+						</tr>
+						<tr>
+							<td width="100">　报告标题：</td>
+							<td colspan="5"><input type="text" class="form-control" name="coreKeywords" id="" value="" /></td>
+							<td width="100">TITLE：</td>
+							<td colspan="5"><input type="text" class="form-control" name="" id="" value="" readonly="readonly"/></td>
+						</tr>
+						<tr>
+							<td width="100">报告核心词：</td>
+							<td><input type="text" class="form-control" name="coreKeywords" id="" value="" /></td>
+							<td width="100">页内关键词：</td>
+							<td colspan="3"><input type="text" class="form-control" name="coreKeywords" id="" value="" /></td>
+							<td>keywords：</td>
+						    <td colspan="5" ><input type="text" class="form-control" name="" id="" value="" readonly="readonly"/></td>
+						</tr>
+						<tr>
+							<td width="100">相关报告：</td>
+							<td><input type="text" class="form-control" name="coreKeywords" id="" value="" /></td>
+							<td width="100">最新修订：</td>
+							<td><input type="text" class="form-control" name="latestRevision" id="" value="" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"/></td>
+							<td>首次发布：</td>
+							<td><input type="text" class="form-control" name="time" id="" value="" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" /></td>
+							<td width="100">description：</td>
+							<td colspan="5"><input type="text" class="form-control" name="" id="" value="" readonly="readonly"/></td>
+						</tr>
+						<tr>
+							<td width="100">双版本价格：</td>
+							<td><input type="text" class="form-control" name="" id="" value="8000" /></td>
+							<td width="100">电子版价格：</td>
+							<td ><input type="text" class="form-control" name="" id="" value="7000" /></td>
+							<td width="100">纸介版价格：</td>
+							<td><input type="text" class="form-control" name="" id="" value="8000" /></td>
+							<td width="100">报告主编：</td>
+							<td ><input type="text" class="form-control" name="" id="" value="宋智晨, 贺在华, 段嘉宣, 谢家宸" /></td>
+							
+							<td width="100">交付方式：</td>
+							<td><input type="text" class="form-control" name="" id="" value="Email发送或特快专递(2-3天送达)" /></td>
+							<td width="100">报告格式：</td>
+						    <td><input type="text" class="form-control" name="" id="" value="电子版或纸介版" /></td>
+						</tr>
+						<tr>
+							<td width="100">报告简介：</td>
+							<td colspan="8"><textarea id="editor_1" class="form-control" rows="5" name="nContent" value="" placeholder="新闻内容" /></textarea>
+						    <td><button type="submit" id="addNewsBtn" class="btn btn-md btn-success">添加</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-md btn-default" type="reset">重置</button></td>
+						</td>
+						</tr>
+						<tr>
+							<td width="100">报告目录：</td>
+							<td colspan="11"><textarea id="editor_2" class="form-control" rows="8" name="nContent" value="" placeholder="新闻内容" /></textarea>
+						</td>
+						</tr>
+						<tr>
+						<td></td>
+						<td class="btnLeft" colspan="11"><button type="submit" id="addNewsBtn" class="btn btn-md btn-success">添加</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-md btn-default" type="reset">重置</button></td>
+					</tr>
+					</tbody>
+				</table>
+
+
+
+
+
+
+
+
+
+
+
+			</form>
+		</div>
+		<script src="/lib/js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/lib/js/toPinYin.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/lib/My97DatePicker/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script charset="utf-8" src="/lib/ueditor/kindeditor.js"></script>
+		<script charset="utf-8" src="/lib/ueditor/lang/zh_CN.js"></script>
+		<script charset="utf-8" src="/lib/ueditor/kEditorConfig.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				//加载新闻时间
+				$("input[name='time']").val(getNowFormatDate());
+			})
+		</script>
+	</body>
+
+</html>
