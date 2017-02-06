@@ -334,10 +334,7 @@
 			//添加子分类方法
 			function postSubnewsClass() {
 				var subNewsClassDetail = $("#subNewsClassForm").serializeObject();
-				console.log(subNewsClassDetail);
-				return;
 				$.post(ajaxConfig.newsClass, subNewsClassDetail, function(res) {
-					console.log(res)
 					if(res.code = 200) {
 						alert(res.message);
 						$("#subNewsClassModel").modal('hide');

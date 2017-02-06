@@ -5,7 +5,8 @@ const
 	logger = require('morgan'),
 	adminModel = require("../models/admin.model"),
 	passport = require('passport'),
-	captchapng=require('captchapng');
+	captchapng=require('captchapng'),
+	error404=require('./errors.controller').notFound;
 
 exports.login = function(req, res, next) {
 	res.render('admin/login')
@@ -34,12 +35,14 @@ exports.logout = function(req, res, next) {
 
 exports.authenticated = function(req, res, next) {
 	if(req.isAuthenticated()) return next();
-	res.redirect('/login');
+	//	res.redirect('/login');
+	res.redirect('/');
 };
 
 exports.apiAuthenticated = function(req, res, next) {
 	if(req.isAuthenticated()) return next();
-	res.redirect('/login');
+//	res.redirect('/login');
+	res.redirect('/');
 };
 
 exports.adminHome = function(req, res, next) {
@@ -76,7 +79,6 @@ exports.newsList = function(req, res, next) {
 exports.addNews = function(req, res, next) {
 
 	return adminModel.addNews(req, res, function(data) {
-		console.log(data);
 		res.render('admin/addNews', {
 			classChildId: req.query.classChildId,
 			classFirstId: req.query.classFirstId,

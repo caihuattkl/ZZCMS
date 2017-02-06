@@ -1,10 +1,13 @@
+/*
+ 	2017.2.5		本文件由于不需要缓存,所以没有使用.可以删除
+ * */
 var cache = require('../../lib/cache.lib');
 var async = require('async');
 var _ = require('lodash');
-var homeModel = require('../models/home.model');
 var channel = require('../models/channel.model');
 var db = require("../../lib/db.lib.js");
 var filter = require("../../lib/filter.lib");
+
 
 
 
@@ -35,6 +38,11 @@ var cacheChannel = function(req,res,callback) {
 			},
 			allNews:function(done){
 				channel.classNews(req,res,function(data){
+					done(null,data);
+				})
+			},
+			topline:function(done){
+				channel.topline(req,res,function(data){
 					done(null,data);
 				})
 			}

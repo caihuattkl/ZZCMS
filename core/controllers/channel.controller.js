@@ -3,40 +3,68 @@ const db = require("../../lib/db.lib.js"),
 	logger = require('morgan'),
 	directorySev = require("../services/directorys.service"),
 	channelSev = require("../services/channel.service"),
-	_conNav = require("../services/conNav.service"); //公共菜单数据
-
+	navsCache = require("../services/navs.service"), //公共菜单数据
+	channel = require('../models/channel.model');
+	
+	
 exports.channel = function(req, res, next) {
 	directorySev(req, res, function(err, dir) {
 		//根据目录匹配路由
-		
 		if(!err && dir) {
-			return channelSev(req, res, function(err1, data) {
-				_conNav(function(err2, data2) {
-					if(!err1 && data.channelNews.length != 0 && !err2 && data2.length != 0) {
-						var childClass = [];
-						for(var i = 1; i < data.channelNav.length; i++) {
-							childClass.push(data.channelNav[i])
+			
+			async.parallel({
+				channelNav: function(callback) {
+					channel.channelNav(req, res, function(data) {
+						callback(null, data);
+					})
+				},
+				channelNews: function(callback) {
+					channel.channelNews(req, res, function(data) {
+						callback(null, data);
+					})
+				},
+				classAll: function(callback) {
+					channel.classAll(req, res, function(data) {
+						callback(null, data);
+					})
+				},
+				allNews: function(callback) {
+					channel.classNews(req, res, function(data) {
+						callback(null, data);
+					})
+				},
+				topline: function(callback) {
+					channel.topline(req, res, function(data) {
+						callback(null, data);
+					})
+				},
+				navsCache:function(callback){
+					navsCache(function(err,data) {
+						callback(null, data);
+					})
+				}
+			}, function(error, result) {
+				if (err) return res.status(500).end();
+				var childClass = [];
+						for(var i = 1; i < result.channelNav.length; i++) {
+							childClass.push(result.channelNav[i])
 						}
-						var channelObj = {
-							title: data.channelNav[0].title,
-							keywords: data.channelNav[0].keywords,
-							description: data.channelNav[0].description,
-							directoryName: data.channelNav[0].directoryName,
-							subTitle: data.channelNav[0].subTitle,
-							id: data.channelNav[0].id,
+				var channelObj = {
+							title: result.channelNav[0].title,
+							keywords: result.channelNav[0].keywords,
+							description: result.channelNav[0].description,
+							directoryName: result.channelNav[0].directoryName,
+							subTitle: result.channelNav[0].subTitle,
+							id: result.channelNav[0].id,
 							childClass: childClass,
-							constantlyNews: data.channelNews,
-							classAll: data.classAll,
-							allNews: data.allNews,
-							conNav: data2
+							constantlyNews: result.channelNews,
+							classAll: result.classAll,
+							allNews: result.allNews,
+							conNav: result.navsCache,
+							toplines: result.topline
 						}
-						res.render('template/article_channel', channelObj)
-					} else {
-						return res.status(404).send('Not Found');
-					}
-				})
+				res.render('template/article_channel', channelObj)
 			});
-
 		} else {
 			return res.status(404).send('Not Found');
 		}

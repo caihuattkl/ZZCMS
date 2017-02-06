@@ -7,8 +7,7 @@ var directorys = require('../models/directorys.model');
 var cacheDirectory = function(req, res, callback) {
 	var cacheDirectory = cache.get('cacheDirectory');
 	if(cacheDirectory) {
-		var oUrl = req.originalUrl,
-			dirs;
+		var oUrl = req.originalUrl,dirs;
 		cacheDirectory.fristDirectory.forEach(function(val, index) {
 			if(new RegExp(val.directoryName).test(oUrl.split("/")[1])) {
 				dirs = val.directoryName;
@@ -30,8 +29,7 @@ var cacheDirectory = function(req, res, callback) {
 			}
 		}, function(error, result) {
 			cache.set('cacheDirectory', result, 1000 * 60 * 60 * 24);
-			var oUrl = req.originalUrl,
-				dirs;
+			var oUrl = req.originalUrl,dirs;
 			if(!error) {
 				result.fristDirectory.forEach(function(val, index) {
 					if(new RegExp(val.directoryName).test(oUrl.split("/")[1])) {

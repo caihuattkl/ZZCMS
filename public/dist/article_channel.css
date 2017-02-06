@@ -1865,6 +1865,56 @@ body {
   font-size: 14px;
   font-family: "微软雅黑", "宋体";
 }
+.paginationColor {
+  color: #C81629 !important;
+}
+.pagination {
+  border-top: 1px dashed #bfbfbf;
+  display: inline-block;
+  padding: 20px 0 20px calc(30%);
+  width: 100%;
+  border-radius: 4px;
+}
+.pagination > li {
+  display: inline;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  margin-left: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.pagination > li > a,
+.pagination > li span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #337ab7;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.pagination > li > a:focus,
+.pagination > li span:focus,
+.pagination > li > a:hover,
+.pagination > li span:hover {
+  z-index: 2;
+  color: #23527c;
+  background-color: #eee;
+  border-color: #ddd;
+}
+.pagination > li > a.disabled,
+.pagination > li span.disabled,
+.pagination > li > a[disabled],
+.pagination > li span[disabled] {
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  opacity: 0.65;
+}
 .header {
   width: 100%;
   display: block;
@@ -1878,7 +1928,7 @@ body {
 .navTop {
   clear: both;
   width: 998px;
-  margin: 0px auto;
+  margin: 0 auto;
   font-size: 12px;
 }
 .navTop .left ul {
@@ -1979,7 +2029,7 @@ body {
 }
 .footer .f-caution {
   width: 998px;
-  margin: 0px auto;
+  margin: 0 auto;
   color: #bababa;
   border-bottom: 1px solid #bfbfbf;
   padding: 20px 0;
@@ -1987,7 +2037,7 @@ body {
 }
 .footer .f-content {
   width: 998px;
-  margin: 0px auto;
+  margin: 0 auto;
   color: #666666 !important;
   margin: 25px auto;
 }
@@ -2010,11 +2060,11 @@ body {
 }
 .main {
   width: 998px;
-  margin: 0px auto;
+  margin: 0 auto;
 }
 .plan {
   width: 998px;
-  margin: 0px auto;
+  margin: 0 auto;
   height: 50px;
 }
 .plan .crumbs {
@@ -2056,42 +2106,167 @@ body {
   display: inline-block;
   vertical-align: top;
 }
-.content .leftBox .left1,
-.content .leftBox .left2 {
+.content .leftBox .jinrong,
+.content .leftBox .keji,
+.content .leftBox .left2,
+.content .leftBox .life,
+.content .leftBox .zhengquan {
   vertical-align: top;
   display: inline-block;
   margin: 0 10px 10px 0;
 }
-.content .leftBox .left1 {
+.content .leftBox .zhengquan {
   width: 348px;
   overflow: hidden;
   border: 1px solid #f5f5f5;
 }
-.content .leftBox .left1 dl {
+.content .leftBox .zhengquan dl {
   text-align: center;
 }
-.content .leftBox .left1 dl dd {
+.content .leftBox .zhengquan dl dd {
   display: none;
   margin: 5px 0;
 }
-.content .leftBox .left1 dl dt ul li {
+.content .leftBox .zhengquan dl dt ul li {
   float: left;
   width: 86px;
   text-align: left;
 }
-.content .leftBox .left1 dl dt ul li:last-child {
+.content .leftBox .zhengquan dl dt ul li:last-child {
   width: 60px;
   overflow: hidden;
 }
-.content .leftBox .left1 dl dt {
+.content .leftBox .zhengquan dl dt {
   text-align: center;
   overflow: hidden;
   cursor: pointer;
   line-height: 30px;
   padding: 0 5px;
 }
-.content .leftBox .left1 dl dt:hover {
+.content .leftBox .zhengquan dl dt:hover {
   background: #f5f5f5;
+}
+.content .leftBox .jinrong {
+  width: 348px;
+  overflow: hidden;
+  border: 1px solid #f5f5f5;
+}
+.content .leftBox .jinrong h3 {
+  font-size: 15px;
+  line-height: 26px;
+  font-weight: bold;
+  background: #f5f5f5;
+  text-indent: 10px;
+}
+.content .leftBox .jinrong dl:first-child > dt {
+  font-weight: bold;
+}
+.content .leftBox .jinrong dl dt {
+  text-align: center;
+  overflow: hidden;
+  line-height: 26px;
+  padding: 1px 10px;
+  border-bottom: 1px solid #f5f5f5;
+}
+.content .leftBox .jinrong dl dt ul li {
+  font-size: 13px;
+  float: left;
+  text-align: center;
+}
+.content .leftBox .jinrong dl dt ul li:first-child {
+  width: 92px;
+  text-align: left;
+}
+.content .leftBox .jinrong dl dt ul li:first-child + li {
+  width: 82px;
+}
+.content .leftBox .jinrong dl dt ul li:first-child + li + li {
+  width: 82px;
+}
+.content .leftBox .jinrong dl dt ul li:last-child {
+  width: 60px;
+  overflow: hidden;
+}
+.content .leftBox .life {
+  width: 348px;
+  overflow: hidden;
+  border: 1px solid #bfbfbf;
+}
+.content .leftBox .life h3 {
+  font-size: 15px;
+  line-height: 26px;
+  font-weight: bold;
+  background: #BEA188;
+  text-indent: 10px;
+  color: #ffffff;
+  text-align: center;
+}
+.content .leftBox .life p {
+  font-size: 15px;
+  line-height: 26px;
+  font-weight: bold;
+  background: #BEA188;
+  text-indent: 10px;
+  color: #ffffff;
+  text-align: center;
+}
+.content .leftBox .life .currentDate {
+  text-align: center;
+  font-size: 45px;
+  font-weight: bold;
+  color: #757575;
+}
+.content .leftBox .life .currentDate .ri,
+.content .leftBox .life .currentDate .yue {
+  color: #990000;
+}
+.content .leftBox .life ul li {
+  line-height: 25px;
+  padding: 0 10px;
+}
+.content .leftBox .life ul li.chongsha,
+.content .leftBox .life ul li.wuxing {
+  color: #75360D;
+}
+.content .leftBox .life ul li.yi {
+  color: green;
+}
+.content .leftBox .life ul li.ji {
+  color: red;
+}
+.content .leftBox .keji {
+  position: relative;
+  width: 348px;
+  overflow: hidden;
+  border: 1px solid #bfbfbf;
+}
+.content .leftBox .keji .toplineImg {
+  text-align: center;
+  overflow: hidden;
+  height: 290px;
+}
+.content .leftBox .keji .toplineImg a {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.content .leftBox .keji .marsk {
+  position: absolute;
+  height: 36px;
+  background: black;
+  width: 100%;
+  opacity: .7;
+  bottom: 0px;
+}
+.content .leftBox .keji .marsk ul li {
+  color: #ffffff;
+  line-height: 36px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+.content .leftBox .keji .marsk ul li a {
+  color: #ffffff;
 }
 .content .leftBox .left2 {
   width: 380px;

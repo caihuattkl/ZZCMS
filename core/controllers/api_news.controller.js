@@ -91,7 +91,7 @@ exports.putNews=function(req,res){
 //新闻列表
 exports.newsList=function(req,res){
 	var newsClassId = req.query.newsClassId;
-	var sql = 'SELECT * FROM news where classChildId=' + newsClassId
+	var sql = 'SELECT * FROM news where classChildId="' + newsClassId+'" ORDER BY time DESC'
 	db.query(sql, function(err, rows) {
 		if(err) {
 			res.json({

@@ -9,7 +9,6 @@ exports.notFound = function(req, res, next) {
 	err.status = 404;
 	res.send('Not Found')
 	next(err);
-
 };
 
 /**

@@ -1,89 +1,94 @@
- {{#contentFor "cssStyle"}}<link href="/dist/article_channel.css" rel="stylesheet" media="screen" type="text/css" />{{/contentFor}}
-{{#contentFor "title"}}{{subTitle}}_中智顾问_中智投资资讯网{{/contentFor}}
-{{#contentFor "keywords"}}{{keywords}}{{/contentFor}}
-{{#contentFor "description"}}{{description}}{{/contentFor}}
-{{!公共头部菜单}}
-{{#contentFor "NavConn"}}
-	<li>
-			<a href="/">首页</a>
-	</li>
-	{{#each conNav}}
-	<li>
-			<a href="/">{{subTitle}}</a>
-	</li>
-	{{/each}}
-{{/contentFor}}
-
-{{>head_article}}
+ {{#contentFor "cssStyle"}}
+<link href="/dist/article_channel.css" rel="stylesheet" media="screen" type="text/css" />{{/contentFor}} {{#contentFor "title"}}{{subTitle}}_中智顾问_中智投资资讯网{{/contentFor}} {{#contentFor "keywords"}}{{keywords}}{{/contentFor}} {{#contentFor "description"}}{{description}}{{/contentFor}} {{!公共头部菜单}} {{#contentFor "NavConn"}}
+<li>
+	<a href="/">首页</a>
+</li>
+{{#each conNav}}
+<li>
+	<a href="/">{{subTitle}}</a>
+</li>
+{{/each}} {{/contentFor}} {{>head_article}}
 
 <div class="plan">
-				<div class="left">
-					<ul class="crumbs" id="crumbs">
-						<li>
-							<a href="/"><img src="http://n.sinaimg.cn/780c44e8/20150702/logo_fnc.png" /></a>
-						</li>
-						<li>
-							<a href="/{{directoryName}}/{{id}}">{{subTitle}}</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			
-		<div class="main">
-			<div class="nav">
-				<ul>
+	<div class="left">
+		<ul class="crumbs" id="crumbs">
+			<li>
+				<a href="/"><img src="/images/logoBig.gif" /></a>
+			</li>
+			<li>
+				<a href="/{{directoryName}}/{{id}}">{{subTitle}}</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="main">
+	<div class="nav">
+		<ul>
+			<li>
+				<a href="./{{id}}">首页</a>
+			</li>
+			{{#each childClass}}
+			<li>
+				<a href="{{directoryName}}/{{id}}">{{subTitle}}</a>
+			</li>
+			{{/each}}
+		</ul>
+	</div>
+	<div class="content">
+		<div class="leftBox">
+			{{#if_channelSlide subTitle}}
+				{{#if_channelSlideIn subTitle '汽车'}}
+					{{>channel-slide-qiche}}
+				{{/if_channelSlideIn}}
+				{{#if_channelSlideIn subTitle '金融'}} 
+					{{>channel-slide-jinrong}} 
+				{{/if_channelSlideIn}} 
+				{{#if_channelSlideIn subTitle '证券'}} 
+					{{>channel-slide-zhengquan}}
+				{{/if_channelSlideIn}} 
+				{{#if_channelSlideIn subTitle '生活'}} 
+					{{>channel-slide-life}}
+				{{/if_channelSlideIn}} 
+				{{#if_channelSlideIn subTitle '科技'}} 
+					{{>channel-slide-keji}}
+				{{/if_channelSlideIn}} 
+			{{else}}
+				{{>channel-slide}}
+			{{/if_channelSlide}}
+			<div class="left2">
+				{{#each constantlyNews}} {{#if_index 1 @index}}
+				<h2><a href="/{{newsUrl}}" target="_blank" title="{{subTitle}}">{{subTitle}}</a></h2> {{/if_index}} {{/each}}
+				<ul class="list01 u-list-center" data-client="scroll">
+					{{#each constantlyNews}} {{#if_index_list 1 @index}}
 					<li>
-						<a href="./{{id}}">首页</a>
+						<a target="_blank" href="/{{newsUrl}}" title="{{subTitle}}">{{subTitle}}</a>
 					</li>
-					{{#each childClass}}
-					<li>
-						<a href="{{directoryName}}/{{id}}">{{subTitle}}</a>
-					</li>
-					{{/each}}
+					{{/if_index_list}} {{/each}}
 				</ul>
 			</div>
-			<div class="content">
-				<div class="leftBox">
-					{{#if_channelSlide '证券' subTitle}}
-						{{>channel-slide-stock}}
-					{{else if_channelSlide '汽车' subTile}}
-						{{>channel-slide-qiche}}
-					{{else}}
-						{{>channel-slide}}
-					{{/if_channelSlide}}
-					<div class="left2">
-						{{#each constantlyNews}} {{#if_index 1 @index}}
-						<h2><a href="/{{newsUrl}}" target="_blank" title="{{subTitle}}">{{subTitle}}</a></h2> {{/if_index}} {{/each}}
-						<ul class="list01 u-list-center" data-client="scroll">
-							{{#each constantlyNews}} {{#if_index_list 1 @index}}
-							<li>
-								<a target="_blank" href="/{{newsUrl}}" title="{{subTitle}}">{{subTitle}}</a>
-							</li>
-							{{/if_index_list}} {{/each}}
-						</ul>
-					</div>
-					<!--图片分割-->
-					<div class="channel-ad-001"></div>
-					{{#each classAll}}
-					<div class="left3">
-						<h3>{{subTitle}}<a href="{{directoryName}}/{{id}}"><span class="more rf">更多...&nbsp;</span></a></h3>
-						<ul class="list01 u-list-center" data-client="scroll">
-							{{#each ../allNews}} {{#if_newsDetails ../id classChildId}}
-							<li>
-								<a target="_blank" href="/{{newsUrl}}" title="{{subTitle}}">{{subTitle}}</a>
-							</li>
-							{{/if_newsDetails}} {{/each}}
-						</ul>
-					</div>
-					{{/each}}
-				</div>
-				<div class="right">
-					<img src="http://d8.sina.com.cn/pfpghc2/201612/31/427c8c37e06046e492752ba53a40e216.jpg" />
-				</div>
+			<!--图片分割-->
+			<div class="channel-ad-001"></div>
+			{{#each classAll}}
+			<div class="left3">
+				<h3>{{subTitle}}<a href="{{directoryName}}/{{id}}"><span class="more rf">更多...&nbsp;</span></a></h3>
+				<ul class="list01 u-list-center" data-client="scroll">
+					{{#each ../allNews}} {{#if_newsDetails ../id classChildId}}
+					<li>
+						<a target="_blank" href="/{{newsUrl}}" title="{{subTitle}}">{{subTitle}}</a>
+					</li>
+					{{/if_newsDetails}} {{/each}}
+				</ul>
 			</div>
+			{{/each}}
 		</div>
-		{{>footer_article}}
-		{{#contentFor "footJs"}}
-		<script src="/lib/js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../src/js/channel.js"></script>
-		{{/contentFor}}
+		<div class="right">
+			<img src="http://d8.sina.com.cn/pfpghc2/201612/31/427c8c37e06046e492752ba53a40e216.jpg" />
+		</div>
+	</div>
+</div>
+{{>footer_article}}
+{{#contentFor "footJs"}}
+<script src="/lib/js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+{{/contentFor}} 
+{{#contentFor "businessCode"}} {{#if_businessCode subTitle}}{{/if_businessCode}}{{/contentFor}}

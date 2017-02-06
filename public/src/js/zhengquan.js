@@ -9,32 +9,32 @@ $(function() {
 
 //上证综指
 function szzz(res,just) {
-	$("#zhishu .sh000001").html(parseFloat(res.data.match(/hq_str_s_sh000001=".*";/)[0].split(",")[1]).toFixed(2));
-	$("#zhishu .sh000001Index").html(just+parseFloat(res.data.match(/hq_str_s_sh000001=".*";/)[0].split(",")[2]).toFixed(2));
-	$("#zhishu .sh000001Range").html(just+res.data.match(/hq_str_s_sh000001=".*";/)[0].split(",")[3] + '%');
+	$("#zhishu .sh000001").html(parseFloat(res.datas.match(/hq_str_s_sh000001=".*";/)[0].split(",")[1]).toFixed(2));
+	$("#zhishu .sh000001Index").html(just+parseFloat(res.datas.match(/hq_str_s_sh000001=".*";/)[0].split(",")[2]).toFixed(2));
+	$("#zhishu .sh000001Range").html(just+res.datas.match(/hq_str_s_sh000001=".*";/)[0].split(",")[3] + '%');
 	$("#zhishu img.sh000001").attr("src", 'http://image.sinajs.cn/newchart/hollow/small/nsh000001.gif?' + (+new Date()))
 }
 
 //深证成指
 function szcz(res,just) {
-	$("#zhishu .sz399001").html(parseFloat(res.data.match(/hq_str_s_sz399001=".*";/)[0].split(",")[1]).toFixed(2))
-	$("#zhishu .sz399001Index").html(just+parseFloat(res.data.match(/hq_str_s_sz399001=".*";/)[0].split(",")[2]).toFixed(2))
-	$("#zhishu .sz399001Range").html(just+res.data.match(/hq_str_s_sz399001=".*";/)[0].split(",")[3] + '%')
+	$("#zhishu .sz399001").html(parseFloat(res.datas.match(/hq_str_s_sz399001=".*";/)[0].split(",")[1]).toFixed(2))
+	$("#zhishu .sz399001Index").html(just+parseFloat(res.datas.match(/hq_str_s_sz399001=".*";/)[0].split(",")[2]).toFixed(2))
+	$("#zhishu .sz399001Range").html(just+res.datas.match(/hq_str_s_sz399001=".*";/)[0].split(",")[3] + '%')
 	$("#zhishu img.sz399001").attr("src", 'http://image.sinajs.cn/newchart/hollow/small/nsz399001.gif?' + (+new Date()))
 }
 
 //沪深300
 function hs300(res,just) {
-	$("#zhishu .sh000300").html(parseFloat(res.data.match(/hq_str_s_sh000300=".*";/)[0].split(",")[1]).toFixed(2))
-	$("#zhishu .sh000300Index").html(just+parseFloat(res.data.match(/hq_str_s_sh000300=".*";/)[0].split(",")[2]).toFixed(2))
-	$("#zhishu .sh000300Range").html(just+res.data.match(/hq_str_s_sh000300=".*";/)[0].split(",")[3] + '%')
+	$("#zhishu .sh000300").html(parseFloat(res.datas.match(/hq_str_s_sh000300=".*";/)[0].split(",")[1]).toFixed(2))
+	$("#zhishu .sh000300Index").html(just+parseFloat(res.datas.match(/hq_str_s_sh000300=".*";/)[0].split(",")[2]).toFixed(2))
+	$("#zhishu .sh000300Range").html(just+res.datas.match(/hq_str_s_sh000300=".*";/)[0].split(",")[3] + '%')
 	$("#zhishu img.sh000300").attr("src", 'http://image.sinajs.cn/newchart/hollow/small/nsh000300.gif?' + (+new Date()))
 }
 //创业板指
 function cybz(res,just) {
-	$("#zhishu .sz399006").html(parseFloat(res.data.match(/hq_str_s_sz399006=".*";/)[0].split(",")[1]).toFixed(2))
-	$("#zhishu .sz399006Index").html(just+parseFloat(res.data.match(/hq_str_s_sz399006=".*";/)[0].split(",")[2]).toFixed(2))
-	$("#zhishu .sz399006Range").html(just+res.data.match(/hq_str_s_sz399006=".*";/)[0].split(",")[3] + '%')
+	$("#zhishu .sz399006").html(parseFloat(res.datas.match(/hq_str_s_sz399006=".*";/)[0].split(",")[1]).toFixed(2))
+	$("#zhishu .sz399006Index").html(just+parseFloat(res.datas.match(/hq_str_s_sz399006=".*";/)[0].split(",")[2]).toFixed(2))
+	$("#zhishu .sz399006Range").html(just+res.datas.match(/hq_str_s_sz399006=".*";/)[0].split(",")[3] + '%')
 	$("#zhishu img.sz399006").attr("src", 'http://image.sinajs.cn/newchart/hollow/small/nsz399006.gif?' + (+new Date()))
 }
 
@@ -44,8 +44,8 @@ function getStockIndex() {
 		var sz399001 = $("#zhishu span.sz399001,.sz399001Index,.sz399001Range");
 		var sh000300 = $("#zhishu span.sh000300,.sh000300Index,.sh000300Range");
 		var sz399006 = $("#zhishu span.sz399006,.sz399006Index,.sz399006Range");
-		if(res.code == 200 && res.data.length != 0) {
-			if(parseFloat(res.data.match(/hq_str_s_sh000001=".*";/)[0].split(",")[2]).toFixed(2) > 0) {
+		if(res.code == 200 && res.datas.length != 0) {
+			if(parseFloat(res.datas.match(/hq_str_s_sh000001=".*";/)[0].split(",")[2]).toFixed(2) > 0) {
 				$(sh000001).removeClass("greenff").addClass("redff");
 				$(sh000001).addClass("redBg").delay(2000).fadeIn(function() {
 					$(this).removeClass("redBg")
@@ -62,7 +62,7 @@ function getStockIndex() {
 			}
 
 			//深证成指
-			if(parseFloat(res.data.match(/hq_str_s_sz399001=".*";/)[0].split(",")[2]).toFixed(2) > 0) {
+			if(parseFloat(res.datas.match(/hq_str_s_sz399001=".*";/)[0].split(",")[2]).toFixed(2) > 0) {
 				$(sz399001).removeClass("greenff").addClass("redff");
 				$(sz399001).addClass("redBg").delay(2000).fadeIn(function() {
 					$(this).removeClass("redBg")
@@ -77,7 +77,7 @@ function getStockIndex() {
 				szcz(res,'')
 			}
 
-			if(parseFloat(res.data.match(/hq_str_s_sh000300=".*";/)[0].split(",")[2]).toFixed(2) > 0) {
+			if(parseFloat(res.datas.match(/hq_str_s_sh000300=".*";/)[0].split(",")[2]).toFixed(2) > 0) {
 				
 				$(sh000300).removeClass("greenff").addClass("redff");
 				
@@ -95,7 +95,7 @@ function getStockIndex() {
 				hs300(res,'');
 			}
 
-			if(parseFloat(res.data.match(/hq_str_s_sz399006=".*";/)[0].split(",")[2]).toFixed(2) > 0) {
+			if(parseFloat(res.datas.match(/hq_str_s_sz399006=".*";/)[0].split(",")[2]).toFixed(2) > 0) {
 				$(sz399006).removeClass("greenff").addClass("redff");
 				$(sz399006).addClass("redBg").delay(2000).fadeIn(function() {
 					$(this).removeClass("redBg")

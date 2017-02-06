@@ -1,9 +1,7 @@
-{{>head_article}} 
 {{#contentFor "cssStyle"}}<link href="/dist/article_article.css" rel="stylesheet" media="screen" type="text/css" /> {{/contentFor}} 
 {{#contentFor "title"}}{{subTitle}}_中智顾问_中智投资资讯网{{/contentFor}}
 {{#contentFor "keywords"}}{{keywords}}{{/contentFor}}
 {{#contentFor "description"}}{{description}}{{/contentFor}}
-
 {{#contentFor "NavConn"}}
 	<li>
 			<a href="/">首页</a>
@@ -14,7 +12,7 @@
 	</li>
 	{{/each}}
 {{/contentFor}}
-
+{{>head_article}} 
 <div class="plan">
 		<div class="left">
 			<ul class="crumbs" id="crumbs">
@@ -42,7 +40,17 @@
 					<a class="addSize" href="javascript:void(0)" onclick="addSize(-1)">A-</a>
 					<a class="addSize" href="javascript:void(0)" onclick="addSize(1)">A+</a>
 				</div>
-				<div class="newsContent" id="ncontent">{{{nContent}}}</div>
+				<div class="newsContent" id="ncontent">{{{nContent}}}
+				{{#ifPaging countPage}}
+				<ul class="pagination">
+					<li><a href="/{{prePageHlp currentPage newsUrl countPage}}">上一页</a></li>
+				{{#each paging}}
+					<li><a href="/{{newsUrl}}" {{#currentCss ../currentPage num}} {{/currentCss}}>{{num}}</a></li>
+				{{/each}}
+				<li><a href="/{{nextPageHlp currentPage newsUrl countPage}}">下一页</a></li>	
+				</ul>
+				{{/ifPaging}}
+				</div>
 			</div>
 		</div>
 		<div class="right">

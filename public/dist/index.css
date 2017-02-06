@@ -1853,11 +1853,67 @@ img {
 .rf {
   float: right;
 }
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
 body {
   margin: 0;
   padding: 0;
   font-size: 14px;
   font-family: "微软雅黑", "宋体";
+}
+.paginationColor {
+  color: #C81629 !important;
+}
+.pagination {
+  border-top: 1px dashed #bfbfbf;
+  display: inline-block;
+  padding: 20px 0 20px calc(30%);
+  width: 100%;
+  border-radius: 4px;
+}
+.pagination > li {
+  display: inline;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  margin-left: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.pagination > li > a,
+.pagination > li span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #337ab7;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.pagination > li > a:focus,
+.pagination > li span:focus,
+.pagination > li > a:hover,
+.pagination > li span:hover {
+  z-index: 2;
+  color: #23527c;
+  background-color: #eee;
+  border-color: #ddd;
+}
+.pagination > li > a.disabled,
+.pagination > li span.disabled,
+.pagination > li > a[disabled],
+.pagination > li span[disabled] {
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  opacity: 0.65;
 }
 .container-fluid {
   width: 100%;
@@ -2376,6 +2432,9 @@ section.sectionMain .main .mainLeftBox .content .yaowen ul {
   margin-top: 10px;
 }
 section.sectionMain .main .mainLeftBox .content .yaowen ul li {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   line-height: 30px;
 }
 section.sectionMain .main .mainLeftBox .content .yaowen ul li:first-child {
@@ -2542,7 +2601,8 @@ section.sectionMain .main .mainLeftBox .content .redian .reportImg + ul li:befor
   content: "▪";
   padding-right: 3px;
 }
-section.sectionMain .main .mainLeftBox .content .ziben {
+section.sectionMain .main .mainLeftBox .content .jinrong,
+section.sectionMain .main .mainLeftBox .content .zhengquan {
   padding: 10px 5px 5px 10px;
   background: #ffffff;
   width: 365px;
@@ -2550,33 +2610,44 @@ section.sectionMain .main .mainLeftBox .content .ziben {
   overflow: hidden;
   display: inline-block;
 }
-section.sectionMain .main .mainLeftBox .content .ziben h4.title {
+section.sectionMain .main .mainLeftBox .content .jinrong h4.title,
+section.sectionMain .main .mainLeftBox .content .zhengquan h4.title {
   border-left: 4px solid #225d98;
   font-weight: bold;
   font-size: 16px;
   padding-left: 5px;
 }
-section.sectionMain .main .mainLeftBox .content .ziben h4.title span.more {
+section.sectionMain .main .mainLeftBox .content .jinrong h4.title span.more,
+section.sectionMain .main .mainLeftBox .content .zhengquan h4.title span.more {
   float: right;
   font-size: 12px;
   color: #bfbfbf;
 }
-section.sectionMain .main .mainLeftBox .content .ziben h4.title span.more a:after {
+section.sectionMain .main .mainLeftBox .content .jinrong h4.title span.more a:after,
+section.sectionMain .main .mainLeftBox .content .zhengquan h4.title span.more a:after {
   content: "...";
 }
-section.sectionMain .main .mainLeftBox .content .ziben ul {
+section.sectionMain .main .mainLeftBox .content .jinrong ul,
+section.sectionMain .main .mainLeftBox .content .zhengquan ul {
   margin-top: 10px;
 }
-section.sectionMain .main .mainLeftBox .content .ziben ul li {
+section.sectionMain .main .mainLeftBox .content .jinrong ul li,
+section.sectionMain .main .mainLeftBox .content .zhengquan ul li {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   line-height: 30px;
 }
-section.sectionMain .main .mainLeftBox .content .ziben ul li:first-child {
+section.sectionMain .main .mainLeftBox .content .jinrong ul li:first-child,
+section.sectionMain .main .mainLeftBox .content .zhengquan ul li:first-child {
   font-weight: bold;
 }
-section.sectionMain .main .mainLeftBox .content .ziben ul li:first-child a {
+section.sectionMain .main .mainLeftBox .content .jinrong ul li:first-child a,
+section.sectionMain .main .mainLeftBox .content .zhengquan ul li:first-child a {
   color: #225d98;
 }
-section.sectionMain .main .mainLeftBox .content .ziben ul li:before {
+section.sectionMain .main .mainLeftBox .content .jinrong ul li:before,
+section.sectionMain .main .mainLeftBox .content .zhengquan ul li:before {
   content: "▪";
   padding-right: 3px;
 }

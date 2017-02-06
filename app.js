@@ -1,38 +1,21 @@
 var express = require('express');
+var app = express();
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
-var session = require('express-session');
 var bodyParser = require('body-parser');
-var flash = require('express-flash');
-var flashConfig = require('./lib/flash.lib');
 var credentials = require('./lib/credentials.lib'); //cookie秘钥
-var exphbs = require('express-hbs');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var app = express();
 var routerService = require('./core/routes');
 var errors = require('./core/controllers/errors.controller').error;
 var auth = require('./lib/auth.lib');
-var ctrlhelps = require('./core/helpers/channel.helpers');
+//var autoSpider=require('./core/models/keji_topline.model')();
+
 
 //配置模版
-app.set('views', 'views'); //path.join(__dirname, 'views')
-app.engine('hbs', exphbs.express4(
-//	{
-//  partialsDir: ['./views/template/partials'],
-//  defaultLayout: './views/template/layouts/layout-default',
-//  extname: '.hbs'
-//}
-	{
-	partialsDir: 'views/template/partials/',
-	//模版文件的绝对路径
-	layoutsDir: "views/template/layouts/",
-	defaultLayout:'views/template/layouts/layout-default',
-	extname: '.hbs'
-}
-	));
+app.engine('hbs',require('./lib/hbs-config.lib'))
 app.set('view engine', 'hbs');
 
 //中间件
@@ -42,17 +25,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser(credentials.cookieSecret)); //cookie秘钥
 app.use(cookieParser());
-app.use(session({
-	secret: 'rD8h1iyXevIlHrF2h6jgenHhfX9w7ts',
-	cookie: {
-		maxAge: 30 * 60 * 1000
-	}
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash(), flashConfig);
+app.use(require('./lib/session.lib'));
+app.use(require('express-flash')(),require('./lib/flash.lib'));
+
+
 
 //登录认证
+app.use(passport.initialize());
+app.use(passport.session());
 auth(passport, LocalStrategy)
 
 /**

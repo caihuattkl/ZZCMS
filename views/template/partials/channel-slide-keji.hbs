@@ -1,0 +1,16 @@
+<div class="keji" id="keji">
+		<div id="toplineImg" class="toplineImg">
+			{{#each toplines}} 
+					<a href="/{{newsUrl}}" target="_blank"><img width="346" height="290" src="/upload/images/{{coverImg}}" alt="{{subTitle}}" title="{{subTitle}}"></a>
+			{{/each}}
+		</div>
+		<div id="marsk" class="marsk">
+			<div id="num">
+				<ul>
+					{{#each toplines}} 
+					<li style="opacity: 0;"><a href="/{{newsUrl}}" title="{{subTitle}}" target="_blank">{{subTitle}}</a></li>
+					 {{/each}}
+				</ul>
+			</div>
+		</div>
+</div>

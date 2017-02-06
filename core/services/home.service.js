@@ -1,101 +1,129 @@
 var cache = require('../../lib/cache.lib');
-var async = require('async');
 var _ = require('lodash');
-var homeModel = require('../models/home.model');
-var channel = require('../models/channel.model');
-var db = require("../../lib/db.lib.js");
-var filter = require("../../lib/filter.lib");
+var async = require('async');
+var hmModel = require("../models/home.model");
 
-//缓存顶级和子目录信息
-exports.cacheDirectory = function(callback) {
-	var cacheDirectory = cache.get('cacheDirectory');
-	if(cacheDirectory) {
-		callback(null, _.cloneDeep(cacheDirectory));
+//缓存首页所有数据,每个5分钟刷新数据
+module.exports = function(callback) {
+	var homeDataCache = cache.get('homeDataCache');
+	if(homeDataCache) {
+		callback(null, _.cloneDeep(homeDataCache));
 	} else {
+		
 		async.parallel({
-			fristDirectory: function(done) {
-				var sql = 'select directoryName from newsclass where firstId ="0"';
-				db.query(sql, function(err, rows1) {
-					if(!err) {
-						done(null, rows1);
+			yaowen:function(done) {
+				hmModel.yaowen(function(err,yaowen){
+					if(!err){
+						done(null,yaowen);
 					}
 				})
 			},
-			childDirectory: function(done) {
-				var sql = 'select directoryName from newsclass where firstId <>"0"';
-				db.query(sql, function(err, rows2) {
-					if(!err) {
-						done(null, rows2);
+			chanyeredian:function(done) {
+				hmModel.chanyeredian(function(err,chanyeredian){
+					if(!err){
+						done(null,chanyeredian);
+					}
+				})
+			},
+			hongguan:function(done) {
+				hmModel.hongguan(function(err,hongguan){
+					if(!err){
+						done(null,hongguan);
+					}
+				})
+			},
+			chanyeyuce:function(done) {
+				hmModel.chanyeyuce(function(err,chanyeyuce){
+					if(!err){
+						done(null,chanyeyuce);
+					}
+				})
+			},
+			chanyezhaoshang:function(done) {
+				hmModel.chanyezhaoshang(function(err,chanyezhaoshang){
+					if(!err){
+						done(null,chanyezhaoshang);
+					}
+				})
+			},
+			jinrong:function(done) {
+				hmModel.jinrong(function(err,jinrong){
+					if(!err){
+						done(null,jinrong);
+					}
+				})
+			},
+			chanyejihui:function(done) {
+				hmModel.chanyejihui(function(err,chanyejihui){
+					if(!err){
+						done(null,chanyejihui);
+					}
+				})
+			},
+			chanyegongsi:function(done) {
+				hmModel.chanyegongsi(function(err,chanyegongsi){
+					if(!err){
+						done(null,chanyegongsi);
+					}
+				})
+			},
+			chanyeyujing:function(done) {
+				hmModel.chanyeyujing(function(err,chanyeyujing){
+					if(!err){
+						done(null,chanyeyujing);
+					}
+				})
+			},
+			zhengquan:function(done) {
+				hmModel.zhengquan(function(err,zhengquan){
+					if(!err){
+						done(null,zhengquan);
+					}
+				})
+			},
+			zhengquancelue:function(done) {
+				hmModel.zhengquancelue(function(err,zhengquancelue){
+					if(!err){
+						done(null,zhengquancelue);
+					}
+				})
+			},
+			keji:function(done) {
+				hmModel.keji(function(err,keji){
+					if(!err){
+						done(null,keji);
+					}
+				})
+			},
+			shangye:function(done) {
+				hmModel.shangye(function(err,shangye){
+					if(!err){
+						done(null,shangye);
+					}
+				})
+			},
+			qiche:function(done) {
+				hmModel.qiche(function(err,qiche){
+					if(!err){
+						done(null,qiche);
+					}
+				})
+			},
+			shenghuo:function(done) {
+				hmModel.shenghuo(function(err,shenghuo){
+					if(!err){
+						done(null,shenghuo);
 					}
 				})
 			}
 		}, function(error, result) {
-			cache.set('cacheDirectory', result, 1000 * 60 * 60 * 24);
+			cache.set('homeDataCache', result, 1000 * 60 * 5);
 			callback(error, result);
-		});
+		}
+		);
+		
+		
+		
+		
 	}
 };
-
-//返回渲染页面数据
-exports.articlesRender = function(req, res, next) {
-	var sql = 'SELECT title,description,keywords,subTitle,subKeywords,nContent,time from news where uuid = "' + req.originalUrl.match(/[\d]{13}/) + '" or newsUrl = "' + req.originalUrl.substr(1) + '"' +
-		'UNION ALL SELECT null,null,b.id,b.subTitle,b.directoryName,null,null FROM news a,newsclass b where a.classFirstId=b.id and a.uuid ="' + req.originalUrl.match(/[\d]{13}/) + '" and a.newsUrl ="' + req.originalUrl.substr(1) + '"' +
-		'UNION ALL SELECT null,null,b.id,b.subTitle,b.directoryName,null,null FROM news a,newsclass b where a.classChildId=b.id and a.uuid ="' + req.originalUrl.match(/[\d]{13}/) + '" and a.newsUrl ="' + req.originalUrl.substr(1) + '"'
-	db.query(sql, function(err, rows) {
-		if(!err) {
-			res.render('template/article_article', {
-				classFirstId: rows[1].keywords,
-				classChildId: rows[2].keywords,
-				classFirstText: rows[1].subTitle,
-				classFirstDirectoryName: rows[1].subKeywords,
-				classChildText: rows[2].subTitle,
-				classChildDirectoryName: rows[2].subKeywords,
-				subTitle: rows[0].subTitle,
-				nContent: rows[0].nContent,
-				time: filter.formatDate(rows[0].time, 'yyyy-MM-dd HH:mm:ss'),
-			});
-		}
-	})
-};
-
-
-//返回栏目渲染页面数据
-exports.classRender = function(req, res, next) {
-	var sql="SELECT * from newsclass where id='"+req.params.id+"'";
-	db.query(sql, function(err, rows) {
-		if(!err) {
-			res.render('template/article_class',{
-				title:rows[0].title,
-				keywords:rows[0].keywords,
-				description:rows[0].description,
-				directoryName:rows[0].DirectoryName,
-				subTitle:rows[0].subTitle
-			});
-		}
-	})
-};
-
-
-	
-	
-	
-//	var infoSql="SELECT * from newsclass where id='"+req.params.id+"'"+"UNION ALL SELECT * from newsclass where firstId='"+req.params.id+"'"
-//	db.query(infoSql, function(err, rows) {
-//		if(!err) {
-//			console.log(rows)
-//			var childClass=[];
-//			for(var i=1;i<rows.length;i++){
-//				childClass.push(rows[i])
-//			}
-//			res.render('template/article_channel',{
-//				title:rows[0].title,
-//				keywords:rows[0].keywords,
-//				description:rows[0].description,
-//				directoryName:rows[0].directoryName,
-//				subTitle:rows[0].subTitle,
-//				id:rows[0].id,
-//				childClass:childClass
-//			});
-//		}
-//	});
-	

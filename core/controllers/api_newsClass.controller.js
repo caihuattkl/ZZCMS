@@ -1,5 +1,5 @@
-var	db = require("../../lib/db.lib.js"),
-		filter = require("../../lib/filter.lib");
+var db = require("../../lib/db.lib.js"),
+	filter = require("../../lib/filter.lib");
 
 //新闻分类列表
 exports.newsClassList = function(req, res) {
@@ -36,29 +36,42 @@ exports.newsClassList = function(req, res) {
 
 //新闻分类增
 exports.addNewsClass = function(req, res) {
-	var firstId = req.body.firstId;
-	url = req.body.url,
-		directoryName = req.body.directoryName,
-		subTitle = filter.formatStr(req.body.subTitle),
-		title = req.body.title,
-		keywords = req.body.keywords,
-		description = req.body.description,
-		time = req.body.time;
-	var sql = 'insert into newsclass(id,directoryName,firstId,url,subTitle,title,keywords,description,time) values("id",  "' + directoryName + '", "' + firstId + '", "' + url + '", "' + subTitle + '", "' + title + '", "' + keywords + '", "' + description + '", "' + time + '")';
-	db.query(sql, function(err, rows) {
-		if(!err) {
+		var firstId = req.body.firstId;
+		url = req.body.url,
+			directoryName = req.body.directoryName,
+			subTitle = filter.formatStr(req.body.subTitle),
+			title = req.body.title,
+			keywords = req.body.keywords,
+			description = req.body.description,
+			time = req.body.time;
+		var sql = 'insert into newsclass(id,directoryName,firstId,url,subTitle,title,keywords,description,time) values("id",  "' + directoryName + '", "' + firstId + '", "' + url + '", "' + subTitle + '", "' + title + '", "' + keywords + '", "' + description + '", "' + time + '")';
+		db.query(sql, function(err, rows) {
+			if(!err) {
+				//如果为顶级分类就添加设置频道头条
+				if(firstId == 0) {
+					insertTopline(rows.insertId)
+				}
+				res.json({
+					code: 200,
+					message: '添加分类成功!',
+					data: rows
+				});
+				return;
+			}
 			res.json({
-				code: 200,
-				message: '添加分类成功!',
-				data: rows
+				code: 500,
+				message: '添加分类失败,请检查!',
+				data: []
 			});
-			return;
-		}
-		res.json({
-			code: 500,
-			message: '添加分类失败,请检查!',
-			data: []
-		});
+		})
+
+	}
+	//插入频道头条
+function insertTopline(firstId) {
+	var topLineSql = 'INSERT INTO topline(id,newsNumber)values(id,"' + firstId+ '")'
+	db.query(topLineSql, function(err, rows) {
+		if(err) throw err;
+		console.log("插入了频道ID为:"+firstId+"头条编号!")
 	})
 }
 
@@ -72,6 +85,8 @@ exports.delNewsClass = function(req, res) {
 				if(!err && rows2.length == 0) { //判断是否存在新闻
 					db.query("delete from newsclass where id=" + id, function(err, rows3) {
 						if(!err) {
+							//删除对应头条
+							 	delTopline(id)
 							res.json({
 								code: 200,
 								message: '删除成功!',
@@ -103,6 +118,16 @@ exports.delNewsClass = function(req, res) {
 		});
 	});
 }
+
+	//删除频道头条
+function delTopline(firstId) {
+	var topLineSql = 'delete from topline where newsNumber='+ firstId
+	db.query(topLineSql, function(err, rows) {
+		if(err) throw err;
+		console.log("删除了频道ID为:"+firstId+"头条编号!")
+	})
+}
+
 
 //新闻分类改
 exports.putNewsClass = function(req, res) {

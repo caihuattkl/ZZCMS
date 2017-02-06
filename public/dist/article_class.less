@@ -61,18 +61,22 @@
         display: inline-block;
         width: 755px;
         .newslist{
+            padding:10px 0px;
             li{
-                padding:10px 0px;
-                border-bottom: 1px solid @zzLight-1;
+                padding:20px 10px;
+                border-bottom: 1px solid @zzLight-3;
                 h3{
                 font-size: @fs16;
                 line-height:@fs40;
                font-weight: bold;
                 }
                 .dec{
-                    color: @zzLight-2;
+                    font-size: @fs13;
+                    line-height: @fs26;
                 }
-                
+                &:hover{
+                    background: @zzLight-3;
+                }
             }
         }
     }

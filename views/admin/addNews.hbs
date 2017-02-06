@@ -5,11 +5,24 @@
 		<meta charset="UTF-8">
 		<title>新增新闻内容</title>
 		<link rel="stylesheet" href="/src/less/addNews.css" />
+		<style>
+			.ke-icon-diyFormat {
+				background: url("/lib/ueditor/themes/default/paiban.gif");
+				width: 16px;
+				height: 16px;
+			}
+			
+			.ke-icon-paging {
+				background: url("/lib/ueditor/themes/default/fenye.gif");
+				width: 16px;
+				height: 16px;
+			}
+		</style>
 	</head>
 
 	<body>
 		<div class="main">
-			<form id="newsForm" action="/api/news" method="post" name= "newsForm">
+			<form id="newsForm" action="/api/news" method="post" name="newsForm">
 				<table class="table">
 					<tr>
 						<td width="100">*新闻分类:</td>
@@ -34,13 +47,13 @@
 					</tr>
 					<tr>
 						<td width="100">*来　　源:</td>
-						<td><input type="text" class="form-control" name="source" value="" placeholder="来源" /></td>
+						<td><input type="text" class="form-control" name="source" value="新浪" placeholder="来源" /></td>
 						<td>Description:</td>
 						<td><input type="text" class="form-control" name="description" value="" placeholder="description(该项自动填写,如要手动输入,请点击此表单)" readonly="readonly" /></td>
 					</tr>
 					<tr>
 						<td>*编　　辑:</td>
-						<td><input type="text" class="form-control" name="author" value="" placeholder="编辑" /></td>
+						<td><input type="text" class="form-control" name="author" value="张三" placeholder="编辑" /></td>
 						<td width="100">发布时间:</td>
 						<td><input type="text" class="form-control" name="time" value="" placeholder="发布时间(该项自动填写,如要手动输入,请点击此表单)" onfocus="fillRightInput(),WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" readonly="readonly" /></td>
 					</tr>
@@ -68,43 +81,53 @@
 			$(function() {
 				//加载新闻时间
 				$("input[name='time']").val(getNowFormatDate());
-				//加载编辑器
-				KindEditor.ready(function(K) {
-					window.editor = K.create('textarea[name="nContent"]', {
-						filterMode: true,
-						width: '100%'
-					});
-				});
 				getNewsClass();
 				hoverInput();
 				fillRightInput();
 			})
 
+			//加载编辑器
+			KindEditor.ready(function(ke) {
+				window.editor = ke.create('#editor_1', {
+					filterMode: true,
+					width: '100%',
+					items: [
+						'source', 'bold', 'fontname', 'fontsize', 'forecolor', '|', 'diyFormat', 'paging'
+					]
+				});
+			});
+			
+			KindEditor.lang({
+					diyFormat: '自定义排版功能',
+					paging: "插入分页符"
+				});
+
+
 			//获取分类,填充下拉框
 			function getNewsClass() {
-				var html='';
+				var html = '';
 				$.ajax({
-					url:ajaxConfig.newsClassList,
-					type:"get",
-					success:function(res){
-					if(res.code == 200&&res.data.length!=0) {
-						res.data.forEach(function(val,index){
-							html+='<optgroup label="'+val.subTitle+'" value="'+val.id+'">';
-							var children='';
-							val.child.forEach(function(v,i){
-								children +='<option value ="'+v.id+'">'+v.subTitle+'</option>';
+					url: ajaxConfig.newsClassList,
+					type: "get",
+					success: function(res) {
+						if(res.code == 200 && res.data.length != 0) {
+							res.data.forEach(function(val, index) {
+								html += '<optgroup label="' + val.subTitle + '" value="' + val.id + '">';
+								var children = '';
+								val.child.forEach(function(v, i) {
+									children += '<option value ="' + v.id + '">' + v.subTitle + '</option>';
+								})
+
+								html += children + "</optgroup>";
 							})
-							
-							html+=children + "</optgroup>";
-						})
-						
-						$("#newsClassSelect").empty().append(html);
-						$("#newsClassSelect").val({{classChildId}});
-						return;
-					}
-					alert(res.message)
+
+							$("#newsClassSelect").empty().append(html);
+							$("#newsClassSelect").val({{classChildId}});
+							return;
+						}
+						alert(res.message)
 					},
-					error:function(res){}
+					error: function(res) {}
 				})
 			}
 
@@ -118,39 +141,38 @@
 			}
 
 			//根据左侧内容,自动填写右侧表单
-			function fillRightInput() {			
+			function fillRightInput() {
 				$('input[name="title"]').val($('input[name="subTitle"]').val());
 				$('input[name="keywords"]').val($('input[name="subKeywords"]').val())
 				$('input[name="description"]').val($('input[name="subTitle"]').val())
 			}
 			//新增新闻
 
-				$("#newsForm").on('submit',function(e) {
-					//设置url
-					if($('input[name="newsUrl"]').val()!=''||$('input[name="newsUrl"]').val()!='undefined')
-					$('input[name="newsUrl"]').val($('input[name="newsUrl"]').val().replace(/(\d+.html$)/,ConvertPinyin($('input[name="subKeywords"]').val().match(/[^\s|,|，|、]+/g)[0])+"$1"))
-					e.preventDefault();
-					editor.sync();
-					var action = $(this).attr('action');
-					var form = $(this).closest('#newsForm').serializeObject();
-					$.ajax({
-						url: action,
-						type: 'post',
-						data: form,
-						success: function(res) {
-							if(res.code == 200) {
-								alert(res.message);
-								location.reload();
-								return;
-							}
+			$("#newsForm").on('submit', function(e) {
+				//设置url
+				if($('input[name="newsUrl"]').val() != '' || $('input[name="newsUrl"]').val() != 'undefined')
+					$('input[name="newsUrl"]').val($('input[name="newsUrl"]').val().replace(/(\d+.html$)/, ConvertPinyin($('input[name="subKeywords"]').val().match(/[^\s|,|，|、]+/g)[0]) + "$1"))
+				e.preventDefault();
+				editor.sync();
+				var action = $(this).attr('action');
+				var form = $(this).closest('#newsForm').serializeObject();
+				$.ajax({
+					url: action,
+					type: 'post',
+					data: form,
+					success: function(res) {
+						if(res.code == 200) {
 							alert(res.message);
-						},
-						error: function() {
-							alert("添加失败!请刷新重试!")
+							location.reload();
+							return;
 						}
-					})
+						alert(res.message);
+					},
+					error: function() {
+						alert("添加失败!请刷新重试!")
+					}
 				})
-
+			})
 		</script>
 	</body>
 
