@@ -1,8 +1,9 @@
 const db = require("../../lib/db.lib.js");
 
 function nav (callback) {
-	db.query('SELECT * from newsclass where firstId =0',function(err,rows){
-		callback(err,rows)
+	db.query('SELECT * from news_class where firstId =0',function(err,rows){
+		if(err){throw err}
+		callback(rows)
 	})
 
 }

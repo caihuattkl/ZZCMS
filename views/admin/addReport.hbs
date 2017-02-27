@@ -12,6 +12,12 @@
 				height: 16px;
 			}
 			
+			.ke-icon-reportFormat {
+				background: url("/lib/ueditor/themes/default/paiban.gif");
+				width: 16px;
+				height: 16px;
+			}
+			
 			.ke-icon-paging {
 				background: url("/lib/ueditor/themes/default/fenye.gif");
 				width: 16px;
@@ -22,99 +28,238 @@
 
 	<body>
 		<div class="main">
-			<form id="newsForm" action="/api/news" method="post" name="newsForm">
+			<form id="reportForm" action="/api/reports" method="post" name="reportForm">
 				<table class="table">
 					<tbody>
 						<tr>
-							<td width="100">所属行业(大)：</td>
-							<td colspan="2"><select name="classChildId" class="form-control" id="newsClassSelect"></select></td>
-							<td >所属行业(小)：</td>
-							<td colspan="2"><select name="classChildId" class="form-control" id="newsClassSelect"></select></td>
-							<td >报告地址：</td>
-							<td colspan="5" width="1000"><input type="text" class="form-control" name="" id="" value="" readonly="readonly" /></td>
+							<td width="100"><span class="text-danger">* </span>分类(大)：</td>
+							<td colspan="2">
+								<select name="fristClass" class="form-control" id="fristClass"></select>
+							</td>
+							<td><span class="text-danger">* </span>分类(小)：</td>
+							<td colspan="2">
+								<select name="childClass" class="form-control" id="childClass"></select>
+							</td>
+							<td><span class="text-danger">* </span>报告地址：</td>
+							<td colspan="5" width="1000"><input type="text" class="form-control" name="reportUrl" id="" value="" readonly="readonly" /></td>
 						</tr>
 						<tr>
-							<td width="100">　报告标题：</td>
-							<td colspan="5"><input type="text" class="form-control" name="coreKeywords" id="" value="" /></td>
+							<td width="100">　<span class="text-danger">* </span>报告标题：</td>
+							<td colspan="5"><input type="text" class="form-control" name="subTitle" id="" value="2017-2022年中国润滑油临氢降凝催化剂行业市场需求与投资咨询报告" oninput="setTitle(this)" /></td>
 							<td width="100">TITLE：</td>
-							<td colspan="5"><input type="text" class="form-control" name="" id="" value="" readonly="readonly"/></td>
+							<td colspan="5"><input type="text" class="form-control" name="title" id="" value="" readonly="readonly" /></td>
 						</tr>
 						<tr>
-							<td width="100">报告核心词：</td>
-							<td><input type="text" class="form-control" name="coreKeywords" id="" value="" /></td>
-							<td width="100">页内关键词：</td>
-							<td colspan="3"><input type="text" class="form-control" name="coreKeywords" id="" value="" /></td>
-							<td>keywords：</td>
-						    <td colspan="5" ><input type="text" class="form-control" name="" id="" value="" readonly="readonly"/></td>
+							<td width="100"><span class="text-danger">* </span>报告核心词：</td>
+							<td colspan="5"><input type="text" class="form-control" name="coreKeywords" id="" value="润滑油临氢降凝催化剂" oninput="setReportUrl(this)" /></td>
+							<!--<td width="100">页内关键词：</td>-->
+							<!--<td ><input type="hidden" class="form-control" name="subKeywords" id="" value="润滑油临氢降凝催化剂" /></td>-->
+							<td><span class="text-danger">* </span>keywords：</td>
+							<td colspan="5"><input type="text" placeholder="keywords与页内关键词合并" class="form-control" name="keywords" id="" value="润滑油临氢降凝催化剂" /></td>
 						</tr>
 						<tr>
-							<td width="100">相关报告：</td>
-							<td><input type="text" class="form-control" name="coreKeywords" id="" value="" /></td>
+							<td width="100"><span class="text-danger">* </span>相关报告：</td>
+							<td><input type="text" class="form-control" name="relatedReport" id="" value="" style="display: inline-block;width: 80px;" onmouseover="this.title=this.value" />&nbsp;
+								<a style="width:15px;text-align:center;color:#FFFFFF;border: 1px solid #ddd;background: green;line-height:28px;display: inline-block;height:28px;" data-toggle="modal" data-backdrop="static" data-target="#relatedReportsModal" href="#" title="选择相关报告">+</a>
+							</td>
 							<td width="100">最新修订：</td>
-							<td><input type="text" class="form-control" name="latestRevision" id="" value="" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"/></td>
-							<td>首次发布：</td>
-							<td><input type="text" class="form-control" name="time" id="" value="" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" /></td>
+							<td><input type="text" class="form-control" name="latestRevision" id="" value="" onmouseover="this.title=this.value" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" /></td>
+							<td><span class="text-danger">* </span>首次发布：</td>
+							<td><input type="text" class="form-control" name="postTime" id="" value="" onmouseover="this.title=this.value" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" /></td>
 							<td width="100">description：</td>
-							<td colspan="5"><input type="text" class="form-control" name="" id="" value="" readonly="readonly"/></td>
+							<td colspan="5"><input type="text" class="form-control" name="description" id="" value="" readonly="readonly" /></td>
 						</tr>
 						<tr>
-							<td width="100">双版本价格：</td>
-							<td><input type="text" class="form-control" name="" id="" value="8000" /></td>
-							<td width="100">电子版价格：</td>
-							<td ><input type="text" class="form-control" name="" id="" value="7000" /></td>
-							<td width="100">纸介版价格：</td>
-							<td><input type="text" class="form-control" name="" id="" value="8000" /></td>
-							<td width="100">报告主编：</td>
-							<td ><input type="text" class="form-control" name="" id="" value="宋智晨, 贺在华, 段嘉宣, 谢家宸" /></td>
-							
-							<td width="100">交付方式：</td>
-							<td><input type="text" class="form-control" name="" id="" value="Email发送或特快专递(2-3天送达)" /></td>
-							<td width="100">报告格式：</td>
-						    <td><input type="text" class="form-control" name="" id="" value="电子版或纸介版" /></td>
+							<td width="100"><span class="text-danger">* </span>双版本价格：</td>
+							<td><input type="text" class="form-control" name="doubleVersion" id="" value="8000" /></td>
+							<td width="100"><span class="text-danger">* </span>电子版价格：</td>
+							<td><input type="text" class="form-control" name="pdfPrice" id="" value="7000" /></td>
+							<td width="100"><span class="text-danger">* </span>纸介版价格：</td>
+							<td><input type="text" class="form-control" name="entityPrice" id="" value="8000" /></td>
+							<td width="100"><span class="text-danger">* </span>报告主编：</td>
+							<td><input type="text" class="form-control" name="reportAuthor" id="" value="宋智晨, 贺在华, 段嘉宣, 谢家宸" onmouseover="this.title=this.value" /></td>
+
+							<td width="100"><span class="text-danger">* </span>交付方式：</td>
+							<td><input type="text" class="form-control" name="deliveryMode" id="" value="Email发送或特快专递(2-3天送达)" /></td>
+							<td width="100"><span class="text-danger">* </span>报告格式：</td>
+							<td><input type="text" class="form-control" name="reportFormat" id="" value="电子版或纸介版" /></td>
 						</tr>
 						<tr>
-							<td width="100">报告简介：</td>
-							<td colspan="8"><textarea id="editor_1" class="form-control" rows="5" name="nContent" value="" placeholder="新闻内容" /></textarea>
-						    <td><button type="submit" id="addNewsBtn" class="btn btn-md btn-success">添加</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-md btn-default" type="reset">重置</button></td>
-						</td>
+							<td width="100"><span class="text-danger">* </span>报告简介：</td>
+							<td colspan="8"><textarea class="form-control" rows="5" name="reportSummary" />本报告从国际润滑油临氢降凝催化剂(系列产品)发展、国内润滑油临氢降凝催化剂(系列产品)政策环境及发展、研发动态、进出口情况、重点生产企业、存在的问题及对策等多方面多角度阐述了润滑油临氢降凝催化剂(系列产品)市场的发展，并在此基础上对润滑油临氢降凝催化剂(系列产品)的发展前景做出了科学的预测，最后对润滑油临氢降凝催化剂(系列产品)投资潜力进行了分析。</textarea>
+								<td><button type="submit" id="addNewsBtn" class="btn btn-md btn-success">添加</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-md btn-default" type="reset">重置</button></td>
+							</td>
 						</tr>
 						<tr>
-							<td width="100">报告目录：</td>
-							<td colspan="11"><textarea id="editor_2" class="form-control" rows="8" name="nContent" value="" placeholder="新闻内容" /></textarea>
-						</td>
+							<td width="100"><span class="text-danger">* </span>报告目录：</td>
+							<td colspan="11"><textarea id="reportEdit" class="form-control" rows="8" name="reportCatalog" placeholder="报告目录" />报告目录报告目录报告目录报告目录报告目录报告目录报告目录报告目录</textarea>
+							</td>
 						</tr>
 						<tr>
-						<td></td>
-						<td class="btnLeft" colspan="11"><button type="submit" id="addNewsBtn" class="btn btn-md btn-success">添加</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-md btn-default" type="reset">重置</button></td>
-					</tr>
+							<td></td>
+							<td class="btnLeft" colspan="11"><button type="submit" id="addNewsBtn" class="btn btn-md btn-success">添加</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-md btn-default" type="reset">重置</button></td>
+						</tr>
 					</tbody>
 				</table>
-
-
-
-
-
-
-
-
-
-
-
 			</form>
 		</div>
+		<!--相关报告选择模态框-->
+		<div class="containers modal fade" id="relatedReportsModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<span data-dismiss="modal" class="close">&times;</span>
+						<h5 class="modal-title text-danger">选择相关报告</h5>
+					</div>
+					<div class="modal-body">
+						<input type="type" name="" id="" value="" class="form-control" placeholder="键入报告ID或关键词搜索" />
+						<table class="table" id="relatedReportsList">
+							<thead>
+								<tr>
+									<th>选择</th>
+									<th>序号</th>
+									<th>报告名称</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
 		<script src="/lib/js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/lib/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/lib/js/toPinYin.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/lib/My97DatePicker/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/lib/js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
 
-		<script src="/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script charset="utf-8" src="/lib/ueditor/kindeditor.js"></script>
 		<script charset="utf-8" src="/lib/ueditor/lang/zh_CN.js"></script>
 		<script charset="utf-8" src="/lib/ueditor/kEditorConfig.js"></script>
 		<script type="text/javascript">
 			$(function() {
+				//相关报告模态框内容填充
+				$("#relatedReportsModal").on("show.bs.modal", function() {
+					var html = '',
+						check = $('#reportForm input[name="relatedReport"]').val() || [];
+					$.get(ajaxConfig.reportsList, function(res) {
+						//如果有数据的情况
+						res.forEach(function(v, i) {
+							var tag = (check.length != 0 && check.indexOf(v.id.toString(), 0) != -1) ? 'checked="checked"' : '';
+							html += '<tr><td><input type="checkbox" value="' + v.id + '" ' + tag + '/></td><td>' + v.id + '</td><td>' + v.subTitle + '</td></tr>';
+						})
+						$("#relatedReportsList tbody").empty().append(html)
+					})
+
+					if(check.length != 0) {
+						check = check.split(',');
+					}
+
+					$("#relatedReportsModal").on("click", 'input[type="checkbox"]', function() {
+						var _this = this;
+						if(this.checked) {
+							check.push(this.value)
+						} else {
+							check.forEach(function(v, i) {
+								if(v == _this.value) {
+									check = check._splice(i)
+								}
+							})
+						}
+						$('#reportForm input[name="relatedReport"]').val(check.join(','))
+					})
+
+				})
+
 				//加载新闻时间
-				$("input[name='time']").val(getNowFormatDate());
+				$("input[name='postTime']").val(getNowFormatDate());
+				//获取栏目数据填充
+				$.get(ajaxConfig.reportClassList, function(reslut) {
+					var html = '',
+						childClassInit = '';
+					reslut.forEach(function(val, ind) {
+						if(ind == 0) {
+							val.child.forEach(function(v, i) {
+								childClassInit += '<option value=' + v.id + '>' + v.sub_title + '</option>'
+							})
+						}
+						html += '<option value=' + val.id + '>' + val.sub_title + '</option>'
+					})
+					$("#fristClass").empty().append(html);
+					$("#childClass").empty().append(childClassInit);
+
+					//有数据后切换子分类
+					$(".main").on('change', '#fristClass', function() {
+						var fristId = $("#fristClass").find("option:selected").val(),
+							childClassData = '';
+						reslut.forEach(function(val, ind) {
+							if(val.id == fristId) {
+								val.child.forEach(function(v, i) {
+									childClassData += '<option value=' + v.id + '>' + v.sub_title + '</option>'
+								})
+							}
+						})
+						$("#childClass").empty().append(childClassData);
+					})
+				})
 			})
+
+			function setReportUrl(_this) {
+				var keyword = $('input[name="keywords"]').val();
+				$('input[name="reportUrl"]').val('/report/' + ConvertPinyin(_this.value) + '.html');
+				if(keyword) {
+					if(keyword.indexOf(_this.value.replace(/[\s|\.|,]+/, '')) == -1) {
+						$('input[name="keywords"]').val(_this.value.replace(/[\s|\.|,]+/, '') + ' ' + keyword);
+					}
+				} else {
+					$('input[name="keywords"]').val(_this.value);
+				}
+
+			}
+
+			function setTitle(_this) {
+				$('input[name="title"]').val(_this.value)
+				$('input[name="description"]').val(_this.value)
+			}
+			
+			
+			//提交表单
+			$("#reportForm").validataForm({
+					subTitle: "required",
+					doubleVersion: {
+						required: true,
+						digits: true
+					}
+				}, {
+					subTitle: "报告标题不能为空",
+					lastname: "Please enter your lastname",
+					doubleVersion: {
+						required: "报告价格不能为空",
+						digits: "报告价格必须为整数"
+					}
+				},
+				function(e, form) {
+					e.preventDefault();
+					editor2.sync();
+					var action = $(form).attr('action');
+					var form = $(form).serializeObject();
+					$.ajax({
+						url: action,
+						type: 'post',
+						data: form,
+						success: function(res) {
+							alert('添加成功!');
+							window.location.reload();
+						},
+						error: function(err) {
+							if(err) {
+								alert(err.responseText)
+							}
+						}
+					})
+				})
 		</script>
 	</body>
 

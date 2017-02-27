@@ -15,8 +15,8 @@ exports.articles = function(req, res, next) {
 		if(!err && dir) {
 			navsCache(function(err2, data2) {
 				return articlesMod.articles(req, res, function(sqlErr, rows) {
-					if(!sqlErr && rows.length != 0) {
-						res.render('template/article_article', {
+					if(sqlErr && rows.length != 0) { throw sqlErr;}
+					res.render('template/article_article', {
 							currentPage:currentPage,
 							countPage:rows[0].nContent.split('{{paging}}').length,
 							classFirstId: rows[1].keywords,
@@ -48,9 +48,6 @@ exports.articles = function(req, res, next) {
 						}
 						
 						
-					} else {
-						return res.status(404).send('Not Found');
-					}
 				})
 			})
 		}else{

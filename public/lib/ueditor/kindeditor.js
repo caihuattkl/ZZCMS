@@ -245,7 +245,7 @@ K.options = {
 	useContextmenu : true,
 	fullscreenShortcut : false,
 	bodyClass : 'ke-content',
-	indentChar : '\t',
+	indentChar : '', //换行的tab /t
 	cssPath : '',
 	cssData : '',
 	minWidth : 650,
@@ -773,8 +773,9 @@ function _formatHtml(html, htmlTags, urlType, wellFormatted, indentChar) {
 				} else {
 					tagStack.push(tagName);
 				}
-				startNewline = '\n';
-				endNewline = '\n';
+				startNewline = '';//行开头 行开始
+				endNewline = '';//行结束
+				
 				for (var i = 0, len = startSlash ? tagStack.length : tagStack.length - 1; i < len; i++) {
 					startNewline += indentChar;
 					if (!startSlash) {
@@ -5460,6 +5461,7 @@ _plugin('core', function(K) {
 				});
 			});
 			var resetBtn = K('[type="reset"]', el);
+			
 			resetBtn.click(function() {
 				self.html(self.initContent);
 				self.cmd.selection();

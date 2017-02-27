@@ -12,10 +12,8 @@ function navsCache(callback) {
 	} else {
 		async.parallel([
 			function(done) {
-				navs.nav(function(err, data) {
-					if(!err) {
-						done(null, data);
-					}
+				navs.nav(function(data) {
+					done(null, data);
 				})
 			},
 		], function(error, result) {
@@ -26,27 +24,3 @@ function navsCache(callback) {
 };
 
 module.exports = navsCache;
-
-
-
-
-////缓存公共头部菜单,仅显示1级菜单
-//function navsCache(callback) {
-//	var headNavCache = cache.get('headNavCache');
-//	if(headNavCache) {
-//		callback(null, _.cloneDeep(headNavCache));
-//	} else {
-//		async.parallel([
-//			function(done) {
-//				navs.nav(function(err, data) {
-//					if(!err) {
-//						done(null, data);
-//					}
-//				})
-//			},
-//		], function(error, result) {
-//			cache.set('headNavCache', result[0], 1000 * 60 * 60 * 2);
-//			callback(error, result[0]);
-//		});
-//	}
-//};

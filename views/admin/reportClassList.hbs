@@ -115,10 +115,10 @@
 								<div class="form-group">
 									<div class="col-xs-3 text-right">
 										<em class="cred">*</em>
-										<label for="reportFristClassId">所属栏目:</label>
+										<label for="fristClass">所属栏目:</label>
 									</div>
 									<div class="col-xs-6">
-										<select name="reportFristClassId" class="form-control" id="reportFristClassId"></select>
+										<select name="fristClass" class="form-control" id="fristClass"></select>
 									</div>
 								</div>
 
@@ -129,8 +129,7 @@
 										<label for="reportSubTitle">名　称:</label>
 									</div>
 									<div class="col-xs-6">
-										<input class="form-control" type="hidden" id="id" name="id" placeholder="id" />
-										<input class="form-control" type="text" id="reportSubTitle" name="reportSubTitle" placeholder="分类名称" data-type="fullName" />
+										<input class="form-control" type="text" id="subTitle" name="subTitle" placeholder="分类名称" data-type="fullName" />
 									</div>
 								</div>
 
@@ -140,37 +139,37 @@
 										<label for="reportTitle">Title:</label>
 									</div>
 									<div class="col-xs-6">
-										<input class="form-control" type="text" id="reportTitle" name="reportTitle" placeholder="Title" data-type="fullName" />
+										<input class="form-control" type="text" id="title" name="title" placeholder="title" data-type="fullName" />
 									</div>
 								</div>
 
 								<div class="form-group">
 									<div class="col-xs-3 text-right">
 										<em class="cred">*</em>
-										<label for="reportKeywords">Keywords:</label>
+										<label for="keywords">Keywords:</label>
 									</div>
 									<div class="col-xs-6">
-										<input class="form-control" type="text" id="reportKeywords" name="reportKeywords" placeholder="Keywords" data-type="fullName" />
+										<input class="form-control" type="text" id="keywords" name="keywords" placeholder="keywords" data-type="fullName" />
 									</div>
 								</div>
 
 								<div class="form-group">
 									<div class="col-xs-3 text-right">
 										<em class="cred">*</em>
-										<label for="reportKeywords">Description:</label>
+										<label for="description">Description:</label>
 									</div>
 									<div class="col-xs-6">
-										<input class="form-control" type="text" id="reportDescription" name="reportDescription" placeholder="Description" data-type="fullName" />
+										<input class="form-control" type="text" id="description" name="description" placeholder="description" data-type="fullName" />
 									</div>
 								</div>
 
 								<div class="form-group">
 									<div class="col-xs-3 text-right">
 										<em class="cred">*</em>
-										<label for="time">添加时间:</label>
+										<label for="postTime">添加时间:</label>
 									</div>
 									<div class="col-xs-6">
-										<input class="form-control" type="text" id="time" name="time" data-type="fullName" placeholder="发布时间(该项自动填写,如要手动输入,请点击此表单)" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
+										<input class="form-control" type="text" id="postTime" name="postTime" data-type="fullName" placeholder="发布时间(该项自动填写,如要手动输入,请点击此表单)" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
 									</div>
 								</div>
 
@@ -201,27 +200,13 @@
 
 			//获取分类列表
 			function getReportClassList() {
-				$.get(ajaxConfig.reportClassList, function(data) {
-					var html = "",
-						classArr = [];
-					data.data.forEach(function(v, i) {
-						//获取顶级分类
-						if(v.reportFristClassId == 0) {
-							classArr.push(v);
-						}
-						//获取子分类
-						data.data.forEach(function(val, index) {
-							if(v.id == val.reportFristClassId) {
-								classArr.splice(index+1,0,val)
-							}
+				$.get(ajaxConfig.reportClassList, function(reslut) {
+					var html='';
+					reslut.forEach(function(val,ind){
+						html += '<tr>' + '<td>' + val.id + '</td>' + '<td class="fristClass">' + val.sub_title + '</td>' + '<td>' + formatDate(val.post_time) + '</td>' + '<td><a class="btn btn-xs btn-success" href="JavaScript:void(0)" id="subReportClass" >添加子类</a> <a href="javascript:void(0)"  id="modifyClassDetail">修改</a> | <a href="javascript:void(0)" id="delClassDetail">删除</a></td>' + '</tr>'
+						val.child.forEach(function(v,i){
+							html += '<tr>' + '<td>' + v.id + '</td>' + '<td class="childrenClass">' + v.sub_title + '</td>' + '<td>' + formatDate(v.post_time) + '</td>' + '<td><a href="javascript:void(0)"  id="modifyClassDetail">修改</a> | <a href="javascript:void(0)" id="delClassDetail">删除</a></td>' + '</tr>'
 						})
-					})
-					classArr.forEach(function(v,i){
-						var FristClass,nochildrenClass
-						
-						FristClass=v.reportFristClassId==0?"fristClass":"childrenClass";
-						nochildrenClass=v.reportFristClassId==0?"subReportClass":"nochildrenClass";
-						html += '<tr>' + '<td>' + v.id + '</td>' + '<td class="'+FristClass+'">' + v.reportSubTitle + '</td>' + '<td>' + formatDate(v.time) + '</td>' + '<td><a class="btn btn-xs btn-success" href="JavaScript:void(0)" id="'+nochildrenClass+'" >添加子类</a> <a href="javascript:void(0)"  id="modifyClassDetail">修改</a> | <a href="javascript:void(0)" id="delClassDetail">删除</a></td>' + '</tr>'
 					})
 					$("#reportClassList tbody").empty().append(html);
 				})
@@ -232,11 +217,11 @@
 				$.get(ajaxConfig.reportClass + "/" + $(_this).parents('tr').children("td").html(), function(res) {
 					if(res.code == 200) {
 						$('#reportClassModel input[name="id"]').val(res.data[0].id);
-						$('#reportClassModel input[name="reportSubTitle"]').val(res.data[0].reportSubTitle);
-						$('#reportClassModel input[name="reportTitle"]').val(res.data[0].reportTitle);
-						$('#reportClassModel input[name="reportKeywords"]').val(res.data[0].reportKeywords);
-						$('#reportClassModel input[name="reportDescription"]').val(res.data[0].reportDescription);
-						$('#reportClassModel input[name="time"]').val(formatDate(res.data[0].time));
+						$('#reportClassModel input[name="reportSubTitle"]').val(res.data[0].sub_title);
+						$('#reportClassModel input[name="reportTitle"]').val(res.data[0].title);
+						$('#reportClassModel input[name="reportKeywords"]').val(res.data[0].keywords);
+						$('#reportClassModel input[name="reportDescription"]').val(res.data[0].description);
+						$('#reportClassModel input[name="time"]').val(formatDate(res.data[0].post_time));
 					}
 				})
 			}
@@ -269,9 +254,9 @@
 				$.get(ajaxConfig.reportClass + "/" + id + "/classList", function(res) {
 
 					res.data.forEach(function(v, i) {
-						html += '<option value="' + v.id + '">' + v.reportSubTitle + '</option>';
+						html += '<option value="' + v.id + '">' + v.sub_title + '</option>';
 					})
-					$("#reportFristClassId").empty().append(html)
+					$("#fristClass").empty().append(html)
 				})
 			}
 

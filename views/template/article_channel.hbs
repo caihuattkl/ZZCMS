@@ -1,13 +1,22 @@
  {{#contentFor "cssStyle"}}
-<link href="/dist/article_channel.css" rel="stylesheet" media="screen" type="text/css" />{{/contentFor}} {{#contentFor "title"}}{{subTitle}}_中智顾问_中智投资资讯网{{/contentFor}} {{#contentFor "keywords"}}{{keywords}}{{/contentFor}} {{#contentFor "description"}}{{description}}{{/contentFor}} {{!公共头部菜单}} {{#contentFor "NavConn"}}
+<link href="/dist/article_channel.css" rel="stylesheet" media="screen" type="text/css" />
+{{/contentFor}}
+{{#contentFor "title"}}{{subTitle}}_中金产业_中金产业咨询网{{/contentFor}} 
+
+{{#contentFor "keywords"}}{{keywords}}{{/contentFor}} 
+{{#contentFor "description"}}{{description}}{{/contentFor}}
+{{!公共头部菜单}}
+{{#contentFor "NavConn"}}
 <li>
 	<a href="/">首页</a>
 </li>
 {{#each conNav}}
 <li>
-	<a href="/">{{subTitle}}</a>
+	<a href="/{{directoryName}}/{{id}}">{{subTitle}}</a>
 </li>
-{{/each}} {{/contentFor}} {{>head_article}}
+{{/each}} 
+{{/contentFor}} 
+{{>head_article}}
 
 <div class="plan">
 	<div class="left">

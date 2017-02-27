@@ -6882,6 +6882,16 @@ a {
 ::-webkit-scrollbar-thumb {
   background-color: #C1C1C1;
 }
+.tooltip-inner {
+  background: red;
+}
+.tooltip.top .tooltip-arrow {
+  bottom: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px 5px 0;
+  border-top-color: red;
+}
 body {
   background: #f7f7f7;
 }

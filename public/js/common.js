@@ -11,6 +11,10 @@ var ajaxConfig={};
 	//用户
 	ajaxConfig.users = "/api/users"; //用户
 	
+	//报告
+	ajaxConfig.reportsList = "/api/reports/list"; //报告
+	ajaxConfig.reports="/api/reports"; //报告增删改 带参数
+	
 //给jquery增加form序列化json方法 $("xxx").serializeObject()
 $.fn.serializeObject = function() {
 	var o = {};
@@ -28,9 +32,9 @@ $.fn.serializeObject = function() {
 	return o;
 }
 
-//给jquery增加公共ajax方法 $.publicAjax()
+//给jquery增加公共ajax方法 $._ajax()
 $.extend({
-	publicAjax: function(config) {
+	_ajax: function(config) {
 		var _config = {
 			contentType: "application/json",
 			error: function(response) {
@@ -50,6 +54,24 @@ $.extend({
 		$.ajax(_config.url, _config);
 	}
 })
+
+//增加delete快捷方法
+$.extend({
+	delete: function(url,callback) {
+		$.ajax({
+			type:"delete",
+			url:url,
+			async:true,
+			success:function(res){
+				callback(null,res)
+			},
+			error:function(err){
+				callback(err)
+			}
+		});
+	}
+})
+
 
 //获取当前时间 yyyy-mm-dd hh:mm:ss
 function getNowFormatDate() {
@@ -74,3 +96,22 @@ function getNowFormatDate() {
 function formatDate(tDate) {
 	return new Date(+new Date(tDate)+8*3600*1000).toISOString().replace(/T/g,' ').replace(/\.[\d]{3}Z/,'');
 }
+
+Array.prototype.uniqueArr = function() {
+    var res = [];
+　　var json = {};
+　　for(var i = 0; i < this.length; i++){
+　　　　if(!json[this[i]]){
+　　　　　　res.push(this[i]);
+　　　　　　json[this[i]] = 1;
+　　　　}
+　　}
+　　return res;
+};
+
+Array.prototype._splice = function(i) {
+	var tmp=this.slice();
+	tmp.splice(i, 1);
+	return tmp;
+};
+

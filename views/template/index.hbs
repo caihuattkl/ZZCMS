@@ -1,10 +1,12 @@
 {{#contentFor "cssStyle"}}
-<link href="/dist/index.css" rel="stylesheet" media="screen" type="text/css" />
+<link href="/dist/css/index.css" rel="stylesheet" media="screen" type="text/css" />
 {{/contentFor}}
-
-<div class="container-fluid">
+{{#contentFor "title"}}中金产业咨询网-中金产业公司网站-领先的产业研究与产业战略咨询机构-投资咨询|投资网 产业规划_园区规划_招商策划{{/contentFor}}
+{{#contentFor "keywords"}}产业规划,招商策划，园区规划{{/contentFor}}
+{{#contentFor "description"}}中金产业咨询(http://ciccindustry.com)是中国权威的咨询机构和政府产业咨询顾问,业务范围覆盖招商策划,产业规划,区域产业规划,可行性研究报告,城镇规划,产业竞争情报,项目建议书,产业园区规划，招商代理。{{/contentFor}}
+<div class="navbox">
 			<div class="navTop">
-				<span class="left">你好,欢迎来到中智情报网!</span>
+				<span class="left">你好,欢迎来到中金产业咨询网!</span>
 				<div class="right">
 					<ul>
 						<li class="red">
@@ -1362,9 +1364,7 @@
 							<ul class="title" id="ph">
 								<li>
 									<h4 class="current"><a href="#">周排行</a></h4></li>
-								<li>
-									<h4><a href="#">月排行</a></h4></li>
-							</ul>
+								<li><h4><a href="#">月排行</a></h4></li></ul>
 							<ul class="newsListWeek" id="newsListWeek">
 								<li>
 									<a href="#"><img src="images/banner-1.jpg" width="70" height="70" /></a>
@@ -1406,9 +1406,7 @@
 								<li>
 									<a href="#"><img src="images/banner-1.jpg" width="70" height="70" /></a>
 									<h5><a href="#">铜冠金源:美豆走出阴霾 豆油跨月正套</a></h5>
-									<p>
-										<a href="#"> 10月USDA供需报告显示,美国2016/17年度美豆单产预估为51.4蒲式耳/英亩,总产量...</a>
-									</p>
+									<p><a href="#"> 10月USDA供需报告显示,美国2016/17年度美豆单产预估为51.4蒲式耳/英亩,总产量...</a></p>
 								</li>
 								<li>
 									<a href="#">浦上大道改造工程项目建议书获批 计划明年9月通车</a>
@@ -1722,5 +1720,5 @@
 				</div>
 			</div>
 		</section>
-		<script src="dist/index.min.js" type="text/javascript"></script>
-		{{{_sections.head}}}
+		{{>footer_index}}
+		{{#contentFor "footJs"}}<script src="dist/js/index.min.js" type="text/javascript"></script>{{/contentFor}}

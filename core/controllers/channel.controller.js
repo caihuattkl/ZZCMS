@@ -11,7 +11,6 @@ exports.channel = function(req, res, next) {
 	directorySev(req, res, function(err, dir) {
 		//根据目录匹配路由
 		if(!err && dir) {
-			
 			async.parallel({
 				channelNav: function(callback) {
 					channel.channelNav(req, res, function(data) {
@@ -63,6 +62,7 @@ exports.channel = function(req, res, next) {
 							conNav: result.navsCache,
 							toplines: result.topline
 						}
+				console.log(channelObj.conNav)
 				res.render('template/article_channel', channelObj)
 			});
 		} else {

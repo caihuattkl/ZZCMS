@@ -3,7 +3,7 @@ var db = require("../../lib/db.lib.js"),
 
 //新闻分类列表
 exports.newsClassList = function(req, res) {
-	db.query("select * from newsclass", function(err, rows) {
+	db.query("select * from news_class", function(err, rows) {
 		if(!err) {
 			var classData = [],
 				obj = {};
@@ -44,7 +44,7 @@ exports.addNewsClass = function(req, res) {
 			keywords = req.body.keywords,
 			description = req.body.description,
 			time = req.body.time;
-		var sql = 'insert into newsclass(id,directoryName,firstId,url,subTitle,title,keywords,description,time) values("id",  "' + directoryName + '", "' + firstId + '", "' + url + '", "' + subTitle + '", "' + title + '", "' + keywords + '", "' + description + '", "' + time + '")';
+		var sql = 'insert into news_class(id,directoryName,firstId,url,subTitle,title,keywords,description,time) values("id",  "' + directoryName + '", "' + firstId + '", "' + url + '", "' + subTitle + '", "' + title + '", "' + keywords + '", "' + description + '", "' + time + '")';
 		db.query(sql, function(err, rows) {
 			if(!err) {
 				//如果为顶级分类就添加设置频道头条
@@ -78,12 +78,12 @@ function insertTopline(firstId) {
 //新闻分类删
 exports.delNewsClass = function(req, res) {
 	var id = req.params.id;
-	db.query("select * from newsclass where firstId=" + id, function(err, rows1) {
+	db.query("select * from news_class where firstId=" + id, function(err, rows1) {
 		if(!err && rows1.length == 0) { //判断是否有子分类
 
 			db.query("select * from news where classChildId=" + id, function(err, rows2) {
 				if(!err && rows2.length == 0) { //判断是否存在新闻
-					db.query("delete from newsclass where id=" + id, function(err, rows3) {
+					db.query("delete from news_class where id=" + id, function(err, rows3) {
 						if(!err) {
 							//删除对应头条
 							 	delTopline(id)
@@ -139,7 +139,7 @@ exports.putNewsClass = function(req, res) {
 		keywords = req.body.keywords,
 		description = req.body.description,
 		time = req.body.time;
-	var sql = 'UPDATE newsclass SET url="' + url + '",directoryName="' + directoryName + '",subTitle="' + subTitle + '",title="' + title + '",keywords="' + keywords + '",description="' + description + '",time="' + time + '" WHERE  id =' + id
+	var sql = 'UPDATE news_class SET url="' + url + '",directoryName="' + directoryName + '",subTitle="' + subTitle + '",title="' + title + '",keywords="' + keywords + '",description="' + description + '",time="' + time + '" WHERE  id =' + id
 	db.query(sql, function(err, rows) {
 		if(err) {
 			res.json({
@@ -160,7 +160,7 @@ exports.putNewsClass = function(req, res) {
 //获取新闻所有顶级分类
 exports.newsTopClassList = function(req, res) {
 	var id = req.params.id;
-	var sql = "SELECT * FROM newsclass where id='" + id + "'UNION all SELECT * FROM newsclass where firstId = 0";
+	var sql = "SELECT * FROM news_class where id='" + id + "'UNION all SELECT * FROM news_class where firstId = 0";
 	db.query(sql, function(err, rows) {
 		if(err) {
 			res.json({
@@ -181,7 +181,7 @@ exports.newsTopClassList = function(req, res) {
 //新闻分类某条记录
 exports.newsClassDetail = function(req, res) {
 	var id = req.params.id;
-	db.query("select * from newsClass where id=" + id, function(err, rows) {
+	db.query("select * from news_class where id=" + id, function(err, rows) {
 		if(err) {
 			res.json({
 				code: 500,

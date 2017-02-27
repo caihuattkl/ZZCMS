@@ -1,0 +1,26 @@
+.navbox{
+    .container-fluid;
+    line-height: 35px;
+    height: 35px;
+    background-color: @zzLight-1;
+}
+.navTop {
+    .container;    
+    font-size: @fs12;
+    .right {
+        float: right;
+        & ul li {
+            float: left;
+        }
+        & ul li.red>a {
+            color: red;
+            font-weight: bold;
+        }
+        & ul li:not(:last-child):after {
+            color: red;
+            content: "|";
+            padding: 0 5px;
+            color: @zzLight-2;
+        }
+    }
+}

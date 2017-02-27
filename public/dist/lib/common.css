@@ -1,0 +1,122 @@
+a:link,
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+/* 未访问的链接 */
+a:hover,
+a:active {
+  color: #225d98;
+  text-decoration: underline;
+}
+/* 鼠标移动到链接上 */
+ul,
+li,
+p,
+table,
+tr,
+td,
+a,
+dl,
+dd,
+dt,
+input,
+em,
+i,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-style: normal;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+}
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  /* Firefox */
+  -webkit-box-sizing: border-box;
+  /* Safari */
+}
+img {
+  border: none;
+}
+.lf {
+  float: left;
+}
+.rf {
+  float: right;
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: "微软雅黑", "宋体";
+}
+.paginationColor {
+  color: #C81629 !important;
+}
+.pagination {
+  border-top: 1px dashed #bfbfbf;
+  display: inline-block;
+  padding: 20px 0 20px calc(30%);
+  width: 100%;
+  border-radius: 4px;
+}
+.pagination > li {
+  display: inline;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  margin-left: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.pagination > li > a,
+.pagination > li span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #337ab7;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.pagination > li > a:focus,
+.pagination > li span:focus,
+.pagination > li > a:hover,
+.pagination > li span:hover {
+  z-index: 2;
+  color: #23527c;
+  background-color: #eee;
+  border-color: #ddd;
+}
+.pagination > li > a.disabled,
+.pagination > li span.disabled,
+.pagination > li > a[disabled],
+.pagination > li span[disabled] {
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  opacity: 0.65;
+}

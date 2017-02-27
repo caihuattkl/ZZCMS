@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var favicon = require('serve-favicon');
-var logger = require('morgan');
+var logger = require('./lib/logger.lib');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var credentials = require('./lib/credentials.lib'); //cookie秘钥
@@ -17,12 +17,11 @@ var auth = require('./lib/auth.lib');
 //配置模版
 app.engine('hbs',require('./lib/hbs-config.lib'))
 app.set('view engine', 'hbs');
-
+app.use(logger.access());
 //中间件
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser(credentials.cookieSecret)); //cookie秘钥
 app.use(cookieParser());
 app.use(require('./lib/session.lib'));

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>编辑报告</title>
+		<link rel="stylesheet" href="/src/less/addReport.css" />
+		<style>
+			.ke-icon-diyFormat {
+				background: url("/lib/ueditor/themes/default/paiban.gif");
+				width: 16px;
+				height: 16px;
+			}
+			
+			.ke-icon-reportFormat {
+				background: url("/lib/ueditor/themes/default/paiban.gif");
+				width: 16px;
+				height: 16px;
+			}
+			
+			.ke-icon-paging {
+				background: url("/lib/ueditor/themes/default/fenye.gif");
+				width: 16px;
+				height: 16px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="main">
+			<form id="reportForm" action="/api/reports" method="post" name="reportForm">
+				<table class="table">
+					<tbody>
+						<tr>
+							<td width="100">所属行业(大)：</td>
+							<td colspan="2">
+								<select name="fristClass" class="form-control" id="fristClass"></select>
+							</td>
+							<td>所属行业(小)：</td>
+							<td colspan="2">
+								<select name="childClass" class="form-control" id="childClass"></select>
+							</td>
+							<td>报告地址：</td>
+							<td colspan="5" width="1000"><input type="text" class="form-control" name="reportUrl" id="" value="" readonly="readonly" /></td>
+						</tr>
+						<tr>
+							<td width="100">　报告标题：</td>
+							<td colspan="5"><input type="text" class="form-control" name="subTitle" id="" value="" /></td>
+							<td width="100">TITLE：</td>
+							<td colspan="5"><input type="text" class="form-control" name="title" id="" value="" readonly="readonly" /></td>
+						</tr>
+						<tr>
+							<td width="100">*报告核心词：</td>
+							<td colspan="5"><input type="text" class="form-control" name="coreKeywords" id="" value="" oninput="setReportUrl(this)" /></td>
+							<!--<td width="100">页内关键词：</td>-->
+							<!--<td ><input type="hidden" class="form-control" name="subKeywords" id="" value="润滑油临氢降凝催化剂" /></td>-->
+							<td>keywords：</td>
+							<td colspan="5"><input type="text" placeholder="keywords与页内关键词合并" class="form-control" name="keywords" id="" value="" readonly="readonly" /></td>
+						</tr>
+						<tr>
+							<td width="100">相关报告：</td>
+							<td><input type="text" class="form-control" name="relatedReport" id="" value="" /></td>
+							<td width="100">最新修订：</td>
+							<td><input type="text" class="form-control" name="latestRevision" id="" value="" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" /></td>
+							<td>首次发布：</td>
+							<td><input type="text" class="form-control" name="postTime" id="" value="" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" /></td>
+							<td width="100">description：</td>
+							<td colspan="5"><input type="text" class="form-control" name="description" id="" value="" readonly="readonly" /></td>
+						</tr>
+						<tr>
+							<td width="100">双版本价格：</td>
+							<td><input type="text" class="form-control" name="doubleVersion" id="" value="" /></td>
+							<td width="100">电子版价格：</td>
+							<td><input type="text" class="form-control" name="pdfPrice" id="" value="" /></td>
+							<td width="100">纸介版价格：</td>
+							<td><input type="text" class="form-control" name="entityPrice" id="" value="" /></td>
+							<td width="100">报告主编：</td>
+							<td><input type="text" class="form-control" name="reportAuthor" id="" value="" /></td>
+
+							<td width="100">交付方式：</td>
+							<td><input type="text" class="form-control" name="deliveryMode" id="" value="" /></td>
+							<td width="100">报告格式：</td>
+							<td><input type="text" class="form-control" name="reportFormat" id="" value="" /></td>
+						</tr>
+						<tr>
+							<td width="100">报告简介：</td>
+							<td colspan="8"><textarea class="form-control" rows="5" name="reportSummary" id="reportSummary"/></textarea>
+								<td><button type="submit" id="addNewsBtn" class="btn btn-md btn-success">更新</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-md btn-default" type="reset" onclick="$('#reportSummary').text('')">重置</button></td>
+							</td>
+						</tr>
+						<tr>
+							<td width="100">报告目录：</td>
+							<td colspan="11"><textarea id="reportEdit" class="form-control" rows="8" name="reportCatalog" placeholder="报告目录" /></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="btnLeft" colspan="11"><button type="submit" id="addNewsBtn" class="btn btn-md btn-success">更新</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-md btn-default" type="reset" onclick="$('#reportSummary').text('')">重置</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+		<script src="/lib/js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/lib/js/toPinYin.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/lib/My97DatePicker/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script charset="utf-8" src="/lib/ueditor/kindeditor.js"></script>
+		<script charset="utf-8" src="/lib/ueditor/lang/zh_CN.js"></script>
+		<script charset="utf-8" src="/lib/ueditor/kEditorConfig.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				getSelectFill()
+				fillAllInput({{reportId}})
+			})
+			
+			function getSelectFill() {
+					//获取栏目数据填充
+					$.get(ajaxConfig.reportClassList, function(reslut) {
+						var html = '',
+							childClassInit = '';
+						reslut.forEach(function(val, ind) {
+							if(val.id == {{ firstClass }}) {
+								val.child.forEach(function(v, i) {
+									childClassInit += '<option value=' + v.id + '>' + v.sub_title + '</option>'
+								})
+							}
+							html += '<option value=' + val.id + '>' + val.sub_title + '</option>'
+						})
+						$("#fristClass").empty().append(html).val({{firstClass }});
+						$("#childClass").empty().append(childClassInit).val({{ childClass }});
+
+						//有数据后切换子分类
+						$(".main").on('change', '#fristClass', function() {
+							var fristId = $("#fristClass").find("option:selected").val(),
+								childClassData = '';
+							reslut.forEach(function(val, ind) {
+								if(val.id == fristId) {
+									val.child.forEach(function(v, i) {
+										childClassData += '<option value=' + v.id + '>' + v.sub_title + '</option>'
+									})
+								}
+							})
+							$("#childClass").empty().append(childClassData);
+						})
+
+						//编辑提交报告数据
+						$("#reportForm").on("submit", function(evt) {
+							evt.preventDefault();
+							editor2.sync();
+							var action = $(this).attr('action');
+							var $container = $(this).closest('.main');
+							var form = $(this).closest('#reportForm').serializeObject();
+							$.ajax({
+								url: action,
+								type: 'post',
+								data: form,
+								success: function(res) {
+									alert('添加成功!');
+									window.location.reload();
+								},
+								error: function(err) {
+									if(err) {
+										alert(err.responseText)
+									}
+								}
+							})
+
+						})
+					})
+				}
+			
+			
+			function fillAllInput(id){
+				$.get(ajaxConfig.reports + '/' + id,function(res){
+					console.log(res)
+					$('input[name="reportUrl"]').val(res[0].report_url);
+					$('input[name="subTitle"]').val(res[0].subTitle);
+					$('input[name="coreKeywords"]').val(res[0].core_keywords);
+					$('input[name="doubleVersion"]').val(res[0].double_version);
+					$('input[name="title"]').val(res[0].title);
+					$('input[name="keywords"]').val(res[0].keywords);
+					$('input[name="description"]').val(res[0].description);
+					$('input[name="reportAuthor"]').val(res[0].report_author);
+					$('input[name="subKeywords"]').val(res[0].subKeywords);
+					$('input[name="deliveryMode"]').val(res[0].delivery_mode);
+					$('input[name="reportFormat"]').val(res[0].report_format);
+					$('input[name="pdfPrice"]').val(res[0].pdf_price);
+					$('input[name="entityPrice"]').val(res[0].entity_price);
+					$('input[name="postTime"]').val(formatDate(res[0].post_time));
+					$('textarea[name="reportSummary"]').text(res[0].report_summary);
+					
+					editor2.html(res[0].report_catalog);
+				})
+			}
+
+			function setReportUrl(_this) {
+				$('input[name="reportUrl"]').val('/report/' + ConvertPinyin(_this.value) + '.html')
+			}
+		</script>
+	</body>
+
+</html>
