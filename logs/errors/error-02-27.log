@@ -1,0 +1,225 @@
+[2017-02-27 12:02:42.076] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 12:04:01.523] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 12:04:10.632] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 12:05:32.043] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 12:08:56.262] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 14:09:54.351] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 14:19:30.677] [ERROR] access - POST /api/boffins
+[2017-02-27 14:23:15.801] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\controllers\api_boffins.controller.js { Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=antd&oq=validate&' at line 1
+    at Query.Sequence._packetToError (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:52:14)
+    at Query.ErrorPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Query.js:83:18)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:141:48)
+    at PoolConnection.query (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:214:25)
+    at C:\Users\admin\Desktop\privateGit\ZZCMS\lib\db.lib.js:20:14
+    at Ping.onOperationComplete [as _callback] (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Pool.js:108:5)
+    at Ping.Sequence.end (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:86:24)
+    at Ping.Sequence.OkPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:95:8)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  index: 0,
+  type: 'database' }
+[2017-02-27 14:23:15.812] [ERROR] access - POST /api/boffins
+[2017-02-27 14:29:22.312] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\controllers\api_boffins.controller.js { Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=antd&oq=validate&' at line 1
+    at Query.Sequence._packetToError (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:52:14)
+    at Query.ErrorPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Query.js:83:18)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:141:48)
+    at PoolConnection.query (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:214:25)
+    at C:\Users\admin\Desktop\privateGit\ZZCMS\lib\db.lib.js:20:14
+    at Ping.onOperationComplete [as _callback] (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Pool.js:108:5)
+    at Ping.Sequence.end (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:86:24)
+    at Ping.Sequence.OkPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:95:8)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  index: 0,
+  type: 'database' }
+[2017-02-27 14:29:22.319] [ERROR] access - POST /api/boffins
+[2017-02-27 14:29:46.625] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\controllers\api_boffins.controller.js { Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=antd&oq=validate&' at line 1
+    at Query.Sequence._packetToError (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:52:14)
+    at Query.ErrorPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Query.js:83:18)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:141:48)
+    at PoolConnection.query (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:214:25)
+    at C:\Users\admin\Desktop\privateGit\ZZCMS\lib\db.lib.js:20:14
+    at Ping.onOperationComplete [as _callback] (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Pool.js:108:5)
+    at Ping.Sequence.end (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:86:24)
+    at Ping.Sequence.OkPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:95:8)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  index: 0,
+  type: 'database' }
+[2017-02-27 14:29:46.633] [ERROR] access - POST /api/boffins
+[2017-02-27 14:53:49.414] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 15:10:55.182] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 15:11:15.937] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 15:13:42.054] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 15:19:49.330] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 15:59:06.669] [ERROR] access - GET /api/boffins/3
+[2017-02-27 15:59:30.089] [ERROR] access - GET /api/boffins/3
+[2017-02-27 16:00:40.460] [ERROR] access - GET /api/boffins/3
+[2017-02-27 16:02:57.828] [ERROR] access - GET /api/boffins/3
+[2017-02-27 16:03:31.165] [ERROR] access - GET /api/boffins/3
+[2017-02-27 16:03:51.848] [ERROR] access - GET /api/boffins/3
+[2017-02-27 16:04:08.808] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:04:27.901] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:04:33.389] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:05:08.821] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:05:34.387] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:05:35.132] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:05:35.304] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:05:35.503] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:05:35.677] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:05:35.879] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:05:36.092] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:05:36.263] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:05:36.453] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:07:15.893] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:07:17.502] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:08:28.553] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:08:34.292] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:10:03.686] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:12:02.045] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:12:02.965] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:12:06.125] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:12:06.352] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:12:06.565] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:12:06.736] [ERROR] access - GET /api/boffins/4
+[2017-02-27 16:38:15.164] [ERROR] access - PUT /api/boffins
+[2017-02-27 16:41:46.033] [ERROR] access - PUT /api/boffins/11
+[2017-02-27 16:43:55.946] [ERROR] access - PUT /api/boffins/11
+[2017-02-27 16:44:25.067] [ERROR] access - PUT /api/boffins/11
+[2017-02-27 16:50:33.350] [ERROR] access - GET /robots.txt
+[2017-02-27 17:02:26.014] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:04:56.080] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:05:08.053] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:05:38.865] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:05:51.927] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:09:31.998] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:09:47.553] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:11:54.089] [ERROR] access - GET /lib/fonts/glyphicons-halflings-regular.woff2
+[2017-02-27 17:11:54.111] [ERROR] access - GET /lib/fonts/glyphicons-halflings-regular.woff
+[2017-02-27 17:11:54.123] [ERROR] access - GET /lib/fonts/glyphicons-halflings-regular.ttf
+[2017-02-27 17:13:12.246] [ERROR] access - GET /lib/fonts/glyphicons-halflings-regular.woff2
+[2017-02-27 17:13:12.252] [ERROR] access - GET /lib/fonts/glyphicons-halflings-regular.woff
+[2017-02-27 17:13:12.259] [ERROR] access - GET /lib/fonts/glyphicons-halflings-regular.ttf
+[2017-02-27 17:13:15.842] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:13:55.896] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:13:57.251] [ERROR] access - GET /lib/fonts/glyphicons-halflings-regular.woff2
+[2017-02-27 17:13:57.294] [ERROR] access - GET /lib/fonts/glyphicons-halflings-regular.woff
+[2017-02-27 17:13:57.315] [ERROR] access - GET /lib/fonts/glyphicons-halflings-regular.ttf
+[2017-02-27 17:14:22.283] [ERROR] access - GET /lib/fonts/glyphicons-halflings-regular.woff2
+[2017-02-27 17:14:22.288] [ERROR] access - GET /lib/fonts/glyphicons-halflings-regular.woff
+[2017-02-27 17:14:22.292] [ERROR] access - GET /lib/fonts/glyphicons-halflings-regular.ttf
+[2017-02-27 17:14:39.827] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:14:41.822] [ERROR] access - GET /lib/fonts/glyphicons-halflings-regular.woff2
+[2017-02-27 17:15:22.810] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:15:27.863] [ERROR] access - GET /lib/fonts/glyphicons-halflings-regular.woff2
+[2017-02-27 17:15:27.893] [ERROR] access - GET /lib/fonts/glyphicons-halflings-regular.woff
+[2017-02-27 17:15:27.902] [ERROR] access - GET /lib/fonts/glyphicons-halflings-regular.ttf
+[2017-02-27 17:16:20.870] [ERROR] access - GET /src/fonts/glyphicons-halflings-regular.woff2
+[2017-02-27 17:16:21.004] [ERROR] access - GET /src/fonts/glyphicons-halflings-regular.woff
+[2017-02-27 17:16:21.021] [ERROR] access - GET /src/fonts/glyphicons-halflings-regular.ttf
+[2017-02-27 17:16:22.362] [ERROR] access - GET /src/fonts/glyphicons-halflings-regular.woff2
+[2017-02-27 17:16:22.494] [ERROR] access - GET /src/fonts/glyphicons-halflings-regular.woff
+[2017-02-27 17:16:22.513] [ERROR] access - GET /src/fonts/glyphicons-halflings-regular.ttf
+[2017-02-27 17:16:36.042] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:16:45.897] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:17:53.452] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:20:52.483] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:21:00.578] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:29:08.683] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:30:37.724] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:31:42.315] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:32:52.809] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:33:03.211] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:33:19.389] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:48:28.411] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:52:23.135] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:52:46.972] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:54:20.653] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:54:42.476] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:56:20.563] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:56:39.756] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:58:42.505] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:58:45.249] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:58:52.460] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 17:59:03.095] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:00:02.398] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:00:19.856] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:00:30.833] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:00:43.294] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:00:56.498] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:02:30.656] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:03:14.826] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:03:21.998] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:03:25.748] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:03:49.555] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:06:45.180] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:11:11.639] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:11:19.402] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:14:26.742] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:14:48.531] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:15:08.458] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:17:41.696] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:17:55.064] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:18:07.260] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:18:14.971] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:18:23.179] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:18:34.851] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:20:02.895] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:20:06.236] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:20:51.119] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:21:29.857] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:21:33.108] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:21:39.498] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:22:03.058] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:22:38.049] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:22:45.422] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:23:10.554] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:23:49.043] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:24:05.270] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:24:23.323] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:24:43.286] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:25:10.814] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:25:20.742] [ERROR] access - GET /lib/js/bootstrap-select.js.map
+[2017-02-27 18:26:33.151] [ERROR] access - GET /lib/js/bootstrap-select.js.map

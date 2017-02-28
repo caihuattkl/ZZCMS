@@ -10,7 +10,9 @@ ajaxConfig.reportClass = "/api/reportClass"; //报告分类增删改 带参数
 
 //用户
 ajaxConfig.users = "/api/users"; //用户
-
+//研究员
+ajaxConfig.boffins = "/api/boffins"; //增删改 带参数
+ajaxConfig.boffinsList = "/api/boffins/list"; 
 //报告
 ajaxConfig.reportsList = "/api/reports/list"; //报告
 ajaxConfig.reports = "/api/reports"; //报告增删改 带参数
@@ -111,21 +113,17 @@ Array.prototype._splice = function(i) {
 };
 
 //提交表单
-$.fn.validataForm = function(opt1, opt2, callback) {
+$.fn.validataForm = function(opt, callback) {
 	$("[data-toggle='tooltip']").tooltip();
 	$(this).validate({
-		rules: opt1,
-		messages: opt2,
+		rules: opt.rules,
+		messages: opt.messages,
 		errorPlacement: function(error, element) {
-			$(element).tooltip('destroy'); /*必需*/
-			$(element).attr({
-				'title': $(error).text(),
-				'style': 'border:1px solid red',
-				'data-content': $(error).text()
-			}).tooltip('show');
+			$(element).tooltip('destroy'); /*隐藏并销毁元素的提示工具*/
+			$(element).attr({'title': $(error).text(),'data-content': $(error).text()}).tooltip('show');
 		},
 		highlight: function(element, errorClass, validClass) {
-			$(element).tooltip('show');
+			$(element).attr({'data-placement':'auto right bottom','style': 'border:1px solid red'}).tooltip('show');
 		},
 		unhighlight: function(element, errorClass, validClass) {
 			$(element).tooltip('destroy').removeClass(errorClass).removeAttr('style');
@@ -134,5 +132,9 @@ $.fn.validataForm = function(opt1, opt2, callback) {
 			callback(e, form)
 		}
 	});
-
+	//增加自定义验证
+	$.validator.addMethod("dates",function(value,element,params){  
+                var dates= /^[\d]{4}-[\d]{2}-[\d]{2}\s[\d]{2}:[\d]{2}:[\d]{2}$/;  
+                return this.optional(element)||(dates.test(value));  
+            },"日期格式不正确!必须为YY-MM-DD hh:mm:ss");  
 }

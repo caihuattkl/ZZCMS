@@ -57,8 +57,8 @@
 			//获取报告公共方法
 			function getReports(res, _class) {
 				var html = "<tr><td colspan=5>没有数据哦...</td></tr>";
-				if(res && res.length != 0 && _class && _class.length != 0) {
-					html = "";
+				if(res && res.length != 0) {
+					html='';
 					res.forEach(function(val, index) {
 						_class.forEach(function(v, i) {
 							if(val.frist_class == v.id) {
@@ -71,18 +71,15 @@
 						})
 					})
 				}
-				$("#reportsBox tbody").empty().append(html);
+					$("#reportsBox tbody").empty().append(html);
 			}
 
 			function getReportsList() {
 				$.get(ajaxConfig.reportsList, function(res) {
 					$.get(ajaxConfig.reportClassList, function(_class) {
-						if(res && res.length != 0 && _class && _class.length != 0) {
-							getReports(res, _class)
-						}
+						getReports(res, _class)
 					})
 				})
-
 			}
 
 			//获取分类列表,填充select

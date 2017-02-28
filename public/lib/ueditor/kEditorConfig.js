@@ -12,7 +12,7 @@ KindEditor.ready(function(ke) {
 		filterMode: true,
 		width: '100%',
 		items: [
-			'source','|','reportFormat'
+			'source','plainpaste','|','reportFormat'
 		]
 	});
 	
