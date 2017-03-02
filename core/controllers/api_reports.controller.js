@@ -19,7 +19,6 @@ exports.putReportUrl=function(id,res){
 			logger[err.type]().error(__filename, err);
 			return res.status(500).end();
 		}
-		console.log(rows)
 		res.status(200).json(rows);
 	})
 }

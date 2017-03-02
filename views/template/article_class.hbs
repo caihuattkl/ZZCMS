@@ -6,13 +6,13 @@
 	<li>
 			<a href="/">首页</a>
 	</li>
-	{{#each conNav}}
+	{{#each navbarMenu}}
 	<li>
-			<a href="/">{{subTitle}}</a>
+			<a href="/{{directoryName}}/{{id}}">{{subTitle}}</a>
 	</li>
 	{{/each}}
 {{/contentFor}}
-{{>head_article}} 
+{{>head_article}}
 <div class="plan">
 				<div class="left">
 					<ul class="crumbs" id="crumbs">
@@ -20,10 +20,10 @@
 							<a href="/"><img src="/images/logo_fnc.jpg" /></a>
 						</li>
 						<li>
-							<a href="/{{crumbs.0.directoryName}}/{{crumbs.0.id}}">{{crumbs.0.subTitle}}</a>
+							<a href="/{{menus.directoryName}}/{{menus.id}}">{{menus.subTitle}}</a>
 						</li>
 						<li>
-							<a href="/{{crumbs.0.directoryName}}/{{crumbs.1.directoryName}}/{{crumbs.1.id}}">{{crumbs.1.subTitle}}</a>
+							<a href="../{{crumbs.directoryName}}/{{crumbs.id}}">{{crumbs.subTitle}}</a>
 						</li>
 					</ul>
 				</div>
@@ -33,11 +33,11 @@
 			<div class="nav">
 				<ul>
 					<li>
-						<a href="/{{crumbs.0.directoryName}}/{{crumbs.0.id}}">首页</a>
+						<a href="/{{menus.directoryName}}/{{menus.id}}"><strong>{{menus.subTitle}}</strong></a>
 					</li>
-					{{#each classNav}}
+					{{#each menus.child}}
 					<li>
-						<a href="../{{crumbs.0.directoryName}}{{directoryName}}/{{id}}">{{subTitle}}</a>
+						<a href="../{{directoryName}}/{{id}}">{{subTitle}}</a>
 					</li>
 					{{/each}}
 				</ul>
@@ -49,11 +49,18 @@
 						<li>
 							<h3 class="title"><a href="/{{newsUrl}}" target="_blank">{{subTitle}}</a></h3>
 							<div class="dec">
-								<a href="/{{newsUrl}}" target="_blank">{{nContentStr nContent}}...</a>
+								<a href="/{{newsUrl}}" target="_blank">{{classNewsDescription nContent}}...</a>
 							</div>
 							</li>
 						{{/each}}
 					</ul>
+					<ul class="pagination">
+					<li><a href="/">上一页</a></li>
+					<li><a href="/">1</a></li>
+					<li><a href="/">2</a></li>
+					<li><a href="/">3</a></li>
+				<li><a href="/">下一页</a></li>
+				</ul>
 				</div>
 				<div class="right">
 					<img src="http://d8.sina.com.cn/pfpghc2/201612/31/427c8c37e06046e492752ba53a40e216.jpg" />

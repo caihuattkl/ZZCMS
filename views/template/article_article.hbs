@@ -1,14 +1,14 @@
 {{#contentFor "cssStyle"}}<link href="/dist/article_article.css" rel="stylesheet" media="screen" type="text/css" /> {{/contentFor}} 
-{{#contentFor "title"}}{{subTitle}}_中金产业_中金产业咨询网{{/contentFor}}
-{{#contentFor "keywords"}}{{keywords}}{{/contentFor}}
-{{#contentFor "description"}}{{description}}{{/contentFor}}
+{{#contentFor "title"}}{{articles.subTitle}}_中金产业_中金产业咨询网{{/contentFor}}
+{{#contentFor "keywords"}}{{articles.keywords}}{{/contentFor}}
+{{#contentFor "description"}}{{articles.description}}{{/contentFor}}
 {{#contentFor "NavConn"}}
 	<li>
 			<a href="/">首页</a>
 	</li>
-	{{#each conNav}}
+	{{#each navbarMenu}}
 	<li>
-			<a href="/">{{subTitle}}</a>
+			<a href="/{{directoryName}}/{{id}}">{{subTitle}}</a>
 	</li>
 	{{/each}}
 {{/contentFor}}
@@ -20,10 +20,10 @@
 					<a href="/"><img src="/images/logo_fnc.jpg" /></a>
 				</li>
 				<li>
-					<a href="/{{classFirstDirectoryName}}/{{classFirstId}}">{{classFirstText}}</a>
+					<a href="/{{articles.classFirstPath}}/{{articles.classFirstId}}">{{articles.classFirstText}}</a>
 				</li>
 				<li>
-					<a href="/{{classFirstDirectoryName}}/{{classChildDirectoryName}}/{{classChildId}}">{{classChildText}}</a>
+					<a href="/{{articles.classFirstPath}}/{{articles.classChildPath}}/{{articles.classChildId}}">{{articles.classChildText}}</a>
 				</li>
 				<li>正文</li>
 			</ul>
@@ -33,7 +33,7 @@
 	<div class="articleBox">
 		<div class="left">
 			<div class="newsinfo">
-				<h1>{{subTitle}}</h1>
+				<h1>{{articles.subTitle}}</h1>
 				<div class="date">
 					<span class="blue">{{time}}</span>
 					<a href="/" target="_blank">中智顾问</a>
@@ -43,11 +43,11 @@
 				<div class="newsContent" id="ncontent">{{{nContent}}}
 				{{#ifPaging countPage}}
 				<ul class="pagination">
-					<li><a href="/{{prePageHlp currentPage newsUrl countPage}}">上一页</a></li>
+					<li><a href="/{{prePageHlp currentPage articles.newsUrl countPage}}">上一页</a></li>
 				{{#each paging}}
 					<li><a href="/{{newsUrl}}" {{#currentCss ../currentPage num}} {{/currentCss}}>{{num}}</a></li>
 				{{/each}}
-				<li><a href="/{{nextPageHlp currentPage newsUrl countPage}}">下一页</a></li>	
+				<li><a href="/{{nextPageHlp currentPage articles.newsUrl countPage}}">下一页</a></li>	
 				</ul>
 				{{/ifPaging}}
 				</div>

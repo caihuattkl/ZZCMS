@@ -1,5 +1,7 @@
 var exphbs = require('express-hbs');
-exphbs.registerHelper('if_index', function(v1, v2, opt) {
+
+//频道头条设置
+exphbs.registerHelper('ifTop', function(v1, v2, opt) {
 	if(v1 > v2) {
 		//满足添加继续执行
 		return opt.fn(this);
@@ -8,7 +10,9 @@ exphbs.registerHelper('if_index', function(v1, v2, opt) {
 	}
 });
 
-exphbs.registerHelper('if_index_list', function(v1, v2, opt) {
+
+//频道头条在实时新闻中排除掉
+exphbs.registerHelper('ifRemoveTop', function(v1, v2, opt) {
 	if(v1 > v2) {
 		//满足添加继续执行
 		return opt.inverse(this);
@@ -34,15 +38,15 @@ exphbs.registerHelper('if_channelSlideIn', function(v1, v2,opt) {
 	}
 });
 
-//频道新闻
+//频道栏目,根据栏目id 对比分发新闻
 exphbs.registerHelper('if_newsDetails', function(v1, v2, opt) {
 	if(v1 == v2) {
 		return opt.fn(this);
 	}
 });
 
-//频道新闻
-exphbs.registerHelper('nContentStr', function(v1, v2, opt) {
+//栏目页新闻列表 摘要信息处理
+exphbs.registerHelper('classNewsDescription', function(v1, v2, opt) {
 	return this.nContent.replace(/<[^>]+>|\s/g, "").substr(0, 100)
 });
 

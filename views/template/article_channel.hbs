@@ -10,7 +10,7 @@
 <li>
 	<a href="/">首页</a>
 </li>
-{{#each conNav}}
+{{#each navbarMenu}}
 <li>
 	<a href="/{{directoryName}}/{{id}}">{{subTitle}}</a>
 </li>
@@ -35,9 +35,9 @@
 	<div class="nav">
 		<ul>
 			<li>
-				<a href="./{{id}}">首页</a>
+				<a href="/{{directoryName}}/{{id}}"><strong>{{subTitle}}</strong></a>
 			</li>
-			{{#each childClass}}
+			{{#each menus.child}}
 			<li>
 				<a href="{{directoryName}}/{{id}}">{{subTitle}}</a>
 			</li>
@@ -66,27 +66,32 @@
 				{{>channel-slide}}
 			{{/if_channelSlide}}
 			<div class="left2">
-				{{#each constantlyNews}} {{#if_index 1 @index}}
-				<h2><a href="/{{newsUrl}}" target="_blank" title="{{subTitle}}">{{subTitle}}</a></h2> {{/if_index}} {{/each}}
+				{{#each constantlyNews}}
+					{{#ifTop 1 @index}}
+				<h2><a href="/{{newsUrl}}" target="_blank" title="{{subTitle}}">{{subTitle}}</a></h2>
+					{{/ifTop}} 
+				{{/each}}
 				<ul class="list01 u-list-center" data-client="scroll">
-					{{#each constantlyNews}} {{#if_index_list 1 @index}}
+					{{#each constantlyNews}} {{#ifRemoveTop 1 @index}}
 					<li>
 						<a target="_blank" href="/{{newsUrl}}" title="{{subTitle}}">{{subTitle}}</a>
 					</li>
-					{{/if_index_list}} {{/each}}
+					{{/ifRemoveTop}} {{/each}}
 				</ul>
 			</div>
 			<!--图片分割-->
 			<div class="channel-ad-001"></div>
-			{{#each classAll}}
+			{{#each classBlock.child}}
 			<div class="left3">
 				<h3>{{subTitle}}<a href="{{directoryName}}/{{id}}"><span class="more rf">更多...&nbsp;</span></a></h3>
 				<ul class="list01 u-list-center" data-client="scroll">
-					{{#each ../allNews}} {{#if_newsDetails ../id classChildId}}
+					{{#each ../classBlockNews}} 
+					{{#if_newsDetails ../id classChildId}}
 					<li>
 						<a target="_blank" href="/{{newsUrl}}" title="{{subTitle}}">{{subTitle}}</a>
 					</li>
-					{{/if_newsDetails}} {{/each}}
+					{{/if_newsDetails}}
+					{{/each}}
 				</ul>
 			</div>
 			{{/each}}

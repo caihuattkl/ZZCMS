@@ -3,7 +3,7 @@ var _ = require('lodash');
 var async = require('async');
 var hmModel = require("../models/home.model");
 
-//缓存首页所有数据,每个5分钟刷新数据
+//缓存首页所有数据,间隔5分钟刷新数据
 module.exports = function(callback) {
 	var homeDataCache = cache.get('homeDataCache');
 	if(homeDataCache) {

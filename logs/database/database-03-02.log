@@ -1,0 +1,86 @@
+[2017-03-02 10:49:25.454] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 10:50:07.185] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 11:01:59.691] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 11:02:16.302] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 11:02:17.973] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 11:52:29.843] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 11:52:31.642] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 11:52:36.899] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 11:53:18.674] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 11:53:25.267] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 12:09:01.951] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 12:09:07.744] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 12:09:11.223] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 12:09:12.910] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 12:09:14.393] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 12:09:16.017] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 12:09:17.524] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 12:09:18.925] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 12:19:42.775] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 12:19:52.344] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 12:31:39.868] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 12:38:00.019] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 12:38:14.139] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 13:41:10.955] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 13:41:13.875] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 13:41:16.322] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 13:41:18.461] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 13:45:31.683] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js { Error: ER_WRONG_NUMBER_OF_COLUMNS_IN_SELECT: The used SELECT statements have a different number of columns
+    at Query.Sequence._packetToError (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:52:14)
+    at Query.ErrorPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Query.js:83:18)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:141:48)
+    at PoolConnection.query (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:214:25)
+    at C:\Users\admin\Desktop\privateGit\ZZCMS\lib\db.lib.js:20:14
+    at Handshake.onConnect [as _callback] (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Pool.js:63:7)
+    at Handshake.Sequence.end (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:86:24)
+    at Handshake.Sequence.OkPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:95:8)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+  code: 'ER_WRONG_NUMBER_OF_COLUMNS_IN_SELECT',
+  errno: 1222,
+  sqlState: '21000',
+  index: 0 }
+[2017-03-02 13:45:41.942] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js { Error: ER_WRONG_NUMBER_OF_COLUMNS_IN_SELECT: The used SELECT statements have a different number of columns
+    at Query.Sequence._packetToError (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:52:14)
+    at Query.ErrorPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Query.js:83:18)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:141:48)
+    at PoolConnection.query (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:214:25)
+    at C:\Users\admin\Desktop\privateGit\ZZCMS\lib\db.lib.js:20:14
+    at Handshake.onConnect [as _callback] (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Pool.js:63:7)
+    at Handshake.Sequence.end (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:86:24)
+    at Handshake.Sequence.OkPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:95:8)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+  code: 'ER_WRONG_NUMBER_OF_COLUMNS_IN_SELECT',
+  errno: 1222,
+  sqlState: '21000',
+  index: 0 }
+[2017-03-02 14:24:53.165] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js channelNews the data is empty
+[2017-03-02 14:24:53.178] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 14:25:20.864] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 14:25:57.415] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 14:31:47.372] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 14:51:05.107] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 14:51:12.943] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty

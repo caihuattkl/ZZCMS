@@ -160,13 +160,10 @@
 					url: action,
 					type: 'post',
 					data: form,
-					success: function(res) {
-						if(res.code == 200) {
-							alert(res.message);
-							location.reload();
-							return;
-						}
-						alert(res.message);
+					success: function(res,success) {
+							if(success=='success')
+							alert('添加成功!');
+							window.location.reload();
 					},
 					error: function() {
 						alert("添加失败!请刷新重试!")

@@ -4,40 +4,32 @@ var _ = require('lodash');
 var directorys = require('../models/directorys.model');
 
 //缓存顶级和子目录信息
-var cacheDirectory = function(req, res, callback) {
-	var cacheDirectory = cache.get('cacheDirectory');
-	if(cacheDirectory) {
-		var oUrl = req.originalUrl,dirs;
-		cacheDirectory.fristDirectory.forEach(function(val, index) {
-			if(new RegExp(val.directoryName).test(oUrl.split("/")[1])) {
-				dirs = val.directoryName;
-			}
-		})
-		callback(null, _.cloneDeep(dirs));
+var cacheDirectory = function(callback) {
+//	var _url = req.url.substr(1).split('/'),dirs;
+	var cacheDir = cache.get('cacheDirs');
+	if(cacheDir) {
+//		for(var i=0;i<cacheDir.length;i++){
+//			if(cacheDir[i].directoryName==_url[0]) {
+//					dirs = cacheDir[i].directoryName;
+//				}
+//		}
+		callback(null,_.cloneDeep(cacheDir))
 	} else {
-		async.parallel({
-			fristDirectory: function(done) {
-				directorys.fristDirectory(function(fristDirectoryData) {
-					done(null, fristDirectoryData);
-				})
-
-			},
-			childDirectory: function(done) {
-				directorys.childDirectory(function(childDirectoryData) {
-					done(null, childDirectoryData);
-				})
+		async.parallel([
+			function(callback) {
+				directorys(callback)
 			}
-		}, function(error, result) {
-			cache.set('cacheDirectory', result, 1000 * 60 * 60 * 24);
-			var oUrl = req.originalUrl,dirs;
-			if(!error) {
-				result.fristDirectory.forEach(function(val, index) {
-					if(new RegExp(val.directoryName).test(oUrl.split("/")[1])) {
-						dirs = val.directoryName;
-					}
-				})
-				callback(error, dirs);
+		], function(error, result) {
+			if(error) {
+				return res.status(500).end();
 			}
+//			result[0].forEach(function(val, index) {
+//				if(val.directoryName==_url[0]) {
+//					dirs = val.directoryName;
+//				}
+//			})
+			callback(null,result[0])
+			cache.set('cacheDirs', result[0], 1000 * 60 * 60 * 24);
 		});
 	}
 };

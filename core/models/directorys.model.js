@@ -1,17 +1,23 @@
 var db = require("../../lib/db.lib.js");
 
-exports.fristDirectory = function(callback) {
-	var sql = 'select directoryName from news_class where firstId ="0"';
-	db.query(sql, function(err, rows1) {
-		if(err) { throw err;}
-		callback(rows1)
-	})
-}
-
-exports.childDirectory = function(callback) {
-	var sql = 'select directoryName from news_class where firstId <>"0"';
-	db.query(sql, function(err, rows2) {
-		if(err) { throw err;}
-		callback(rows2)
+module.exports = function(callback) {
+	var sql = 'select * from news_class',obj = {},arr = [];
+	db.query(sql, function(err, rows) {
+		if(err || !rows.length) {
+			return callback(err || 'directorys the data  is null')
+		}
+		rows.forEach(function(val, index) {
+			if(val.firstId == 0) {
+				obj = val;
+				obj.child = [];
+				rows.forEach(function(v, i) {
+					if(v.firstId == obj.id) {
+						obj.child.push(v);
+					}
+				})
+				arr.push(obj)
+			}
+		})
+		callback(null, arr)
 	})
 }
