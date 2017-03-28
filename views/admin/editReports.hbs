@@ -7,19 +7,19 @@
 		<link rel="stylesheet" href="/src/less/addReport.css" />
 		<style>
 			.ke-icon-diyFormat {
-				background: url("/lib/ueditor/themes/default/paiban.gif");
+				background: url("/src/lib/ueditor/themes/default/paiban.gif");
 				width: 16px;
 				height: 16px;
 			}
 			
 			.ke-icon-reportFormat {
-				background: url("/lib/ueditor/themes/default/paiban.gif");
+				background: url("/src/lib/ueditor/themes/default/paiban.gif");
 				width: 16px;
 				height: 16px;
 			}
 			
 			.ke-icon-paging {
-				background: url("/lib/ueditor/themes/default/fenye.gif");
+				background: url("/src/lib/ueditor/themes/default/fenye.gif");
 				width: 16px;
 				height: 16px;
 			}
@@ -132,20 +132,20 @@
 				</div>
 			</div>
 		</div>
-		<script src="/lib/js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/lib/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/lib/js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/lib/js/bootstrap-select.min.js"></script>
-		<script src="/lib/js/toPinYin.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/lib/My97DatePicker/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/lib/js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/lib/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/lib/js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/lib/js/bootstrap-select.min.js"></script>
+		<script src="/src/lib/js/toPinYin.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/lib/My97DatePicker/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/src/js/common.js" type="text/javascript" charset="utf-8"></script>
-		<script charset="utf-8" src="/lib/ueditor/kindeditor.js"></script>
-		<script charset="utf-8" src="/lib/ueditor/lang/zh_CN.js"></script>
-		<script charset="utf-8" src="/lib/ueditor/kEditorConfig.js"></script>
+		<script charset="utf-8" src="/src/lib/ueditor/kindeditor.js"></script>
+		<script charset="utf-8" src="/src/lib/ueditor/lang/zh_CN.js"></script>
+		<script charset="utf-8" src="/src/lib/ueditor/kEditorConfig.js"></script>
 		<script type="text/javascript">
 			$(function() {
 				getSelectFill()
-				fillAllInput({{ reportId }})
+				fillAllInput({{reportId}})
 				
 				//相关报告模态框内容填充
 				$("#relatedReportsModal").on("show.bs.modal", function() {
@@ -188,15 +188,15 @@
 					var html = '',
 						childClassInit = '';
 					reslut.forEach(function(val, ind) {
-						if(val.id == {{ firstClass }}) {
+						if(val.id == {{firstClass}}) {
 							val.child.forEach(function(v, i) {
 								childClassInit += '<option value=' + v.id + '>' + v.sub_title + '</option>'
 							})
 						}
 						html += '<option value=' + val.id + '>' + val.sub_title + '</option>'
 					})
-					$("#fristClass").empty().append(html).val({{ firstClass }});
-					$("#childClass").empty().append(childClassInit).val({{ childClass }});
+					$("#fristClass").empty().append(html).val({{firstClass}});
+					$("#childClass").empty().append(childClassInit).val({{childClass}});
 
 					//有数据后切换子分类
 					$(".main").on('change', '#fristClass', function() {
@@ -284,6 +284,7 @@
 
 			function fillAllInput(id) {
 				$.get(ajaxConfig.reports + '/' + id, function(res) {
+					console.log(res)
 					$('input[name="reportUrl"]').val('/reports/'+res[0].report_url+'.html');
 					$('input[name="subTitle"]').val(res[0].subTitle);
 					$('input[name="coreKeywords"]').val(res[0].core_keywords);
@@ -298,7 +299,7 @@
 					$('input[name="entityPrice"]').val(res[0].entity_price);
 					$('input[name="postTime"]').val(formatDate(res[0].post_time));
 					$('textarea[name="reportSummary"]').text(res[0].report_summary);
-					
+					$('input[name="relatedReport"]').val(res[0].related_report);
 					//获取报告主编数据填充select
 					$.get(ajaxConfig.boffinsList, function(res1) {
 						res1.forEach(function(v, i) {

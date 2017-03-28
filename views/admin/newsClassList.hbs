@@ -28,11 +28,11 @@
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<span data-dismiss="modal" class="close" onclick="common.reload()">&times;</span>
+							<span data-dismiss="modal" class="close">&times;</span>
 							<h5 class="modal-title text-danger">编辑</h5>
 						</div>
 						<div class="modal-body">
-							<form id="modifyNewsClassForm" class="form-horizontal">
+							<form id="modifyNewsClassForm" class="form-horizontal"  action="/api/newsClass" method="put" name="modifyNewsClassForm">
 								<input type="hidden" class="form-control" name="id" value="" placeholder="id" />
 								<div class="form-group">
 
@@ -42,7 +42,7 @@
 									</div>
 									<div class="col-xs-6">
 										<td><input type="text" class="form-control" name="directoryName" value="" placeholder="必须为英文,栏目的目录名称" />
-										<input type="hidden" class="form-control" name="url" value="index.html" placeholder="必须为英文以.html结尾,chanyedongtai.html" /></td>
+											<input type="hidden" class="form-control" name="url" value="index.html" placeholder="必须为英文以.html结尾,chanyedongtai.html" /></td>
 									</div>
 								</div>
 								<div class="form-group">
@@ -92,14 +92,14 @@
 										<label for="time">添加时间:</label>
 									</div>
 									<div class="col-xs-6">
-										<input class="form-control" type="text" id="time" name="time" data-type="fullName" placeholder="发布时间(该项自动填写,如要手动输入,请点击此表单)" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  readonly="readonly"/>
+										<input class="form-control" type="text" id="time" name="time" data-type="fullName" placeholder="发布时间(该项自动填写,如要手动输入,请点击此表单)" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" readonly="readonly" />
 									</div>
 								</div>
 
 								<div class="form-group">
 									<div class="col-xs-3 text-right"></div>
 									<div class="col-xs-3">
-										<button type="button" class="btn btn-sm btn-success" id="modifyNewsClassBtn">修改</button>
+										<button type="submit" class="btn btn-sm btn-success">修改</button>
 										<button class="btn btn-sm btn-warning" data-dismiss="modal">关闭</button>
 									</div>
 								</div>
@@ -121,7 +121,7 @@
 						</div>
 						<div class="modal-body">
 
-							<form id="subNewsClassForm" class="form-horizontal">
+							<form id="subNewsClassForm" class="form-horizontal" action="/api/newsClass" method="post" name="subNewsClassForm">
 
 								<div class="form-group">
 									<div class="col-xs-3 text-right">
@@ -136,7 +136,7 @@
 
 									<div class="col-xs-3 text-right">
 										<em class="cred">*</em>
-										<label for="subTitle">目录地址:</label>
+										<label for="subTitle">目录名称:</label>
 									</div>
 									<div class="col-xs-6">
 										<input type="hidden" class="form-control" name="url" value="index.html" placeholder="html文件名称" />
@@ -190,14 +190,14 @@
 										<label for="time">添加时间:</label>
 									</div>
 									<div class="col-xs-6">
-										<input class="form-control" type="text" id="time" name="time" data-type="fullName" placeholder="发布时间(该项自动填写,如要手动输入,请点击此表单)" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" readonly="readonly"/>
+										<input class="form-control" type="text" id="time" name="time" data-type="fullName" placeholder="发布时间(该项自动填写,如要手动输入,请点击此表单)" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" readonly="readonly" />
 									</div>
 								</div>
 
 								<div class="form-group">
 									<div class="col-xs-3 text-right"></div>
 									<div class="col-xs-3">
-										<button type="button" class="btn btn-sm btn-success" id="subNewsClassBtn">添加</button>
+										<button type="submit" class="btn btn-sm btn-success" id="subNewsClassBtn">添加</button>
 										<button class="btn btn-sm btn-warning" data-dismiss="modal">关闭</button>
 									</div>
 								</div>
@@ -210,10 +210,11 @@
 			</div>
 
 		</div>
-		<script src="/lib/js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/lib/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/lib/My97DatePicker/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/lib/js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/lib/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/lib/js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/lib/My97DatePicker/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(function() {
 				getNewsClassList();
@@ -227,10 +228,7 @@
 				getNewsClassDetails(this);
 			})
 
-			//修改保存
-			$("#modifyNewsClassBtn").click(function() {
-				modifyNewsClassDetails();
-			})
+
 
 			//所有顶级分类,填充数据下拉框
 			$("#newsClassList").on("click", "#subNewsClass", function() {
@@ -241,24 +239,21 @@
 				getNewsFristClassList(id);
 			})
 
-			//添加子分类
-			$("#subNewsClassBtn").click(function() {
-				postSubnewsClass();
-			})
 
 			//删除
 			$("#newsClassList").on("click", "#delClassDetail", function() {
 				$.ajax({
-					type: "delete",
-					url: ajaxConfig.newsClass + "/" + $(this).parents('tr').children("td").html(),
-					dataType: "json",
-					success: function(res) {
-						if(res.code == 200) {
-							alert(res.message);
-							getNewsClassList();
-							return;
-						}
-						alert(res.message)
+						type: "delete",
+						url: ajaxConfig.newsClass + "/" + $(this).parents('tr').children("td").html(),
+						dataType: "json",
+						success: function(res, success) {
+							if(res&&res.code==500){
+								alert(res.msg);
+							}else{
+								if(success=='success')
+								alert("删除成功!");
+								getNewsClassList();
+							}
 					},
 					error: function(res) {
 						alert("请求错误,请重新查询!")
@@ -269,12 +264,12 @@
 			//获取分类列表
 			function getNewsClassList() {
 				$.get(ajaxConfig.newsClassList, function(res) {
-					if(res.code==200&&res.data.length!=0){
-						var html="";
-						res.data.forEach(function(val,index){
-							html+='<tr><td>'+val.id+'</td><td><strong>'+val.subTitle+'</strong></td><td>'+val.directoryName+'</td><td>'+formatDate(val.time)+'</td><td><a class="btn btn-xs btn-success" href="JavaScript:void(0)" id="subNewsClass" >添加子类</a> <a href="javascript:void(0)"  id="modifyClassDetail">修改</a> | <a href="javascript:void(0)" id="delClassDetail">删除</a></td></tr>';
-							val.child.forEach(function(v,i){
-								html+='<tr><td>'+v.id+'</td><td style="text-indent:1em;">'+v.subTitle+'</td><td>'+v.directoryName+'</td><td>'+formatDate(v.time)+'</td><td><a href="javascript:void(0)"  id="modifyClassDetail">修改</a> | <a href="javascript:void(0)" id="delClassDetail">删除</a></td></tr>'
+					if(res.length != 0) {
+						var html = "";
+						res.forEach(function(val, index) {
+							html += '<tr><td>' + val.id + '</td><td><strong>' + val.subTitle + '</strong></td><td>' + val.directoryName + '</td><td>' + formatDate(val.time) + '</td><td><a class="btn btn-xs btn-success" href="JavaScript:void(0)" id="subNewsClass" >添加子类</a> <a href="javascript:void(0)"  id="modifyClassDetail">修改</a> | <a href="javascript:void(0)" id="delClassDetail">删除</a></td></tr>';
+							val.child.forEach(function(v, i) {
+								html += '<tr><td>' + v.id + '</td><td style="text-indent:1em;">' + v.subTitle + '</td><td>' + v.directoryName + '</td><td>' + formatDate(v.time) + '</td><td><a href="javascript:void(0)"  id="modifyClassDetail">修改</a> | <a href="javascript:void(0)" id="delClassDetail">删除</a></td></tr>'
 							})
 						})
 					}
@@ -285,69 +280,160 @@
 			function getNewsClassDetails(_this) {
 				//获取修改记录内容
 				$.get(ajaxConfig.newsClass + "/" + $(_this).parents('tr').children("td").html(), function(res) {
-					if(res.code == 200) {
-						$('#newsClassModel input[name="directoryName"]').val(res.data[0].directoryName);
-						$('#newsClassModel input[name="id"]').val(res.data[0].id);
-						$('#newsClassModel input[name="url"]').val(res.data[0].url);
-						$('#newsClassModel input[name="subTitle"]').val(res.data[0].subTitle);
-						$('#newsClassModel input[name="title"]').val(res.data[0].title);
-						$('#newsClassModel input[name="keywords"]').val(res.data[0].keywords);
-						$('#newsClassModel input[name="description"]').val(res.data[0].description);
-						$('#newsClassModel input[name="time"]').val(formatDate(res.data[0].time));
+					if(res) {
+						$('#newsClassModel input[name="directoryName"]').val(res.directoryName);
+						$('#newsClassModel input[name="id"]').val(res.id);
+						$('#newsClassModel input[name="url"]').val(res.url);
+						$('#newsClassModel input[name="subTitle"]').val(res.subTitle);
+						$('#newsClassModel input[name="title"]').val(res.title);
+						$('#newsClassModel input[name="keywords"]').val(res.keywords);
+						$('#newsClassModel input[name="description"]').val(res.description);
+						$('#newsClassModel input[name="time"]').val(formatDate(res.time));
 					}
 				})
 			}
 
 			//修改保存
-			function modifyNewsClassDetails() {
-				var newsClassDetail = $("#modifyNewsClassForm").serializeObject();
-				$.ajax({
-					type: "put",
-					url: ajaxConfig.newsClass,
-					dataType: "json",
-					data: newsClassDetail,
-					success: function(res) {
-						if(res.code == 200) {
-							alert(res.message);
-							$("#newsClassModel").modal('hide');
-							return;
-						}
-						alert(res.message);
+			
+			//提交表单
+			$("#modifyNewsClassForm").validataForm({
+					rules: {
+						directoryName:{
+							required:true,
+							english:true,
+						},
+						subTitle: "required",
+						title:"required",
+						keywords:"required",
+						description:"required",
+						time:"required"
 					},
-					error: function(res) {
-						console.log(res)
+					messages: {
+						directoryName: {
+							required: "目录名必须填写",
+							english:"必须输入英文字母"
+						},
+						subTitle: "分类标题不能为空",
+						title:"分类title不能为空",
+						keywords:"分类keywords不能为空",
+						description:"分类description不能为空",
+						time:"分类时间不能为空"
 					}
+				},
+				function(e, form) {
+					e.preventDefault();
+					var action = $(form).attr('action');
+					var method=$(form).attr('method')
+					var form = $(form).serializeObject();
+					$.ajax({
+						url: action,
+						type:method,
+						data: form,
+						success: function(res,success) {
+							if(res&&res.code==500){
+								alert(res.msg);
+							}else{
+								if(success=='success')
+								$("#newsClassModel").modal('hide');
+							}
+						},
+						error: function(err) {
+							if(err) {
+								alert(err.responseText)
+							}
+						}
+					})
 				})
-			}
+			
+//			function modifyNewsClassDetails() {
+//				var newsClassDetail = $("#modifyNewsClassForm").serializeObject();
+//				$.ajax({
+//					type: "put",
+//					url: ajaxConfig.newsClass,
+//					dataType: "json",
+//					data: newsClassDetail,
+//					success: function(res) {
+//						if(res.code == 200) {
+//							alert(res.message);
+//							$("#newsClassModel").modal('hide');
+//							return;
+//						}
+//						alert(res.message);
+//					},
+//					error: function(res) {
+//						console.log(res)
+//					}
+//				})
+//			}
 
 			//所有顶级分类,填充数据下拉框
 			function getNewsFristClassList(id) {
 				var html = '';
 				$.get(ajaxConfig.newsClass + "/" + id + "/classList", function(res) {
-					res.data.forEach(function(v, i) {
+
+					res.forEach(function(v, i) {
 						html += '<option value="' + v.id + '">' + v.subTitle + '</option>';
 					})
-					$("#firstId").empty().append(html)
+					$("#firstId").empty().append(html).val(id)
 				})
 			}
 
 			//添加子分类方法
-			function postSubnewsClass() {
-				var subNewsClassDetail = $("#subNewsClassForm").serializeObject();
-				$.post(ajaxConfig.newsClass, subNewsClassDetail, function(res) {
-					if(res.code = 200) {
-						alert(res.message);
-						$("#subNewsClassModel").modal('hide');
-						return;
+			$("#subNewsClassForm").validataForm({
+					rules: {
+						directoryName:{
+							required:true,
+							english:true,
+						},
+						subTitle: "required",
+						title:"required",
+						keywords:"required",
+						description:"required",
+						time:"required"
+					},
+					messages: {
+						directoryName: {
+							required: "目录名必须填写",
+							english:"必须输入英文字母"
+						},
+						subTitle: "分类标题不能为空",
+						title:"分类title不能为空",
+						keywords:"分类keywords不能为空",
+						description:"分类description不能为空",
+						time:"分类时间不能为空"
 					}
-					alert(res.message)
+				},
+				function(e, form) {
+					e.preventDefault();
+					var action = $(form).attr('action');
+					var form = $(form).serializeObject();
+					$.ajax({
+						url: action,
+						type: 'post',
+						data: form,
+						success: function(res,success) {
+							if(res&&res.code==500){
+								alert(res.msg);
+							}else{
+								alert("添加成功!");
+								$("#subNewsClassModel").modal('hide');
+								getNewsClassList();
+							}
+						},
+						error: function(err) {
+							if(err) {
+								alert(err.responseText)
+							}
+						}
+					})
 				})
 
-			}
+
+
 
 			//关闭模态框后刷新一下页面.重置表单不好使
 			$('#newsClassModel,#subNewsClassModel').on('hidden.bs.modal', function() {
-				location.reload();
+				getNewsClassList();
 			})
 			//打开模态框就加载时间
 			$('#subNewsClassModel').on('show.bs.modal', function() {

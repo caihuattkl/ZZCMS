@@ -17,6 +17,10 @@ ajaxConfig.boffinsList = "/api/boffins/list";
 ajaxConfig.reportsList = "/api/reports/list"; //报告
 ajaxConfig.reports = "/api/reports"; //报告增删改 带参数
 
+//广告
+
+ajaxConfig.adsList = "/api/ads/list"; //报告
+ajaxConfig.Ads="/api/ads"
 //给jquery增加form序列化json方法 $("xxx").serializeObject()
 $.fn.serializeObject = function() {
 	var o = {};
@@ -123,7 +127,7 @@ $.fn.validataForm = function(opt, callback) {
 			$(element).attr({'title': $(error).text(),'data-content': $(error).text()}).tooltip('show');
 		},
 		highlight: function(element, errorClass, validClass) {
-			$(element).attr({'data-placement':'auto right bottom','style': 'border:1px solid red'}).tooltip('show');
+			$(element).attr({'data-placement':'auto bottom','style': 'border:1px solid red'}).tooltip('show');
 		},
 		unhighlight: function(element, errorClass, validClass) {
 			$(element).tooltip('destroy').removeClass(errorClass).removeAttr('style');
@@ -133,8 +137,15 @@ $.fn.validataForm = function(opt, callback) {
 		}
 	});
 	//增加自定义验证
-	$.validator.addMethod("dates",function(value,element,params){  
+	$.validator.addMethod("dates",function(value,element,params){
                 var dates= /^[\d]{4}-[\d]{2}-[\d]{2}\s[\d]{2}:[\d]{2}:[\d]{2}$/;  
                 return this.optional(element)||(dates.test(value));  
-            },"日期格式不正确!必须为YY-MM-DD hh:mm:ss");  
+            },"日期格式不正确!必须为YY-MM-DD hh:mm:ss");
+            
+    // 只能输入英文
+	$.validator.addMethod("english", function(value, element) {
+    var chrnum = /^([a-z]+)$/;
+    return this.optional(element) || (chrnum.test(value));
+}, "必须输入英文字母");
+	
 }

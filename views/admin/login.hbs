@@ -36,22 +36,12 @@
 				<input type="submit" value="登录" />&nbsp;<input type="reset" value="重置" />
 			</form>
 		</div>
-		<script src="/lib/js/jquery-1.11.1.js"></script>
-		<script src="/lib/js/bootstrap.min.js"></script>
-		<script src="/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/lib/js/jquery-1.11.1.js"></script>
+		<script src="/src/lib/js/bootstrap.min.js"></script>
+		<script src="/src/js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			if('{{error}}') alert('{{error}}');
 		</script>
-		<!--<script type="text/javascript">
-			function login() {
-				var loginFrom=$("#loginFrom").serializeObject()
-				$.post('/admin', loginFrom,function(res) {
-					if(res.code==500){
-						alert(res.message)
-					} //onclick="login();"
-				})
-			}
-		</script>-->
 	</body>
 
 </html>

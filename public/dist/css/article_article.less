@@ -1,0 +1,165 @@
+@import "../lib/css/font-awesome.less"; //字体样式 
+@import "../lib/css/common.less"; //导航栏首页
+@import "head_article.less"; //公共头部
+@import "../lib/css/footer_article.less"; //公共头部
+.plan { 
+        .container;
+        &:after{
+            content: "";
+        }
+        .crumbs {
+            padding: 8px 0;
+            margin-bottom: 20px;
+            list-style: none;
+            li {
+                float: left;
+            }
+            > li:first-child {
+                padding: 0;
+            }
+            > li + li:before {
+                color: #CCCCCC;
+                content: ">";
+                padding: 0 5px;
+            }
+            > li + li {
+                margin-top: 9px;
+            }
+        }
+    }
+.main {
+    .container; 
+    .articleBox {
+        display: inline-block;
+        .left { 
+            vertical-align: top;
+            display: inline-block;
+            width: 70%;
+            .newsinfo {
+                h1 {
+                    font-weight: bold;
+                    font-size: @fs24;
+                    margin: 25px 0 30px;
+                }
+                .date {
+                    height: 25px;
+                    border-bottom: 1px solid @zzLight-4;
+                    .blue {
+                        margin-right: 1em;
+                    }
+                    .addSize {
+                        border: 1px solid @zzLight-3;
+                        padding: 0 5px;
+                        text-decoration: none;
+                        float: right;
+                    }
+                    a {
+                        color: @zzLight-5;
+                    }
+                    a:last-child {
+                        margin-right: 8px;
+                    }
+                }
+                .newsContent {
+                    padding: 20px 10px 0px 0px;
+                    font-family: @ff;
+                    font-size: @fs14;
+                    line-height: @fs30;
+                    a {
+                        color: @zzblue;
+                    }
+                    p{
+                        line-height: @fs32;
+                        font-family: @ff;
+                        font-size: @fs16;
+                        margin:0px 0px 20px 0px;
+                    }
+                }
+            } 
+        }
+        .right {
+            padding: 5px;
+            float: right;
+            background: @zzLight-4;
+            vertical-align: top;
+            display: inline-block;
+            width: 29%;
+            overflow: hidden;
+            .pic-box {
+                height: auto;
+                overflow: hidden;
+                text-align: center;
+                background: @zzLight-0;
+                .img1 {
+                    img {
+                        width: 275px;
+                        padding: 3px;
+                    }
+                }
+            }
+            .newsR1 {
+                padding: 10px 0;
+                background: @zzLight-0;
+                h4.title {
+                    color: @zzred-1; 
+                    padding: 15px 5px; 
+                    font-weight: bold;
+                    font-size: @fs16;
+                    padding-left: 15px;
+                    span.more {
+                        float: right;
+                        font-size: @fs12;
+                        a {
+                            color: @zzLight-5;
+                            &:after {
+                                content: "...";
+                            }
+                        }
+                    }
+                }
+                .content {
+                    ul li {
+                        font-size: @fs13;
+                        line-height: @fs26;
+                        text-align: center;
+                    }
+                }
+            }
+            .newsR2 {
+                margin-top: 10px;
+                padding: 10px 0;
+                background: @zzLight-0;
+                h4.title {
+                    padding: 15px 5px;
+                    font-weight: bold;
+                    font-size: @fs16;
+                    padding-left: 15px;
+                    span.more {
+                        float: right;
+                        font-size: @fs12;
+                        a {
+                            color: @zzLight-5;
+                            &:after {
+                                content: "...";
+                            }
+                        }
+                    }
+                }
+                .content {
+                    width: 100%;
+                    overflow: hidden;
+                    ul li {
+                        float: left;
+                        text-align: center;
+                        padding: 0 0 0 5px;
+                        img {
+                            border: 1px solid @zzLight-4;
+                            width: 130px;
+                            height: 115px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,122 +1,88 @@
 var cache = require('../../lib/cache.lib');
+var reportTrees = require('../../lib/reportTreeSet.lib');
 var _ = require('lodash');
 var async = require('async');
 var hmModel = require("../models/home.model");
+var CacheClassServices = require("../services/CacheClass.service");
+
 
 //缓存首页所有数据,间隔5分钟刷新数据
-module.exports = function(callback) {
+exports.homeClassList = function(callback) {
 	var homeDataCache = cache.get('homeDataCache');
 	if(homeDataCache) {
 		callback(null, _.cloneDeep(homeDataCache));
 	} else {
 		async.parallel({
-			yaowen: function(done) {
-				hmModel.yaowen(function(err, yaowen) {
-					if(err) { throw err;}
-					done(null, yaowen);
-				})
+			yaowen: function(callback) {
+				hmModel.yaowen(callback)
 			},
-			chanyeredian: function(done) {
-				hmModel.chanyeredian(function(err, chanyeredian) {
-					if(err) { throw err;}
-					done(null, chanyeredian);
-				})
+			chanyeredian: function(callback) {
+				hmModel.chanyeredian(callback)
 			},
-			hongguan: function(done) {
-				hmModel.hongguan(function(err, hongguan) {
-					
-					if(err) { throw err;}
-						done(null, hongguan);
-					
-				})
+			hongguan: function(callback) {
+				hmModel.hongguan(callback)
 			},
-			chanyeyuce: function(done) {
-				hmModel.chanyeyuce(function(err, chanyeyuce) {
-					if(err) { throw err;}
-						done(null, chanyeyuce);
-					
-				})
+			chanyeyuce: function(callback) {
+				hmModel.chanyeyuce(callback)
 			},
-			chanyezhaoshang: function(done) {
-				hmModel.chanyezhaoshang(function(err, chanyezhaoshang) {
-					if(err) { throw err;}
-						done(null, chanyezhaoshang);
-					
-				})
+			chanyezhaoshang: function(callback) {
+				hmModel.chanyezhaoshang(callback)
 			},
-			jinrong: function(done) {
-				hmModel.jinrong(function(err, jinrong) {
-					if(err) { throw err;}
-						done(null, jinrong);
-					
-				})
+			jinrong: function(callback) {
+				hmModel.jinrong(callback)
 			},
-			chanyejihui: function(done) {
-				hmModel.chanyejihui(function(err, chanyejihui) {
-					if(err) { throw err;}
-						done(null, chanyejihui);
-					
-				})
+			chanyejihui: function(callback) {
+				hmModel.chanyejihui(callback)
 			},
-			chanyegongsi: function(done) {
-				hmModel.chanyegongsi(function(err, chanyegongsi) {
-					if(err) { throw err;}
-						done(null, chanyegongsi);
-					
-				})
+			chanyegongsi: function(callback) {
+				hmModel.chanyegongsi(callback)
 			},
-			chanyeyujing: function(done) {
-				hmModel.chanyeyujing(function(err, chanyeyujing) {
-					if(err) { throw err;}
-						done(null, chanyeyujing);
-					
-				})
+			chanyeyujing: function(callback) {
+				hmModel.chanyeyujing(callback)
 			},
-			zhengquan: function(done) {
-				hmModel.zhengquan(function(err, zhengquan) {
-					if(err) { throw err;}
-						done(null, zhengquan);
-					
-				})
+			zhengquan: function(callback) {
+				hmModel.zhengquan(callback)
 			},
-			zhengquancelue: function(done) {
-				hmModel.zhengquancelue(function(err, zhengquancelue) {
-					if(err) { throw err;}
-						done(null, zhengquancelue);
-					
-				})
+			zhengquancelue: function(callback) {
+				hmModel.zhengquancelue(callback)
 			},
-			keji: function(done) {
-				hmModel.keji(function(err, keji) {
-					if(err) { throw err;}
-						done(null, keji);
-					
-				})
+			keji: function(callback) {
+				hmModel.keji(callback)
 			},
-			shangye: function(done) {
-				hmModel.shangye(function(err, shangye) {
-					if(err) { throw err;}
-						done(null, shangye);
-					
-				})
+			shangye: function(callback) {
+				hmModel.shangye(callback)
 			},
-			qiche: function(done) {
-				hmModel.qiche(function(err, qiche) {
-					if(err) { throw err;}
-						done(null, qiche);
-					
-				})
+			qiche: function(callback) {
+				hmModel.qiche(callback)
 			},
-			shenghuo: function(done) {
-				hmModel.shenghuo(function(err, shenghuo) {
-					if(err) { throw err;}
-						done(null, shenghuo);
-				})
+			shenghuo: function(callback) {
+				hmModel.shenghuo(callback)
 			}
-		}, function(error,result ) {
+		}, function(error, result) {
 			cache.set('homeDataCache', result, 1000 * 60 * 5);
 			callback(error, result);
 		});
-
 	}
 };
+
+exports.reportTree = function(callback) {
+	var reportTree = cache.get('reportTree'),reportTreeArr,reportTreeChildClassDetailsArr;
+	if(reportTree) {
+		callback(null, _.cloneDeep(reportTree));
+	} else {
+		async.parallel([function(callacbk) {
+			/*报告树所有栏目*/
+			CacheClassServices.cacheReportsClass(callacbk)
+		},function(callback){
+			/*获取首页报告树中,子分类的报告数据*/
+			hmModel.reportTreeChildClass(callback)
+		}], function(error, result) {
+			resultArr = result[0];
+			reportTreeChildClassDetailsArr=result[1];
+			//得到报告元素数据,组合成树结构,二维数组 reportTrees () 
+			cache.set('reportTree', reportTrees(resultArr,reportTreeChildClassDetailsArr), 1000 * 60 * 10);
+			callback(error, reportTrees(resultArr,reportTreeChildClassDetailsArr));
+		});
+	}
+}
+

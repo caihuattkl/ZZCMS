@@ -1,5 +1,17 @@
-const db = require("../../lib/db.lib.js");
+var db = require("../../lib/db.lib.js");
 
+
+//报告树子分类使用报告数据
+exports.reportTreeChildClass = function(callback) {
+	var sql = "select * from ( select r1.* from reports as r1 left join reports as r2 on r1.child_class = r2.child_class and r1.id >= r2.id group by r1.id having count(r1.id) <= 4) as c order by child_class desc";
+	db.query(sql, function(err, rows) {
+		if(err) {
+			logger.database().error(__filename, err);
+			return callback(err);
+		}
+		callback(null, rows)
+	})
+}
 
 /*
  * 首页要闻
@@ -7,7 +19,11 @@ const db = require("../../lib/db.lib.js");
 exports.yaowen = function(callback) {
 	var sql = "select id,subTitle,newsurl,time from news order by time desc limit 0,14"
 	db.query(sql, function(err, rows) {
-		callback(err,rows)
+		if(err || !rows.length) {
+			logger.database().error(__filename, err || 'yaowen the data is empty');
+			return callback(err || 'yaowen the data is empty');
+		}
+		callback(null, rows)
 	})
 }
 /*
@@ -16,7 +32,11 @@ exports.yaowen = function(callback) {
 exports.chanyeredian = function(callback) {
 	var sql = 'SELECT id,subTitle,newsurl,time from news where classChildId in (select id from news_class WHERE  id="69" or subTitle ="热点") order by time desc limit 0,8'
 	db.query(sql, function(err, rows) {
-		callback(err,rows)
+		if(err || !rows.length) {
+			logger.database().error(__filename, err || 'chanyeredian the data is empty');
+			return callback(err || 'chanyeredian the data is empty');
+		}
+		callback(null, rows)
 	})
 }
 /*
@@ -25,7 +45,11 @@ exports.chanyeredian = function(callback) {
 exports.chanyeyuce = function(callback) {
 	var sql = 'SELECT id,subTitle,newsurl,time from news where classChildId in (select id from news_class WHERE  id="67" or subTitle ="产业") order by time desc limit 0,5'
 	db.query(sql, function(err, rows) {
-		callback(err,rows)
+		if(err || !rows.length) {
+			logger.database().error(__filename, err || 'chanyeyuce the data is empty');
+			return callback(err || 'chanyeyuce the data is empty');
+		}
+		callback(null, rows)
 	})
 }
 
@@ -35,7 +59,11 @@ exports.chanyeyuce = function(callback) {
 exports.chanyezhaoshang = function(callback) {
 	var sql = 'SELECT id,subTitle,newsurl,time from news where classChildId in (select id from news_class WHERE  id="72" or subTitle ="招商") order by time desc limit 0,8'
 	db.query(sql, function(err, rows) {
-		callback(err,rows)
+		if(err || !rows.length) {
+			logger.database().error(__filename, err || 'chanyezhaoshang the data is empty');
+			return callback(err || 'chanyezhaoshang the data is empty');
+		}
+		callback(null, rows)
 	})
 }
 
@@ -45,7 +73,11 @@ exports.chanyezhaoshang = function(callback) {
 exports.chanyegongsi = function(callback) {
 	var sql = 'SELECT id,subTitle,newsurl,time from news where classChildId in (select id from news_class WHERE  id="66" or subTitle ="公司") order by time desc limit 0,8'
 	db.query(sql, function(err, rows) {
-		callback(err,rows)
+		if(err || !rows.length) {
+			logger.database().error(__filename, err || 'chanyegongsi the data is empty');
+			return callback(err || 'chanyegongsi the data is empty');
+		}
+		callback(null, rows)
 	})
 }
 /*
@@ -54,7 +86,11 @@ exports.chanyegongsi = function(callback) {
 exports.chanyeyujing = function(callback) {
 	var sql = 'SELECT id,subTitle,newsurl,time from news where classChildId in (select id from news_class WHERE  id="68" or subTitle ="预警") order by time desc limit 0,4'
 	db.query(sql, function(err, rows) {
-		callback(err,rows)
+		if(err || !rows.length) {
+			logger.database().error(__filename, err || 'chanyeyujing the data is empty');
+			return callback(err || 'chanyeyujing the data is empty');
+		}
+		callback(null, rows)
 	})
 }
 /*
@@ -63,7 +99,11 @@ exports.chanyeyujing = function(callback) {
 exports.hongguan = function(callback) {
 	var sql = 'SELECT id,subTitle,newsurl,time from news where classFirstId in (select id from news_class WHERE  id="73" or subTitle ="宏观") order by time desc limit 0,14'
 	db.query(sql, function(err, rows) {
-		callback(err,rows)
+		if(err || !rows.length) {
+			logger.database().error(__filename, err || 'hongguan the data is empty');
+			return callback(err || 'hongguan the data is empty');
+		}
+		callback(null, rows)
 	})
 }
 
@@ -76,7 +116,11 @@ exports.hongguan = function(callback) {
 exports.jinrong = function(callback) {
 	var sql = 'SELECT id,subTitle,newsurl,time from news where classFirstId in (select id from news_class WHERE subTitle ="金融") order by time desc limit 0,13'
 	db.query(sql, function(err, rows) {
-		callback(err,rows)
+		if(err || !rows.length) {
+			logger.database().error(__filename, err || 'jinrong the data is empty');
+			return callback(err || 'jinrong the data is empty');
+		}
+		callback(null, rows)
 	})
 }
 
@@ -86,7 +130,11 @@ exports.jinrong = function(callback) {
 exports.chanyejihui = function(callback) {
 	var sql = 'SELECT id,subTitle,newsurl,time from news where classChildId in (select id from news_class WHERE subTitle ="机会" or id ="71") order by time desc limit 0,4'
 	db.query(sql, function(err, rows) {
-		callback(err,rows)
+		if(err || !rows.length) {
+			logger.database().error(__filename, err || 'chanyejihui the data is empty');
+			return callback(err || 'chanyejihui the data is empty');
+		}
+		callback(null, rows)
 	})
 }
 
@@ -96,7 +144,11 @@ exports.chanyejihui = function(callback) {
 exports.zhengquan = function(callback) {
 	var sql = 'SELECT id,subTitle,newsurl,time from news where classFirstId in (select id from news_class WHERE subTitle ="证券" or id ="4") order by time desc limit 0,14'
 	db.query(sql, function(err, rows) {
-		callback(err,rows)
+		if(err || !rows.length) {
+			logger.database().error(__filename, err || 'zhengquan the data is empty');
+			return callback(err || 'zhengquan the data is empty');
+		}
+		callback(null, rows)
 	})
 }
 
@@ -104,9 +156,13 @@ exports.zhengquan = function(callback) {
  * 首页证券策略
  */
 exports.zhengquancelue = function(callback) {
-	var sql = 'SELECT id,subTitle,newsurl,time from news where classChildId in (select id from news_class WHERE subTitle ="策略" or id ="4") order by time desc limit 0,8'
+	var sql = 'SELECT id,subTitle,newsurl,time from news where classChildId in (select id from news_class WHERE subTitle ="策略" or id ="4") order by time desc limit 0,7'
 	db.query(sql, function(err, rows) {
-		callback(err,rows)
+		if(err || !rows.length) {
+			logger.database().error(__filename, err || 'zhengquancelue the data is empty');
+			return callback(err || 'zhengquancelue the data is empty');
+		}
+		callback(null, rows)
 	})
 }
 
@@ -116,7 +172,11 @@ exports.zhengquancelue = function(callback) {
 exports.keji = function(callback) {
 	var sql = 'SELECT id,subTitle,newsurl,time from news where classFirstId in (select id from news_class WHERE subTitle ="科技" or id ="55") order by time desc limit 0,14'
 	db.query(sql, function(err, rows) {
-		callback(err,rows)
+		if(err || !rows.length) {
+			logger.database().error(__filename, err || 'keji the data is empty');
+			return callback(err || 'keji the data is empty');
+		}
+		callback(null, rows)
 	})
 }
 
@@ -127,7 +187,11 @@ exports.keji = function(callback) {
 exports.shangye = function(callback) {
 	var sql = 'SELECT id,subTitle,newsurl,time from news where classFirstId in (select id from news_class WHERE subTitle ="商业" or id ="31") order by time desc limit 0,14'
 	db.query(sql, function(err, rows) {
-		callback(err,rows)
+		if(err || !rows.length) {
+			logger.database().error(__filename, err || 'shangye the data is empty');
+			return callback(err || 'shangye the data is empty');
+		}
+		callback(null, rows)
 	})
 }
 
@@ -137,7 +201,11 @@ exports.shangye = function(callback) {
 exports.qiche = function(callback) {
 	var sql = 'SELECT id,subTitle,newsurl,time from news where classFirstId in (select id from news_class WHERE  id="2" or subTitle ="汽车") order by time desc limit 0,14'
 	db.query(sql, function(err, rows) {
-		callback(err,rows)
+		if(err || !rows.length) {
+			logger.database().error(__filename, err || 'qiche the data is empty');
+			return callback(err || 'qiche the data is empty');
+		}
+		callback(null, rows)
 	})
 }
 
@@ -147,6 +215,11 @@ exports.qiche = function(callback) {
 exports.shenghuo = function(callback) {
 	var sql = 'SELECT id,subTitle,newsurl,time from news where classFirstId in (select id from news_class WHERE  id="82" or subTitle ="生活") order by time desc limit 0,13'
 	db.query(sql, function(err, rows) {
-		callback(err,rows)
+		if(err || !rows.length) {
+			logger.database().error(__filename, err || 'shenghuo the data is empty');
+			return callback(err || 'shenghuo the data is empty');
+		}
+		callback(null, rows)
 	})
 }
+

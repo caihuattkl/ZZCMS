@@ -7,13 +7,13 @@
 		<link rel="stylesheet" href="/src/less/addNews.css" />
 		<style>
 			.ke-icon-diyFormat {
-				background: url("/lib/ueditor/themes/default/paiban.gif");
+				background: url("/src/lib/ueditor/themes/default/paiban.gif");
 				width: 16px;
 				height: 16px;
 			}
 			
 			.ke-icon-paging {
-				background: url("/lib/ueditor/themes/default/fenye.gif");
+				background: url("/src/lib/ueditor/themes/default/fenye.gif");
 				width: 16px;
 				height: 16px;
 			}
@@ -31,7 +31,7 @@
 							<select name="classChildId" class="form-control" id="newsClassSelect"></select>
 						</td>
 						<td>Url:</td>
-						<td><input type="text" class="form-control" name="newsUrl" value="{{url}}" placeholder="该项自动填写,如要手动输入,请点击此表单" readonly="readonly" /></td>
+						<td><input type="text" class="form-control" name="newsUrl" value="{{directoryName}}/{{dayDate}}/" placeholder="该项自动填写,如要手动输入,请点击此表单" readonly="readonly" /></td>
 					</tr>
 					<tr>
 						<td>*新闻标题:</td>
@@ -41,25 +41,25 @@
 					</tr>
 					<tr>
 						<td>*页关键词:</td>
-						<td><input type="text" class="form-control" name="subKeywords" placeholder="页关键词" oninput="fillRightInput()" /></td>
+						<td><input type="text" class="form-control" name="subKeywords" placeholder="页关键词" oninput="fillRightInput()" onblur='fillUrl(this)'/></td>
 						<td width="100">keywords:</td>
-						<td><input type="text" class="form-control" name="keywords" value="" placeholder="keywords(该项自动填写,如要手动输入,请点击此表单)" readonly="readonly" /></td>
+						<td><input type="text" class="form-control" name="keywords" value="" placeholder="keywords(该项自动填写)" readonly="readonly" /></td>
 					</tr>
 					<tr>
 						<td width="100">*来　　源:</td>
-						<td><input type="text" class="form-control" name="source" value="新浪" placeholder="来源" /></td>
+						<td><input type="text" class="form-control" name="source" value="中金产业咨询网" onfocus="this.value=''" onblur="this.value?this.value=this.value:this.value='中金产业咨询网'" placeholder="来源" /></td>
 						<td>Description:</td>
-						<td><input type="text" class="form-control" name="description" value="" placeholder="description(该项自动填写,如要手动输入,请点击此表单)" readonly="readonly" /></td>
+						<td><input type="text" class="form-control" name="description" value="" placeholder="description(该项自动填写)" readonly="readonly" /></td>
 					</tr>
 					<tr>
 						<td>*编　　辑:</td>
-						<td><input type="text" class="form-control" name="author" value="张三" placeholder="编辑" /></td>
+						<td><input type="text" class="form-control" name="author" value="" placeholder="编辑" /></td>
 						<td width="100">发布时间:</td>
-						<td><input type="text" class="form-control" name="time" value="" placeholder="发布时间(该项自动填写,如要手动输入,请点击此表单)" onfocus="fillRightInput(),WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" readonly="readonly" /></td>
+						<td><input type="text" class="form-control" name="time" value="" placeholder="发布时间(该项自动填写)" onfocus="fillRightInput(),WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" readonly="readonly" /></td>
 					</tr>
 					<tr>
 						<td>*新闻内容:</td>
-						<td colspan="3"><textarea id="editor_1" class="form-control" rows="12" name="nContent" value="" placeholder="新闻内容" /></textarea>
+						<td colspan="3"><textarea id="editor_1" class="ckeditor form-control" rows="12" name="nContent" value="" placeholder="新闻内容"/></textarea>
 						</td>
 					</tr>
 
@@ -70,38 +70,25 @@
 				</table>
 			</form>
 		</div>
-		<script src="/lib/js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/lib/js/toPinYin.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/lib/My97DatePicker/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
-
-		<script src="/js/common.js" type="text/javascript" charset="utf-8"></script>
-		<script charset="utf-8" src="/lib/ueditor/kindeditor.js"></script>
-		<script charset="utf-8" src="/lib/ueditor/lang/zh_CN.js"></script>
+		<script src="/src/lib/js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/lib/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/lib/js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/lib/js/bootstrap-select.min.js"></script>
+		<script src="/src/lib/js/toPinYin.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/lib/My97DatePicker/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script charset="utf-8" src="/src/lib/ueditor/kindeditor.js"></script>
+		<script charset="utf-8" src="/src/lib/ueditor/lang/zh_CN.js"></script>
+		<script charset="utf-8" src="/src/lib/ueditor/kEditorConfig.js"></script>
+		
+		
 		<script type="text/javascript">
 			$(function() {
 				//加载新闻时间
 				$("input[name='time']").val(getNowFormatDate());
 				getNewsClass();
-				hoverInput();
 				fillRightInput();
 			})
-
-			//加载编辑器
-			KindEditor.ready(function(ke) {
-				window.editor = ke.create('#editor_1', {
-					filterMode: true,
-					width: '100%',
-					items: [
-						'source', 'bold', 'fontname', 'fontsize', 'forecolor', '|', 'diyFormat', 'paging'
-					]
-				});
-			});
-			
-			KindEditor.lang({
-					diyFormat: '自定义排版功能',
-					paging: "插入分页符"
-				});
-
 
 			//获取分类,填充下拉框
 			function getNewsClass() {
@@ -110,8 +97,8 @@
 					url: ajaxConfig.newsClassList,
 					type: "get",
 					success: function(res) {
-						if(res.code == 200 && res.data.length != 0) {
-							res.data.forEach(function(val, index) {
+						if(res) {
+							res.forEach(function(val, index) {
 								html += '<optgroup label="' + val.subTitle + '" value="' + val.id + '">';
 								var children = '';
 								val.child.forEach(function(v, i) {
@@ -126,19 +113,24 @@
 							return;
 						}
 						alert(res.message)
-					},
-					error: function(res) {}
+					}
 				})
+			}
+			
+			function fillUrl($this){
+				var key=$this.value?ConvertPinyin($this.value.split(" ")[0]):"";
+				$("input[name=newsUrl]").val("{{directoryName}}/"+"{{dayDate}}/"+key+".html");
 			}
 
+
 			//控制启用表单
-			function hoverInput() {
-				$('input[name="title"],input[name="keyword"],input[name="keywords"],input[name="newsUrl"],input[name="description"],input[name="time"]').hover(function() {
-					$(this).removeAttr("readonly")
-				}, function() {
-					$(this).attr("readonly", "readonly")
-				})
-			}
+//			function hoverInput() {
+//				$('input[name="title"],input[name="keyword"],input[name="keywords"],input[name="newsUrl"],input[name="description"],input[name="time"]').hover(function() {
+//					$(this).removeAttr("readonly")
+//				}, function() {
+//					$(this).attr("readonly", "readonly")
+//				})
+//			}
 
 			//根据左侧内容,自动填写右侧表单
 			function fillRightInput() {
@@ -146,30 +138,64 @@
 				$('input[name="keywords"]').val($('input[name="subKeywords"]').val())
 				$('input[name="description"]').val($('input[name="subTitle"]').val())
 			}
-			//新增新闻
-
-			$("#newsForm").on('submit', function(e) {
-				//设置url
-				if($('input[name="newsUrl"]').val() != '' || $('input[name="newsUrl"]').val() != 'undefined')
-					$('input[name="newsUrl"]').val($('input[name="newsUrl"]').val().replace(/(\d+.html$)/, ConvertPinyin($('input[name="subKeywords"]').val().match(/[^\s|,|，|、]+/g)[0]) + "$1"))
-				e.preventDefault();
-				editor.sync();
-				var action = $(this).attr('action');
-				var form = $(this).closest('#newsForm').serializeObject();
-				$.ajax({
-					url: action,
-					type: 'post',
-					data: form,
-					success: function(res,success) {
-							if(success=='success')
-							alert('添加成功!');
-							window.location.reload();
+			//提交表单
+			$("#newsForm").validataForm({
+					rules: {
+						subTitle: "required",
+						title: "required",
+						subKeywords: "required",
+						keywords: "required",
+						description: "required",
+						nContent: "required",
+						time: {
+							required: true,
+						},
+						source: {
+							required: true,
+						},
+						author: "required"
 					},
-					error: function() {
-						alert("添加失败!请刷新重试!")
+					messages: {
+						subKeywords: "页面关键词必须填写",
+						keywords: "keywords必须填写",
+						subTitle: "新闻标题不能为空",
+						title: "title必须填写!",
+						description: "description必须填写",
+						nContent: "新闻内容必须填写",
+						time: {
+							required: "发布时间必须填写",
+						},
+						source: {
+							required: "来源不能为空",
+						},
+						author: {
+							required: "编辑不能为空",
+						}
 					}
+				},
+				function(e, form) {
+					e.preventDefault();
+					var action = $(form).attr('action');
+					var method=$(form).attr('method');
+					var form = $(form).serializeObject();
+					if(form.nContent.length<100){
+						return alert("新闻内容不能为空,且字符不能小于100个字符!")
+					}
+					$.ajax({
+						url: action,
+						type:method,
+						data: form,
+						success: function(res, success) {
+							if(res){
+								alert('添加成功!');
+								window.location.reload();
+							}
+						},
+						error: function() {
+							alert("添加失败!请刷新重试!")
+						}
+					})
 				})
-			})
 		</script>
 	</body>
 

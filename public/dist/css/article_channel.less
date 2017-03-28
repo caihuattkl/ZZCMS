@@ -1,0 +1,358 @@
+﻿@import "../lib/css/font-awesome.less"; //fontStyle
+@import "../lib/css/common.less"; //navhome   
+@import "head_article.less"; //commtop 
+@import "../lib/css/footer_report.less"; //comm 
+.redBg {  
+    background: #F9E0E1;
+    color: red; 
+}
+.greenBg {
+    background: #E1FCE1;
+    color: green;
+}
+.redff {
+    color: red;
+}
+.greenff {
+    color: green;
+}
+.main {
+    .container;
+}
+.plan {
+    .container;
+    height: 50px;
+    .crumbs {
+        padding: 8px 0;
+        margin-bottom: 20px;
+        list-style: none;
+        li {
+            float: left;
+        }
+        > li:first-child {
+            padding: 0;
+        }
+        > li + li:before {
+            color: #CCCCCC;
+            content: ">";
+            padding: 0 5px;
+        }
+        > li + li {
+            margin-top: 9px;
+        }
+    }
+}
+.nav {
+    background: @zzblue;
+    height: @fs40;
+    ul li {
+        line-height: @fs40;
+        display: inline-block;
+        margin: 0 20px;
+        font-size: @fs16;
+        a {
+            color: @zzLight-0;
+        }
+    }
+}
+.content {
+    .leftBox {
+        width: 755px;
+        overflow: hidden;
+        margin-top: 10px;
+        display: inline-block;
+        vertical-align: top;
+        .jinrong,
+        .keji,
+        .other,
+        .left2,
+        .life,
+        .zhengquan {
+            vertical-align: top;
+            display: inline-block;
+            margin: 0 10px 10px 0;
+        }
+        .zhengquan {
+            width: 348px;
+            overflow: hidden;
+            border: 1px solid @zzLight-1;
+            dl {
+                text-align: center;
+            }
+            dl dd {
+                display: none;
+                margin: 5px 0;
+            }
+            dl dt ul li {
+                float: left;
+                width: 86px;
+                text-align: left;
+                &:last-child {
+                    width: 60px;
+                    overflow: hidden;
+                }
+            }
+            dl dt {
+                text-align: center;
+                overflow: hidden;
+                cursor: pointer;
+                line-height: 30px;
+                padding: 0 5px;
+                &:hover {
+                    background: @zzLight-1;
+                }
+            }
+        }
+        //金融外汇
+        .jinrong {
+            width: 348px;
+            overflow: hidden;
+            border: 1px solid @zzLight-1;
+            h3 {
+                font-size: 15px;
+                line-height: @fs26;
+                font-weight: bold;
+                background: @zzLight-1;
+                text-indent: 10px;
+            }
+            dl {
+                &:first-child > dt {
+                    font-weight: bold;
+                }
+                dt {
+                    text-align: center;
+                    overflow: hidden;
+                    line-height: 26px;
+                    padding: 1px 10px;
+                    border-bottom: 1px solid @zzLight-1;
+                    ul li {
+                        font-size: @fs13;
+                        float: left;
+                        text-align: center;
+                        &:first-child {
+                            width: 92px;
+                            text-align: left;
+                        }
+                        &:first-child+li {
+                            width: 82px;
+                        }
+                        &:first-child+li+li {
+                            width: 82px;
+                        }
+                        &:last-child {
+                            width: 60px;
+                            overflow: hidden;
+                        }
+                    }
+                }
+            }
+        }
+        //生活幻灯片
+        .life {
+            width: 348px;
+            overflow: hidden;
+            border: 1px solid @zzLight-2;
+            h3 {
+                font-size: 15px;
+                line-height: @fs26;
+                font-weight: bold;
+                background: #BEA188;
+                text-indent: 10px;
+                color: @zzLight-0;
+                text-align: center;
+            }
+            p {
+                font-size: 15px;
+                line-height: @fs26;
+                font-weight: bold;
+                background: #BEA188;
+                text-indent: 10px;
+                color: @zzLight-0;
+                text-align: center;
+            }
+            .currentDate {
+                text-align: center;
+                font-size: 45px;
+                font-weight: bold;
+                color: #757575;
+                .ri,
+                .yue {
+                    color: #990000;
+                }
+            }
+            ul li {
+                line-height: 25px;
+                padding: 0 10px;
+                &.chongsha,
+                &.wuxing {
+                    color: #75360D;
+                }
+                &.yi {
+                    color: green;
+                }
+                &.ji {
+                    color: red;
+                }
+            }
+        }
+        //生活幻灯片
+        .keji {
+            position: relative;
+            width: 348px;
+            overflow: hidden;
+            border: 1px solid @zzLight-2;
+            .toplineImg {
+                text-align: center;
+                overflow: hidden;
+                height: 290px;
+                a {
+                    position: absolute;
+                    left: 0px;
+                    top:0px
+                }
+            }
+            .marsk{
+                position: absolute;
+                height:36px;
+                background: @zzblack;
+                width:100%;
+                opacity: .7;
+                bottom: 0px;
+                ul li{
+                    a{color: @zzLight-0;}
+                    color: @zzLight-0;
+                    line-height:36px;
+                    position: absolute;
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+        .other {
+            position: relative;
+            width: 348px;
+            overflow: hidden;
+            border: 1px solid @zzLight-2;
+            z-index:3;
+            .toplineImg {
+                text-align: center;
+                overflow: hidden;
+                height: 290px;
+                a {
+                    position: absolute;
+                    left: 0px;
+                    top:0px
+                }
+            }
+            .marsk{
+                z-index:4;
+                position: absolute;
+                height:36px;
+                background: @zzblack;
+                width:100%;
+                opacity: .7;
+                bottom: 0px;
+                .jump{
+                    cursor: pointer;
+                    position: absolute;
+                    bottom: 5px;
+                    right: 5px;
+                    z-index: 10;
+                    height: 19px;
+                    padding: 1px 0;
+                    overflow: hidden;
+                    background: none;
+                    span {
+                        cursor: pointer;
+                        display: inline-block;
+                        height: 15px;
+                        width: 17px;
+                        background: url(@bannerIco);
+                        background-position: 22px -126px;
+                        &:hover {
+                            background: url(@bannerIco);
+                            background-position: -9px -127px;
+                            height: 15px;
+                            width: 17px;
+                        }
+                        &.hover {
+                            background: red;
+                        }
+                    }
+                }
+                
+                ul li{
+                    a{color: @zzLight-0;}
+                    color: @zzLight-0;
+                    line-height:36px;
+                    position: absolute;
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+        .left2 {
+            width: 380px;
+            h2 {
+                .textEllipsis;
+                font-size: @fs20;
+                font-weight: bold;
+                font-family: @ff;
+                line-height: @fs40;
+                padding: 5px 0;
+                text-align: center;
+            }
+            li {
+                .textEllipsis;
+                line-height: @fs24;
+                &:before {
+                    color: @zzLight-2;
+                    .newlistIcon;
+                }
+            }
+        }
+        .channel-ad-001 {
+            width: 100%;
+            height: 100px;
+            background: @zzLight-2;
+        }
+        .left3 {
+            margin-top: 10px;
+            &:nth-child(odd) {
+                margin-left: 10px;
+            }
+            vertical-align: top;
+            display: inline-block;
+            width: 49%;
+            overflow: hidden;
+            ul li {
+                .textEllipsis;
+                line-height: @fs28;
+                padding-left: 10px;
+                &:before {
+                    color: @zzLight-2;
+                    .newlistIcon;
+                }
+            }
+            h3 {
+                height: @fs36;
+                line-height: @fs36;
+                background: @zzLight-1;
+                text-indent: 1em;
+                font-weight: bold;
+                span {
+                    font-weight: 100;
+                    font-size: @fs12;
+                }
+            }
+        }
+    }
+    .right {
+        text-align: right;
+        margin: 10px 0 0 10px;
+        display: inline-block;
+        vertical-align: top;
+        width: 228px;
+        overflow: hidden;
+    }
+}

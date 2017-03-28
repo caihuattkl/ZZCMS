@@ -1,4 +1,4 @@
-{{#contentFor "cssStyle"}}<link href="/dist/article_class.css" rel="stylesheet" media="screen" type="text/css" />{{/contentFor}}
+{{#contentFor "cssStyle"}}<link href="/dist/css/article_class.css" rel="stylesheet" media="screen" type="text/css" />{{/contentFor}}
 {{#contentFor "title"}}{{subTitle}}_中金产业_中金产业咨询网{{/contentFor}}
 {{#contentFor "keywords"}}{{keywords}}{{/contentFor}}
 {{#contentFor "description"}}{{description}}{{/contentFor}}
@@ -8,7 +8,7 @@
 	</li>
 	{{#each navbarMenu}}
 	<li>
-			<a href="/{{directoryName}}/{{id}}">{{subTitle}}</a>
+			<a href="/{{directoryName}}/">{{subTitle}}</a>
 	</li>
 	{{/each}}
 {{/contentFor}}
@@ -20,10 +20,10 @@
 							<a href="/"><img src="/images/logo_fnc.jpg" /></a>
 						</li>
 						<li>
-							<a href="/{{menus.directoryName}}/{{menus.id}}">{{menus.subTitle}}</a>
+							<a href="/{{menus.directoryName}}/">{{menus.subTitle}}</a>
 						</li>
 						<li>
-							<a href="../{{crumbs.directoryName}}/{{crumbs.id}}">{{crumbs.subTitle}}</a>
+							<a href="../{{crumbs.directoryName}}/">{{crumbs.subTitle}}</a>
 						</li>
 					</ul>
 				</div>
@@ -33,11 +33,11 @@
 			<div class="nav">
 				<ul>
 					<li>
-						<a href="/{{menus.directoryName}}/{{menus.id}}"><strong>{{menus.subTitle}}</strong></a>
+						<a href="/{{menus.directoryName}}/"><strong>{{menus.subTitle}}</strong></a>
 					</li>
 					{{#each menus.child}}
 					<li>
-						<a href="../{{directoryName}}/{{id}}">{{subTitle}}</a>
+						<a href="../{{directoryName}}/">{{subTitle}}</a>
 					</li>
 					{{/each}}
 				</ul>
@@ -45,7 +45,7 @@
 			<div class="content">
 				<div class="leftBox">
 					<ul class="newslist">
-						{{#each classNewsList}}
+						{{#each classNewsList.data}}
 						<li>
 							<h3 class="title"><a href="/{{newsUrl}}" target="_blank">{{subTitle}}</a></h3>
 							<div class="dec">
@@ -55,11 +55,12 @@
 						{{/each}}
 					</ul>
 					<ul class="pagination">
-					<li><a href="/">上一页</a></li>
-					<li><a href="/">1</a></li>
-					<li><a href="/">2</a></li>
-					<li><a href="/">3</a></li>
-				<li><a href="/">下一页</a></li>
+					<li><a href="/{{menus.directoryName}}/{{crumbs.directoryName}}/{{#classPrePage classNewsList.curPage classNewsList.pageNum}}{{/classPrePage}}">上一页</a></li>
+					{{#each classNewsList.pageNum}}
+					<li><a href="/{{../menus.directoryName}}/{{../crumbs.directoryName}}/{{this}}" {{#classCurCss ../classNewsList.curPage this}} {{/classCurCss}}>{{this}}</a></li>
+					{{/each}}
+				<li><a href="/{{menus.directoryName}}/{{crumbs.directoryName}}/{{#classNextPage classNewsList.curPage classNewsList.pageNum}}{{/classNextPage}}">下一页</a></li>
+				<li><a>第{{classNewsList.curPage}}页，共{{classNewsList.pageNum.length}}页</a></li>
 				</ul>
 				</div>
 				<div class="right">

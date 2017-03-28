@@ -84,3 +84,220 @@
 [2017-03-02 14:31:47.372] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
 [2017-03-02 14:51:05.107] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
 [2017-03-02 14:51:12.943] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 16:35:43.152] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 17:36:20.867] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js { Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"0","10"' at line 1
+    at Query.Sequence._packetToError (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:52:14)
+    at Query.ErrorPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Query.js:83:18)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:141:48)
+    at PoolConnection.query (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:214:25)
+    at C:\Users\admin\Desktop\privateGit\ZZCMS\lib\db.lib.js:20:14
+    at Handshake.onConnect [as _callback] (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Pool.js:63:7)
+    at Handshake.Sequence.end (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:86:24)
+    at Handshake.Sequence.OkPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:95:8)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  index: 0 }
+[2017-03-02 18:32:18.254] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 18:32:54.206] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 18:33:53.554] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js { Error: ER_SP_UNDECLARED_VAR: Undeclared variable: NaN
+    at Query.Sequence._packetToError (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:52:14)
+    at Query.ErrorPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Query.js:83:18)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:141:48)
+    at PoolConnection.query (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:214:25)
+    at C:\Users\admin\Desktop\privateGit\ZZCMS\lib\db.lib.js:20:14
+    at Ping.onOperationComplete [as _callback] (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Pool.js:108:5)
+    at Ping.Sequence.end (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:86:24)
+    at Ping.Sequence.OkPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:95:8)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+  code: 'ER_SP_UNDECLARED_VAR',
+  errno: 1327,
+  sqlState: '42000',
+  index: 0 }
+[2017-03-02 18:34:37.545] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js { Error: ER_SP_UNDECLARED_VAR: Undeclared variable: NaN
+    at Query.Sequence._packetToError (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:52:14)
+    at Query.ErrorPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Query.js:83:18)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:141:48)
+    at PoolConnection.query (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:214:25)
+    at C:\Users\admin\Desktop\privateGit\ZZCMS\lib\db.lib.js:20:14
+    at Handshake.onConnect [as _callback] (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Pool.js:63:7)
+    at Handshake.Sequence.end (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:86:24)
+    at Handshake.Sequence.OkPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:95:8)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+  code: 'ER_SP_UNDECLARED_VAR',
+  errno: 1327,
+  sqlState: '42000',
+  index: 0 }
+[2017-03-02 18:35:48.409] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js { Error: ER_SP_UNDECLARED_VAR: Undeclared variable: NaN
+    at Query.Sequence._packetToError (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:52:14)
+    at Query.ErrorPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Query.js:83:18)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:141:48)
+    at PoolConnection.query (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:214:25)
+    at C:\Users\admin\Desktop\privateGit\ZZCMS\lib\db.lib.js:20:14
+    at Handshake.onConnect [as _callback] (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Pool.js:63:7)
+    at Handshake.Sequence.end (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:86:24)
+    at Handshake.Sequence.OkPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:95:8)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+  code: 'ER_SP_UNDECLARED_VAR',
+  errno: 1327,
+  sqlState: '42000',
+  index: 0 }
+[2017-03-02 18:35:48.431] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js { Error: ER_SP_UNDECLARED_VAR: Undeclared variable: NaN
+    at Query.Sequence._packetToError (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:52:14)
+    at Query.ErrorPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Query.js:83:18)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:141:48)
+    at PoolConnection.query (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:214:25)
+    at C:\Users\admin\Desktop\privateGit\ZZCMS\lib\db.lib.js:20:14
+    at Handshake.onConnect [as _callback] (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Pool.js:63:7)
+    at Handshake.Sequence.end (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:86:24)
+    at Handshake.Sequence.OkPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:95:8)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+  code: 'ER_SP_UNDECLARED_VAR',
+  errno: 1327,
+  sqlState: '42000',
+  index: 0 }
+[2017-03-02 18:36:19.307] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js { Error: ER_SP_UNDECLARED_VAR: Undeclared variable: NaN
+    at Query.Sequence._packetToError (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:52:14)
+    at Query.ErrorPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Query.js:83:18)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:141:48)
+    at PoolConnection.query (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:214:25)
+    at C:\Users\admin\Desktop\privateGit\ZZCMS\lib\db.lib.js:20:14
+    at Handshake.onConnect [as _callback] (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Pool.js:63:7)
+    at Handshake.Sequence.end (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:86:24)
+    at Handshake.Sequence.OkPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:95:8)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+  code: 'ER_SP_UNDECLARED_VAR',
+  errno: 1327,
+  sqlState: '42000',
+  index: 0 }
+[2017-03-02 18:39:32.567] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 18:40:16.624] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 18:40:18.850] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 18:40:27.421] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 18:41:33.492] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 18:42:43.921] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js classNews the data is empty
+[2017-03-02 18:44:43.986] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js { Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NaN,10' at line 1
+    at Query.Sequence._packetToError (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:52:14)
+    at Query.ErrorPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Query.js:83:18)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:141:48)
+    at PoolConnection.query (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:214:25)
+    at C:\Users\admin\Desktop\privateGit\ZZCMS\lib\db.lib.js:20:14
+    at Handshake.onConnect [as _callback] (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Pool.js:63:7)
+    at Handshake.Sequence.end (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:86:24)
+    at Handshake.Sequence.OkPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:95:8)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  index: 0 }
+[2017-03-02 18:44:44.225] [ERROR] database - C:\Users\admin\Desktop\privateGit\ZZCMS\core\models\news.model.js { Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NaN,10' at line 1
+    at Query.Sequence._packetToError (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:52:14)
+    at Query.ErrorPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Query.js:83:18)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    --------------------
+    at Protocol._enqueue (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:141:48)
+    at PoolConnection.query (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:214:25)
+    at C:\Users\admin\Desktop\privateGit\ZZCMS\lib\db.lib.js:20:14
+    at Ping.onOperationComplete [as _callback] (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Pool.js:108:5)
+    at Ping.Sequence.end (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:86:24)
+    at Ping.Sequence.OkPacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\sequences\Sequence.js:95:8)
+    at Protocol._parsePacket (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:280:23)
+    at Parser.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Parser.js:74:12)
+    at Protocol.write (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (C:\Users\admin\Desktop\privateGit\ZZCMS\node_modules\mysql\lib\Connection.js:109:28)
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  index: 0 }

@@ -17,7 +17,9 @@
 				</div>
 				<div class="navbar-collapse collapse" id="mymenu">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/logout">{{username}}</a></li>
+						<li>
+							<a href="/logout">{{username}}</a>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -34,7 +36,8 @@
 					</a>
 					<ul class="submenu collapse" id="users">
 						<li>
-							<a href="./users.html" target="main">用户列表</a> | <a href="./userAdd.html" target="main">添加</a>
+							<a href="./users.html" target="main">用户列表</a> |
+							<a href="./userAdd.html" target="main">添加</a>
 						</li>
 					</ul>
 				</li>
@@ -43,7 +46,8 @@
 					</a>
 					<ul class="submenu collapse" id="boffin">
 						<li>
-							<a href="./boffins.html" target="main">研究员列表</a> | <a href="./addBoffins.html" target="main">添加</a>
+							<a href="./boffins.html" target="main">研究员列表</a> |
+							<a href="./addBoffins.html" target="main">添加</a>
 						</li>
 					</ul>
 				</li>
@@ -52,10 +56,12 @@
 					</a>
 					<ul class="submenu collapse" id="class">
 						<li>
-							<a href="./reportClassList.html" target="main">报告分类</a> | <a href="./reportClassAdd.html" target="main">添加</a>
+							<a href="./reportClassList.html" target="main">报告分类</a> |
+							<a href="./reportClassAdd.html" target="main">添加</a>
 						</li>
 						<li>
-							<a href="./newsClassList.html" target="main">新闻分类</a> | <a href="./newsClassAdd.html" target="main">添加</a>
+							<a href="./newsClassList.html" target="main">新闻分类</a> |
+							<a href="./newsClassAdd.html" target="main">添加</a>
 						</li>
 					</ul>
 				</li>
@@ -64,16 +70,24 @@
 					</a>
 					<ul class="submenu collapse" id="reports">
 						<li>
-							<a href="./reports.html" target="main">报告列表</a> | <a href="./addReport.html" target="main">添加</a>
+							<a href="./reports.html" target="main">报告列表</a> |
+							<a href="./addReport.html" target="main">添加</a>
+						</li>
+						<li>
+							<a href="./reportCover.html" target="main">报告封面生成</a>
 						</li>
 					</ul>
 				</li>
 				<li>
-					<a href="/#ads" data-toggle="collapse"><i class="glyphicon glyphicon-list-alt"></i> <span class="menu-text">广告管理</span><b class="arrow icon-angle-down"></b>
+					<a href="/#ads" data-toggle="collapse"><i class="glyphicon glyphicon-list-alt"></i> <span class="menu-text">头条/广告管理</span><b class="arrow icon-angle-down"></b>
 					</a>
 					<ul class="submenu collapse" id="ads">
 						<li>
-							<a href="./ads.html" target="main">广告列表</a> | <a href="./addReport.html" target="main">添加</a>
+							<a href="./ads.html" target="main">广告列表</a> |
+							<a href="./adAdd.html" target="main">添加</a>
+						</li>
+						<li>
+							<a href="./headlines.html" target="main">网站头条设置</a>
 						</li>
 					</ul>
 				</li>
@@ -96,12 +110,52 @@
 			<iframe width="100%" height="100%" name="main" src="./welcome.html" frameborder="no" border="0"> 您的浏览器不支持框架!</iframe>
 		</article>
 
-		<script src="/lib/js/jquery-1.11.1.js"></script>
-		<script src="/lib/js/bootstrap.min.js"></script>
-		<script src="/js/common.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/src/js/index.js"></script>
+		<script src="/src/lib/js/jquery-1.11.1.js"></script>
+		<script src="/src/lib/js/bootstrap.min.js"></script>
+		<script src="/src/js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			if('{{success}}') alert('{{success}}');
+			$(function() {
+				//菜单收展
+				$(".clickSide").on("click", function() {
+					if(!$("#nav").attr("style")) {
+						$("#nav").attr("style", "width:0px;")
+						$(".article").attr("style", "margin-left:0px;")
+					} else {
+						$("#nav").removeAttr("style")
+						$(".article").attr("style")
+					}
+				})
+				//高度自适应
+				$("#nav,.clickSide,.article").attr("style", "height:" + ($(document).height() - 75) + "px");
+
+				getNewsClassList();
+
+			})
+
+			function getNewsClassList() {
+				//获取左侧树新闻栏目
+				var html = "";
+				$.get(ajaxConfig.newsClassList, function(res) {
+					if(res.length != 0) {
+						res.forEach(function(val, index) {
+							html += '<li id="' + 'firstId' + val.id + '"><a href="/#' + val.id + '" target="main"  data-toggle="collapse"> ' + val.subTitle + '</a>';
+							if(val.child.length != 0) {
+								var children = '<ul class="collapse" id="' + val.id + '">';
+								val.child.forEach(function(v, i) {
+									children += '<li><a href="./newsList?newsClassId=' + v.id + '" target="main"> ' + v.subTitle + '</a> | <a href="./addNews?classChildId=' + v.id + '&&classFirstId=' + val.id + '" target="main">添加</a></li>';
+								})
+								children += '</ul>'
+							} else {
+								var children = '<ul id="' + val.id + '"><li>没有子分类!</li></ul>';
+							}
+							html += children + "</li>";
+
+						})
+						$("#navNewsClass").empty().append(html);
+					}
+				})
+			}
 		</script>
 	</body>
 

@@ -1,4 +1,4 @@
-@import "../../lib/css/bootstrap.css";
+@import "../lib/css/bootstrap.css";
 body {
   color: #000000;
   font-family: "微软雅黑", "microsoft yahei", "simHei", "Times New Roman", "Georgia", "Serif";
@@ -55,19 +55,24 @@ a {
   margin-top: 20px;
   margin-bottom: 40px;
 }
-.main .modifyUser .table {
+.main .modifyUser .table,
+.main .modifyAd .table {
   margin-top: 20px;
   margin-bottom: 40px;
 }
-.main .modifyUser .table > tbody > tr > td {
+.main .modifyUser .table > tbody > tr > td,
+.main .modifyAd .table > tbody > tr > td {
   border: none;
   vertical-align: middle;
 }
 .main .modifyUser .table tr > td:first-child,
-.main .modifyUser .table td:first-child + td + td {
+.main .modifyAd .table tr > td:first-child,
+.main .modifyUser .table td:first-child + td + td,
+.main .modifyAd .table td:first-child + td + td {
   font-weight: bold;
   text-align: right;
 }
-.main .modifyUser .table tr td.btnLeft {
+.main .modifyUser .table tr td.btnLeft,
+.main .modifyAd .table tr td.btnLeft {
   text-align: left;
 }

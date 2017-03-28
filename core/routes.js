@@ -9,9 +9,14 @@ var routerTable = require('../lib/router-table.lib');
  */
 var controllers = requireAll({
 	dirname: path.join(__dirname, '../core/controllers/'),
-	filter: /(.+)\.controller\.js$/
+//	filter: /(.+)\.controller\.js$/
+	filter: function(fileName){
+		var parts = fileName.split('.controller.js');
+//		console.log(parts[0])
+    	return parts[0];
+	}
 });
-
+//console.log(controllers)
 /**
  * 递归绑定控制器
  * @param  {Object} Router JSON

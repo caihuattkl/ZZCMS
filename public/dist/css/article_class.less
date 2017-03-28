@@ -1,0 +1,91 @@
+@import "../lib/css/font-awesome.less"; //字体样式 
+@import "../lib/css/common.less"; //导航栏首页
+@import "head_article.less"; //公共头部
+@import "../lib/css/footer_article.less"; //公共头部
+.redBg { 
+    background: #F9E0E1;
+    color: red;
+}
+.greenBg {
+    background: #E1FCE1;
+    color: green;
+}
+.redff {
+    color: red;
+}
+.greenff {
+    color: green;
+}
+.plan {
+    .container;
+    height: 50px;
+    .crumbs {
+        padding: 8px 0;
+        margin-bottom: 20px;
+        list-style: none;
+        li {
+            float: left;
+        }
+        > li:first-child {
+            padding: 0;
+        }
+        > li + li:before {
+            color: #CCCCCC;
+            content: ">";
+            padding: 0 5px;
+        }
+        > li + li {
+            margin-top: 9px;
+        }
+    }
+}
+.main {
+    .container;
+    overflow: hidden;
+}
+.nav {
+    background: @zzblue;
+    height: @fs40;
+    ul li {
+        line-height: @fs40;
+        display: inline-block;
+        margin: 0 20px;
+        font-size: @fs16;
+        a {
+            color: @zzLight-0;
+        }
+    }
+}
+.content {
+    .leftBox {
+        display: inline-block;
+        width: 755px;
+        .newslist{
+            padding:10px 0px;
+            li{
+                padding:20px 10px;
+                border-bottom: 1px solid @zzLight-3;
+                h3{
+                font-size: @fs16;
+                line-height:@fs40;
+               font-weight: bold;
+                }
+                .dec{
+                    font-size: @fs13;
+                    line-height: @fs26;
+                }
+                &:hover{
+                    background: @zzLight-3;
+                }
+            }
+        }
+    }
+    .right {
+        text-align: right;
+        margin: 10px 0 0 10px;
+        display: inline-block;
+        vertical-align: top;
+        width: 228px;
+        overflow: hidden;
+    }
+}

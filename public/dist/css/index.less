@@ -1,8 +1,8 @@
-@import "../lib/font-awesome.less"; //字体样式 
-@import "../lib/common.less"; //导航栏首页 
-@import "../lib/head.less";//公共头部
-@import "../lib/index_footer.less"; 
-.header-search { 
+@import "../lib/css/font-awesome.less"; //字体样式 
+@import "../lib/css/common.less"; //导航栏首页 
+@import "../lib/css/head.less";//公共头部
+@import "../lib/css/index_footer.less";
+.header-search {  
     &:after {
         content: "";
         display: block;
@@ -214,11 +214,12 @@ section.section {
                     border-bottom: 1px solid @zzLight-1;
                     padding: 10px 0;
                     >dt {
-                        width: 80px;
+                        width: auto;
                         float: left;
                         font-weight: bold;
                         text-align: right;
                         padding-right: 10px;
+                        padding-left: 10px;
                     }
                     >dd {
                         overflow: hidden;
@@ -564,6 +565,19 @@ section.sectionMain {
                             p {
                                 text-align: center;
                                 font-size: @fs12;
+                            }
+                        }
+                    }
+                    .meetingImg{
+                        padding: 10px 0;
+                        a img {
+                            .imgStyle;
+                        }
+                        ul li {
+                            p {
+                                text-align: center;
+                                font-size: @fs13;
+                                padding:3.4px 0px;
                             }
                         }
                     }

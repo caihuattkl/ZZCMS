@@ -129,11 +129,12 @@ exports.reportTopClassList = function(req, res){
 exports.putReportClass = function(req, res){
 	var id = req.body.id,
 		subTitle = req.body.reportSubTitle,
+		reportsDirectory = toEn(req.body.reportSubTitle),
 		title = req.body.reportTitle,
 		keywords = req.body.reportKeywords,
 		description = req.body.reportDescription,
 		postTime = req.body.time;
-	var sql = 'UPDATE report_class SET sub_title="' + subTitle + '",title="' + title + '",keywords="' + keywords + '",description="' + description + '",post_time="' + postTime + '" WHERE id =' + id
+	var sql = 'UPDATE report_class SET reports_directory="' + reportsDirectory + '",sub_title="' + subTitle + '",title="' + title + '",keywords="' + keywords + '",description="' + description + '",post_time="' + postTime + '" WHERE id =' + id
 	db.query(sql, function(err, rows) {
 		if(err) {
 			res.json({

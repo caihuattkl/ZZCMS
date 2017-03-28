@@ -1,18 +1,13 @@
-{{#contentFor "cssStyle"}}<link href="/dist/article_article.css" rel="stylesheet" media="screen" type="text/css" /> {{/contentFor}} 
+{{#contentFor "cssStyle"}}<link href="/dist/css/article_article.css" rel="stylesheet" media="screen" type="text/css" /> {{/contentFor}} 
 {{#contentFor "title"}}{{articles.subTitle}}_中金产业_中金产业咨询网{{/contentFor}}
 {{#contentFor "keywords"}}{{articles.keywords}}{{/contentFor}}
 {{#contentFor "description"}}{{articles.description}}{{/contentFor}}
 {{#contentFor "NavConn"}}
-	<li>
-			<a href="/">首页</a>
-	</li>
+	<li><a href="/">首页</a></li>
 	{{#each navbarMenu}}
-	<li>
-			<a href="/{{directoryName}}/{{id}}">{{subTitle}}</a>
-	</li>
+	<li><a href="/{{directoryName}}/">{{subTitle}}</a></li>
 	{{/each}}
-{{/contentFor}}
-{{>head_article}} 
+{{/contentFor}}{{>head_article}}
 <div class="plan">
 		<div class="left">
 			<ul class="crumbs" id="crumbs">
@@ -20,10 +15,10 @@
 					<a href="/"><img src="/images/logo_fnc.jpg" /></a>
 				</li>
 				<li>
-					<a href="/{{articles.classFirstPath}}/{{articles.classFirstId}}">{{articles.classFirstText}}</a>
+					<a href="/{{articles.classFirstPath}}/">{{articles.classFirstText}}</a>
 				</li>
 				<li>
-					<a href="/{{articles.classFirstPath}}/{{articles.classChildPath}}/{{articles.classChildId}}">{{articles.classChildText}}</a>
+					<a href="/{{articles.classFirstPath}}/{{articles.classChildPath}}/">{{articles.classChildText}}</a>
 				</li>
 				<li>正文</li>
 			</ul>

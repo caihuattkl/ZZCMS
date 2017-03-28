@@ -1,18 +1,16 @@
-{{#contentFor "cssStyle"}}<link href="/dist/article_class.css" rel="stylesheet" media="screen" type="text/css" />{{/contentFor}}
-{{#contentFor "title"}}{{subTitle}}_中智顾问_中智投资资讯网{{/contentFor}}
-{{#contentFor "keywords"}}{{keywords}}{{/contentFor}}
-{{#contentFor "description"}}{{description}}{{/contentFor}}
+{{#contentFor "title"}}{{reportClassInfo.title}}_中智顾问_中智投资资讯网{{/contentFor}}
+{{#contentFor "cssStyle"}}<link href="/dist/css/reports_class.css" rel="stylesheet" media="screen" type="text/css" />{{/contentFor}}
+{{#contentFor "keywords"}}{{reportClassInfo.keywords}}{{/contentFor}}
+{{#contentFor "description"}}{{reportClassInfo.description}}{{/contentFor}}
 {{#contentFor "NavConn"}}
+	<li><a href="/">首页</a></li>
+	{{#each navbarMenu}}
 	<li>
-			<a href="/">首页</a>
-	</li>
-	{{#each conNav}}
-	<li>
-			<a href="/">{{subTitle}}</a>
+			<a href="/{{directoryName}}">{{subTitle}}</a>
 	</li>
 	{{/each}}
 {{/contentFor}}
-{{>head_article}} 
+{{>head_article}}
 <div class="plan">
 				<div class="left">
 					<ul class="crumbs" id="crumbs">
@@ -20,36 +18,30 @@
 							<a href="/"><img src="/images/logo_fnc.jpg" /></a>
 						</li>
 						<li>
-							<a href="/{{crumbs.0.directoryName}}/{{crumbs.0.id}}">{{crumbs.0.subTitle}}</a>
+							<a href="/reports/{{reportClassCrumbs.reports_directory}}/">{{reportClassCrumbs.sub_title}}</a>
 						</li>
 						<li>
-							<a href="/{{crumbs.0.directoryName}}/{{crumbs.1.directoryName}}/{{crumbs.1.id}}">{{crumbs.1.subTitle}}</a>
+							<a href="/reports/{{reportClassInfo.reports_directory}}/">{{reportClassInfo.sub_title}}</a>
 						</li>
 					</ul>
 				</div>
-			</div>
-			
+		</div>
 		<div class="main">
-			<div class="nav">
-				<ul>
-					<li>
-						<a href="/{{crumbs.0.directoryName}}/{{crumbs.0.id}}">首页</a>
-					</li>
-					{{#each classNav}}
-					<li>
-						<a href="../{{crumbs.0.directoryName}}{{directoryName}}/{{id}}">{{subTitle}}</a>
-					</li>
-					{{/each}}
-				</ul>
-			</div>
+			{{>reportsMeun}}
 			<div class="content">
 				<div class="leftBox">
-					<ul class="newslist">
-						{{#each classNewsList}}
+					<div class="reports-class">
+						<h1>{{reportClassCrumbs.sub_title}}行业研究报告分类</h1>
+						<h2>{{#each reportClassCrumbs.child}}<a href="/reports/{{reports_directory}}/">{{sub_title}}</a>{{/each}}</h2>
+					</div>
+					<ul class="reportslist">
+						{{#each reportsList}}
 						<li>
-							<h3 class="title"><a href="/{{newsUrl}}" target="_blank">{{subTitle}}</a></h3>
+							<h3 class="title"><a href="/reports/{{report_url}}.html" target="_blank">{{#forStrColor core_keywords subTitle}}{{/forStrColor}}</a></h3>
+							<a class="pic" href="/reports/{{report_url}}.html" target="_blank"><img src="http://www.ocn.com.cn/uploadfile/report/report_17650.jpg" alt="{{subTitle}}"></a>
 							<div class="dec">
-								<a href="/{{newsUrl}}" target="_blank">{{nContentStr nContent}}...</a>
+								<a href="/reports/{{report_url}}.html" target="_blank">{{report_summary}}...</a>
+								<span class="rdate"><a href="/reports/{{report_url}}.html" target="_blank">立即订购</a></span>
 							</div>
 							</li>
 						{{/each}}
@@ -60,4 +52,4 @@
 				</div>
 			</div>
 		</div>
-		{{>footer_article}}
+{{>footer_report}}

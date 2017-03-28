@@ -31,9 +31,9 @@
 			</table>
 
 		</div>
-		<script src="/lib/js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/lib/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/lib/js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/lib/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(function() {
 				getReportsList();
@@ -64,7 +64,7 @@
 							if(val.frist_class == v.id) {
 								v.child.forEach(function(v1, i1) {
 									if(v1.id == val.child_class) {
-										html += '<tr><td>' + val.id + '</td><td><strong>' + v.sub_title + '</strong>>' + v1.sub_title + '</td><td><a href="./editReports?reportId=' + val.id + '&firstClass='+val.frist_class+'&childClass='+v1.id+'">' + val.subTitle + '</a></td><td>' + formatDate(val.post_time) + '</td><td><a href="./editReports?reportId=' + val.id + '" id="edit">编辑</a>&nbsp;&nbsp;<a href="javascript:void(0)" id="delReports" data-newsid="' + val.id + '">删除</a></td></tr>';
+										html += '<tr><td>' + val.id + '</td><td><strong>' + v.sub_title + '</strong>>' + v1.sub_title + '</td><td><a href="./editReports?reportId=' + val.id + '&firstClass='+val.frist_class+'&childClass='+v1.id+'">' + val.subTitle + '</a></td><td>' + formatDate(val.post_time) + '</td><td><a href="./editReports?reportId=' + val.id + '&firstClass='+val.frist_class+'&childClass='+v1.id+'" id="edit">编辑</a>&nbsp;&nbsp;<a href="javascript:void(0)" id="delReports" data-newsid="' + val.id + '">删除</a></td></tr>';
 									}
 								})
 							}

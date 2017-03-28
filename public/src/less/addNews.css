@@ -1,4 +1,4 @@
-@import "../../lib/css/bootstrap.css";
+@import "../lib/css/bootstrap.css";
 body {
   color: #000000;
   font-family: "微软雅黑", "microsoft yahei", "simHei", "Times New Roman", "Georgia", "Serif";
@@ -47,6 +47,10 @@ a {
   margin-top: -5px;
   border-width: 5px 5px 5px 0;
   border-right-color: red;
+}
+.main {
+  width: 100%;
+  margin: 0px auto;
 }
 .main .table {
   margin-top: 45px;
