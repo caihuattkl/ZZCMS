@@ -232,9 +232,7 @@
 
 			//所有顶级分类,填充数据下拉框
 			$("#newsClassList").on("click", "#subNewsClass", function() {
-				$("#subNewsClassModel").modal({
-					"backdrop": "static"
-				});
+				$("#subNewsClassModel").modal({"backdrop": "static"});
 				var id = $(this).parents('tr').children("td").html();
 				getNewsFristClassList(id);
 			})
@@ -292,8 +290,6 @@
 					}
 				})
 			}
-
-			//修改保存
 			
 			//提交表单
 			$("#modifyNewsClassForm").validataForm({
@@ -345,26 +341,6 @@
 					})
 				})
 			
-//			function modifyNewsClassDetails() {
-//				var newsClassDetail = $("#modifyNewsClassForm").serializeObject();
-//				$.ajax({
-//					type: "put",
-//					url: ajaxConfig.newsClass,
-//					dataType: "json",
-//					data: newsClassDetail,
-//					success: function(res) {
-//						if(res.code == 200) {
-//							alert(res.message);
-//							$("#newsClassModel").modal('hide');
-//							return;
-//						}
-//						alert(res.message);
-//					},
-//					error: function(res) {
-//						console.log(res)
-//					}
-//				})
-//			}
 
 			//所有顶级分类,填充数据下拉框
 			function getNewsFristClassList(id) {
@@ -434,6 +410,7 @@
 			//关闭模态框后刷新一下页面.重置表单不好使
 			$('#newsClassModel,#subNewsClassModel').on('hidden.bs.modal', function() {
 				getNewsClassList();
+				$("#subNewsClassForm")[0].reset();
 			})
 			//打开模态框就加载时间
 			$('#subNewsClassModel').on('show.bs.modal', function() {

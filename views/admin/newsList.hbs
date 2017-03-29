@@ -38,9 +38,9 @@
 			function getNewsList(){
 				var html="<tr><td colspan=4>没有数据哦...</td></tr>";
 				$.get(ajaxConfig.newsList+"?newsClassId="+{{newsClassId}},function(res){
-					if(res.code==200&&res.data.length!=0){
+					if(res&&res.length!=0){
 						html="";
-						res.data.forEach(function(val,index){
+						res.forEach(function(val,index){
 							html+='<tr><td>'+val.id+'</td><td><a href="./editNews?newsId='+val.id+'&classFirstId='+val.classFirstId+'&classChildId='+val.classChildId+'">'+val.subTitle+'</a></td><td>'+formatDate(val.time)+'</td><td><a href="./editNews?newsId='+val.id+'&classFirstId='+val.classFirstId+'&classChildId='+val.classChildId+'" id="edit">编辑</a>&nbsp;&nbsp;<a href="javascript:void(0)" id="delNews" data-newsid="'+val.id+'">删除</a></td></tr>';
 						})
 					}
@@ -50,21 +50,22 @@
 			//删除新闻
 			function delNews(){
 				$("#newsList").on("click","#delNews",function(){
-					$.ajax({
+					if(confirm("您正在执行删除操作，删除是不可恢复的，您确认要删除吗？")){
+						$.ajax({
 						type:"delete",
 						url:ajaxConfig.news+'/'+$(this).data('newsid'),
 						success:function(res){
-							if(res.code==200){
-								alert(res.message);
-								getNewsList();
-								return;
+							if(res){
+								return getNewsList();
 							}
 							alert(res.message)
 						},
 						error:function(res){
-							alert(res)
+							alert(res.responseText)
 						}
 					});
+					}
+					
 				})
 			}
 		</script>

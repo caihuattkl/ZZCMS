@@ -2,6 +2,7 @@ var filter = require("../../lib/filter.lib");
 var newsClassMod = require("../models/api_newsClass.model");
 var newsClassService = require("../services/api_newsClass.service");
 var newsClassList = require("../models/cacheClass.model");
+var logger = require('../../lib/logger.lib');
 
 //新闻分类列表
 exports.newsClassList = function(req, res) {
@@ -33,7 +34,6 @@ exports.delNewsClass = function(req, res) {
 
 //新闻分类改
 exports.putNewsClass = function(req, res) {
-	console.log('putNewsClass_11111111111111111111111111111')
 	newsClassService.putNewsClass(req, res, function(err, rows) {
 		if(err) {
 			logger[err.type]().error(__filename, err);

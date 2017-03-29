@@ -145,3 +145,4 @@ exports.classDetails=function(callback){
 		});
 	}
 }
+

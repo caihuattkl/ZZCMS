@@ -99,7 +99,6 @@ function delTopline(firstId) {
 
 //修改新闻分类
 exports.putNewsClass = function(opt, callback) {
-	console.log(opt)
 	var sql = 'UPDATE news_class SET url="' + opt.url + '",directoryName="' + opt.directoryName + '",subTitle="' + opt.subTitle + '",title="' + opt.title + '",keywords="' + opt.keywords + '",description="' + opt.description + '",time="' + opt.time + '" WHERE  id =' + opt.id
 	db.query(sql, function(err, rows) {
 		if(err) {

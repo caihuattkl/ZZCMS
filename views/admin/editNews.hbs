@@ -7,13 +7,13 @@
 		<link rel="stylesheet" href="/src/less/addNews.css" />
 		<style>
 			.ke-icon-diyFormat {
-				background: url("/lib/ueditor/themes/default/paiban.gif");
+				background: url("/src/lib/ueditor/themes/default/paiban.gif");
 				width: 16px;
 				height: 16px;
 			}
 			
 			.ke-icon-paging {
-				background: url("/lib/ueditor/themes/default/fenye.gif");
+				background: url("/src/lib/ueditor/themes/default/fenye.gif");
 				width: 16px;
 				height: 16px;
 			}
@@ -75,8 +75,8 @@
 		<script src="/src/lib/js/toPinYin.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/src/lib/My97DatePicker/WdatePicker.js" type="text/javascript" charset="utf-8"></script>
 		<script src="/src/js/common.js" type="text/javascript" charset="utf-8"></script>
-		<script charset="utf-8" src="/lib/ueditor/kindeditor.js"></script>
-		<script charset="utf-8" src="/lib/ueditor/lang/zh_CN.js"></script>
+		<script charset="utf-8" src="/src/lib/ueditor/kindeditor.js"></script>
+		<script charset="utf-8" src="/src/lib/ueditor/lang/zh_CN.js"></script>
 		<script type="text/javascript">
 			$(function() {
 				//加载新闻时间
@@ -107,17 +107,17 @@
 			//获取新闻内容,填充表单
 			function getNews() {
 				$.get(ajaxConfig.news + '/' + {{newsId}}, function(res) {
-					if(res.code == 200 && res.data.length != 0) {
-						$('input[name="newsUrl"]').val(res.data[0].newsUrl);
-						$('input[name="title"]').val(res.data[0].title);
-						$('input[name="keywords"]').val(res.data[0].keywords);
-						$('input[name="subKeywords"]').val(res.data[0].subKeywords);
-						$('input[name="description"]').val(res.data[0].description);
-						$('input[name="source"]').val(res.data[0].source);
-						$('input[name="author"]').val(res.data[0].author);
-						$('input[name="time"]').val(formatDate(res.data[0].time));
-						$('input[name="subTitle"]').val(res.data[0].subTitle);
-						editor.html(res.data[0].nContent);
+					if(res) {
+						$('input[name="newsUrl"]').val(res[0].newsUrl);
+						$('input[name="title"]').val(res[0].title);
+						$('input[name="keywords"]').val(res[0].keywords);
+						$('input[name="subKeywords"]').val(res[0].subKeywords);
+						$('input[name="description"]').val(res[0].description);
+						$('input[name="source"]').val(res[0].source);
+						$('input[name="author"]').val(res[0].author);
+						$('input[name="time"]').val(formatDate(res[0].time));
+						$('input[name="subTitle"]').val(res[0].subTitle);
+						editor.html(res[0].nContent);
 					}
 
 				})
@@ -130,8 +130,8 @@
 					url:ajaxConfig.newsClassList,
 					type:"get",
 					success:function(res){
-					if(res.code == 200&&res.data.length!=0) {
-						res.data.forEach(function(val,index){
+					if(res) {
+						res.forEach(function(val,index){
 							html+='<optgroup label="'+val.subTitle+'">';
 							var children='';
 							val.child.forEach(function(v,i){
@@ -173,22 +173,19 @@
 			function editNews() {
 				$("#editNewsBtn").click(function() {
 					editor.sync();
-					var html = $("#editor1").val();
 					var newsData = $("#newsForm").serializeObject();
 					$.ajax({
 						url: ajaxConfig.news,
 						type: "put",
-						dataType: "json",
 						data: newsData,
 						success: function(res) {
-							if(res.data.length != 0 && res.code == 200) {
-								alert(res.message);
-								return;
+							if(res) {
+								return alert(res.message);
 							}
 							alert(res.message);
 						},
 						error: function(res) {
-							alert(res);
+							alert(res.responseText)
 						}
 					})
 

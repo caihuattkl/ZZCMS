@@ -237,6 +237,13 @@ exports.edit = function(req, res, next) {
 	});
 };
 
+exports.infoRepertoryEdit = function(req, res, next) {
+	res.render('admin/infoRepertoryEdit', {
+		newsId: req.query.newsId,
+		classFirstId: req.query.classFirstId,
+		classChildId: req.query.classChildId
+	});
+};
 exports.newsList = function(req, res, next) {
 	res.render('admin/newsList', {
 		newsClassId: req.query.newsClassId

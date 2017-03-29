@@ -1,11 +1,11 @@
 var filter = require("../../lib/filter.lib");
 var logger = require('../../lib/logger.lib');
-var newsService=require("../services/api_news.service");
-var newsMod =require("../models/api_news.model")
+var newsMod = require("../models/api_news.model")
 //添加新闻
 exports.add = function(req, res) {
-	newsService.add(req,res,function(err,rows){
-		if(err){
+	req.body.nContent.filterColon();
+	newsMod.add(req.body, function(err, rows) {
+		if(err) {
 			logger[err.type]().error(__filename, err);
 			return res.status(500).end();
 		}
@@ -14,9 +14,9 @@ exports.add = function(req, res) {
 }
 
 //删除指定新闻
-exports.delNews=function(req,res){
-	newsMod.del(req.params.id,function(err,rows){
-		if(err){
+exports.delNews = function(req, res) {
+	newsMod.del(req.params.id, function(err, rows) {
+		if(err) {
 			logger[err.type]().error(__filename, err);
 			return res.status(500).end();
 		}
@@ -25,9 +25,10 @@ exports.delNews=function(req,res){
 }
 
 //编辑指定新闻
-exports.put=function(req,res){
-	newsService.put(req,res,function(err,rows){
-		if(err){
+exports.put = function(req, res) {
+	req.body.nContent.filterColon();
+	newsMod.put(req.body, function(err, rows) {
+		if(err) {
 			logger[err.type]().error(__filename, err);
 			return res.status(500).end();
 		}
@@ -36,10 +37,9 @@ exports.put=function(req,res){
 }
 
 //新闻列表
-exports.newsList=function(req,res){
-	var newsClassId = req.query.newsClassId;
-	newsMod.newsList(newsClassId,function(err,rows){
-		if(err){
+exports.newsList = function(req, res) {
+	newsMod.newsList(req.query, function(err, rows) {
+		if(err) {
 			logger[err.type]().error(__filename, err);
 			return res.status(500).end();
 		}
@@ -47,16 +47,60 @@ exports.newsList=function(req,res){
 	})
 }
 
-
 //获取指定新闻
-exports.newsDetail=function(req,res){
-	var id = req.params.id;
-	newsMod.newsDetail(id,function(err,rows){
-		if(err){
+exports.newsDetail = function(req, res) {
+	newsMod.newsDetail(req.params, function(err, rows) {
+		if(err) {
 			logger[err.type]().error(__filename, err);
 			return res.status(500).end();
 		}
 		res.status(200).json(rows);
 	})
-	
+}
+
+//添加信息仓库新闻
+exports.infoRepertoryAdd = function(req, res) {
+	req.body.nContent.filterColon();
+	newsMod.infoRepertoryAdd(req.body, function(err, rows) {
+		if(err) {
+			logger[err.type]().error(__filename, err);
+			return res.status(500).end();
+		}
+		res.status(200).json(rows);
+	})
+}
+
+//添加信息仓库新闻
+exports.infoRepertoryList = function(req, res) {
+	//判断是否有参数,为空时 有值拿指定值分类,否则拿全部分类数据
+	if(req.params.isEmptyObject()) {
+		newsMod.infoRepertoryList(req.params, function(err, rows) {
+			if(err) {
+				logger[err.type]().error(__filename, err);
+				return res.status(500).end();
+			}
+			return res.status(200).json(rows);
+		})
+	}
+//	newsMod.infoRepertoryDetail(req.params, function(err, rows) {
+//		if(err) {
+//			logger[err.type]().error(__filename, err);
+//			return res.status(500).end();
+//		}
+//		res.status(200).json(rows);
+//	})
+
+}
+
+//添加信息仓库新闻详细信息
+exports.infoRepertoryDetail = function(req, res) {
+	console.log(req.params)
+	newsMod.infoRepertoryDetail(req.params, function(err, rows) {
+		if(err) {
+			logger[err.type]().error(__filename, err);
+			return res.status(500).end();
+		}
+		res.status(200).json(rows);
+	})
+
 }

@@ -52,17 +52,34 @@ exports.list=function(callback) {
 }
 
 //获取指定分类报告
-exports._class=function(options,callback) {
-	var sql='select * from reports where frist_class REGEXP "'+options.firstClass+'" or  child_class REGEXP "'+options.childClass+'"';
+exports._class=function(opts,callback) {
+//	var sql='select * from reports where frist_class REGEXP "'+options.firstClass+'" or  child_class REGEXP "'+options.childClass+'"';
+	let sql='select (SELECT COUNT(*) FROM reports where frist_class ="'+ opts.firstClass +'"or child_class = "'+opts.childClass+'") as total,r.* from reports r where frist_class ="'+ opts.firstClass +'"or child_class = "'+opts.childClass+'"ORDER BY post_time DESC limit '+opts.star+','+opts.end;
 	db.query(sql, function(err, rows) {
 		if(err || !rows.length) {
-			logger.database().error(__filename, err || (options.firstClass&&"报告分类"+options.firstClass+"没有数据(大类)")||(options.childClass&&"报告分类"+options.childClass+"没有数据(小类)"));
+			logger.database().error(__filename, err || (opts.firstClass&&"报告分类"+opts.firstClass+"没有数据(大类)")||(opts.childClass&&"报告分类"+opts.childClass+"没有数据(小类)"));
 			if(!rows.length) return callback(null,[]);
 			return callback(err);
 		}
 		callback(null, rows)
 	})
 }
+
+//获取所有报告,按时间排序,最新报告
+exports.recent=function(opts,callback) {
+	let sql='select (SELECT COUNT(*) FROM reports) as total,r.* from reports r ORDER BY post_time DESC limit '+opts.star+','+opts.end;
+//	var sql='select (SELECT COUNT(*) FROM reports) as total,r.* from reports r ORDER BY post_time DESC limit 0,10';
+	db.query(sql, function(err, rows) {
+		if(err || !rows.length) {
+			err.type='database';
+			logger.database().error(__filename, err || '获取最新报告失败!');
+			if(!rows.length) return callback(null,[]);
+			return callback(err);
+		}
+		callback(null, rows)
+	})
+}
+
 
 //获取指定报告信息
 exports.detail=function(id,callback) {

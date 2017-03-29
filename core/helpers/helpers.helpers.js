@@ -171,7 +171,7 @@ exphbs.registerHelper('classPrePage', function(val,arr,opt) {
 	return v;
 });
 exphbs.registerHelper('classNextPage', function(val,arr,opt) {
-	var v=val+1;
+	let v=parseInt(val)+1;
 	if(v>=arr.length){
 		v=arr.length
 	}

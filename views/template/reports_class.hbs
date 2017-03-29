@@ -31,11 +31,11 @@
 			<div class="content">
 				<div class="leftBox">
 					<div class="reports-class">
-						<h1>{{reportClassCrumbs.sub_title}}行业研究报告分类</h1>
+						<h1>{{reportClassCrumbs.sub_title}}行业研究报告</h1>
 						<h2>{{#each reportClassCrumbs.child}}<a href="/reports/{{reports_directory}}/">{{sub_title}}</a>{{/each}}</h2>
 					</div>
 					<ul class="reportslist">
-						{{#each reportsList}}
+						{{#each reportsList.data}}
 						<li>
 							<h3 class="title"><a href="/reports/{{report_url}}.html" target="_blank">{{#forStrColor core_keywords subTitle}}{{/forStrColor}}</a></h3>
 							<a class="pic" href="/reports/{{report_url}}.html" target="_blank"><img src="http://www.ocn.com.cn/uploadfile/report/report_17650.jpg" alt="{{subTitle}}"></a>
@@ -46,6 +46,14 @@
 							</li>
 						{{/each}}
 					</ul>
+					<ul class="pagination">
+					<li><a href="/reports/{{reportClassInfo.reports_directory}}/{{#classPrePage reportsList.curPage reportsList.pageNum}}{{/classPrePage}}">上一页</a></li>
+					{{#each reportsList.pageNum}}
+					<li><a href="/reports/{{../reportClassInfo.reports_directory}}/{{this}}" {{#classCurCss ../reportsList.curPage this}} {{/classCurCss}}>{{this}}</a></li>
+					{{/each}}
+				<li><a href="/reports/{{reportClassInfo.reports_directory}}/{{#classNextPage reportsList.curPage reportsList.pageNum}}{{/classNextPage}}">下一页</a></li>
+				<li><a>第{{reportsList.curPage}}页，共{{reportsList.pageNum.length}}页</a></li>
+				</ul>
 				</div>
 				<div class="right">
 					<img src="http://d8.sina.com.cn/pfpghc2/201612/31/427c8c37e06046e492752ba53a40e216.jpg" />

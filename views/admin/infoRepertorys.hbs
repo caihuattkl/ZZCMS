@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>信息厂库管理</title>
+		<link rel="stylesheet" href="/src/less/reportClassList.css" />
+	</head>
+
+	<body>
+		<div class="main">
+			<table class="table table-bordered" id="newsList">
+				<thead>
+					<tr>
+						<th width="50">序号</th>
+						<th>新闻标题</th>
+						<th>添加时间</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+
+				</tbody>
+			</table>
+
+		</div>
+		<script src="/src/lib/js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/lib/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/src/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				newsObj.getNewsList(); //获取分类新闻
+				newsObj.delNews(); //删除新闻
+			})
+
+			//所有对应栏目新闻列表
+			var newsObj = {
+				html: "",
+				getNewsList: function() {
+					var $this = this;
+					$this.html = "<tr><td colspan=4>没有数据哦...</td></tr>";
+					$.get('/api/infoRepertorys', function(res) {
+						if(res && res.length != 0) {
+							$this.html = "";
+							res.forEach(function(val, index) {
+								$this.html += '<tr><td>' + val.id + '</td><td><a href="./infoRepertoryEdit?newsId=' + val.id + '&classFirstId=' + val.classFirstId + '&classChildId=' + val.classChildId + '">' + val.subTitle + '</a></td><td>' + formatDate(val.time) + '</td><td><a href="./editNews?newsId=' + val.id + '&classFirstId=' + val.classFirstId + '&classChildId=' + val.classChildId + '" id="edit">编辑</a>&nbsp;&nbsp;<a href="javascript:void(0)" id="delNews" data-newsid="' + val.id + '">删除</a></td></tr>';
+							})
+						}
+						$("#newsList tbody").empty().append($this.html);
+					})
+				},
+				delNews: function() {
+					$("#newsList").on("click", "#delNews", function() {
+						if(confirm("您正在执行删除操作，删除是不可恢复的，您确认要删除吗？")) {
+							$.ajax({
+								type: "delete",
+								url: ajaxConfig.news + '/' + $(this).data('newsid'),
+								success: function(res) {
+									if(res) {
+										return getNewsList();
+									}
+									alert(res.message)
+								},
+								error: function(res) {
+									alert(res.responseText)
+								}
+							});
+						}
+
+					})
+				}
+			}
+		</script>
+	</body>
+
+</html>

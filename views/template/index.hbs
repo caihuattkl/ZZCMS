@@ -2,29 +2,23 @@
 <link href="/dist/css/index.css" rel="stylesheet" media="screen" type="text/css" /> {{/contentFor}} {{#contentFor "title"}}中金产业咨询网-中金产业公司网站-领先的产业研究与产业战略咨询机构-投资咨询|投资网 产业规划_园区规划_招商策划{{/contentFor}} {{#contentFor "keywords"}}产业规划,招商策划，园区规划{{/contentFor}} {{#contentFor "description"}}中金产业咨询(http://ciccindustry.com)是中国权威的咨询机构和政府产业咨询顾问,业务范围覆盖招商策划,产业规划,区域产业规划,可行性研究报告,城镇规划,产业竞争情报,项目建议书,产业园区规划，招商代理。{{/contentFor}}
 <div class="navbox">
 	<div class="navTop">
-		<span class="left">你好,欢迎来到中金产业咨询网!</span>
+		<span class="left">你好,欢迎来到中金产业咨询网! </span>&nbsp;<span style="color:#dddddd;">|</span>&nbsp;&nbsp;<a href="javascript:addFavorite('中金产业投资咨询网','http://www.ocns.com.cn')">加入收藏夹</a>
 		<div class="right">
 			<ul>
 				<li class="red">
-					<a href="javascript:void(0)">最新报告</a>
+					<a href="/reports/recent/" target="_blank">最新报告</a>
 				</li>
 				<li class="red">
-					<a href="javascript:void(0)">行业研究报告</a>
+					<a href="/reports/" target="_blank">行业研究报告</a>
 				</li>
 				<li>
-					<a href="javascript:void(0)">设为首页</a>
+					<a href="javascript:void(0)" target="_blank">帮助中心</a>
 				</li>
 				<li>
-					<a href="javascript:void(0)">收藏夹</a>
+					<a href="http://ciccindustry.com/lianxiwomen/" target="_blank">联系我们</a>
 				</li>
 				<li>
-					<a href="javascript:void(0)">帮助中心</a>
-				</li>
-				<li>
-					<a href="javascript:void(0)">联系我们</a>
-				</li>
-				<li>
-					<a href="javascript:void(0)">服务项目</a>
+					<a href="javascript:void(0)" target="_blank">服务项目</a>
 				</li>
 			</ul>
 		</div>
@@ -32,7 +26,7 @@
 </div>
 
 <div class="header-search">
-	<a class="lf" href="javascript:void(0)"><img src="images/logo.gif" alt="logo" /></a>
+	<a class="lf" href="/"><img src="images/logo.gif" alt="logo" /></a>
 	<div class="searchBox lf">
 		<div class="search">
 			<form action="#">
@@ -70,7 +64,7 @@
 			<a href="#">研究院</a>
 		</li>
 		<li>
-			<a href="#">数据中心</a>
+			<a href="/shujuzhongxin/" target="_blank">数据中心</a>
 		</li>
 		<li>
 			<a href="#">产经</a>
@@ -79,19 +73,19 @@
 			<a href="#">高端峰会</a>
 		</li>
 		<li>
-			<a href="#">投资咨询</a>
+			<a href="http://ciccindustry.com/yuanquyunyingzixun/" target="_blank">投资咨询</a>
 		</li>
 		<li>
-			<a href="#">市场调研</a>
+			<a href="http://ciccindustry.com/zsyz/" target="_blank">市场调研</a>
 		</li>
 		<li>
-			<a href="#">政府规划</a>
+			<a href="http://ciccindustry.com/guihuazixun/" target="_blank">政府规划</a>
 		</li>
 		<li>
-			<a href="#">招商代理</a>
+			<a href="http://ciccindustry.com/zhengfuzhaoshang/zhaoshangdaili/" target="_blank">招商代理</a>
 		</li>
 		<li>
-			<a href="#">园区运营</a>
+			<a href="http://ciccindustry.com/yqyygl/" target="_blank">园区运营</a>
 		</li>
 	</ul>
 	<ul class="nav-sub">
@@ -180,19 +174,13 @@
 				<h3>{{#each this}}{{#reportTreeSeparator @index}}{{/reportTreeSeparator}}{{#reportTreeFilterCharacter @index}}<a href="/reports/{{reports_directory}}/">{{sub_title}}</a>{{/reportTreeFilterCharacter}}{{/each}}</h3>
 				<div class="sectionSubContent" id="sectionSubContent">
 					<div id="sectionLeftContent" class="sectionLeftContent">
-						{{#each this}} 
+						{{#each this}}
 						<dl class="smallIndustry">
 							<dt><em><a href="/reports/{{reports_directory}}/">{{sub_title}}</a></em></dt>
 							<dd>
-							{{#reportTreeChildClassCompare this}}
-									{{#each this.child}}
-									<em><a href="/reports/{{reports_directory}}/">{{sub_title}}</a></em>
-									{{/each}}
-									{{else}}
-									{{#each this.data}}
-										<em><a href="/reports/{{report_url}}.html" target="_blank">{{core_keywords}}</a></em>
-									{{/each}}
-							{{/reportTreeChildClassCompare}}
+								{{#reportTreeChildClassCompare this}} {{#each this.child}}
+								<em><a href="/reports/{{reports_directory}}/">{{sub_title}}</a></em> {{/each}} {{else}} {{#each this.data}}
+								<em><a href="/reports/{{report_url}}.html" target="_blank">{{core_keywords}}</a></em> {{/each}} {{/reportTreeChildClassCompare}}
 							</dd>
 						</dl>
 						{{/each}}
@@ -421,10 +409,22 @@
 					<h4 class="title">热门峰会<span class="more"><a href="#">更多</a></span></h4>
 					<div class="meetingImg">
 						<ul>{{!ads_summitMeeting.adContent}}
-						<li><a href="#"><img src="http://www.ocn.com.cn/Upload/userfiles/cy0.jpg" width="250" height="50"></a><p>大西安国际海绵城市建设发展博览会</p></li>
-						<li><a href="#"><img src="http://www.ocn.com.cn/Upload/userfiles/ocnbtz.gif" width="250" height="50"></a><p>大西安国际海绵城市建设发展博览会</p></li>
-						<li><a href="#"><img src="http://www.ocn.com.cn/Upload/userfiles/jx.gif" width="250" height="50"></a><p>大西安国际海绵城市建设发展博览会</p></li>
-						<li><a href="#"><img src="http://www.ocn.com.cn/Upload/userfiles/bj.gif" width="250" height="50"></a><p>大西安国际海绵城市建设发展博览会</p></li>
+							<li>
+								<a href="#"><img src="http://www.ocn.com.cn/Upload/userfiles/cy0.jpg" width="250" height="50"></a>
+								<p>大西安国际海绵城市建设发展博览会</p>
+							</li>
+							<li>
+								<a href="#"><img src="http://www.ocn.com.cn/Upload/userfiles/ocnbtz.gif" width="250" height="50"></a>
+								<p>大西安国际海绵城市建设发展博览会</p>
+							</li>
+							<li>
+								<a href="#"><img src="http://www.ocn.com.cn/Upload/userfiles/jx.gif" width="250" height="50"></a>
+								<p>大西安国际海绵城市建设发展博览会</p>
+							</li>
+							<li>
+								<a href="#"><img src="http://www.ocn.com.cn/Upload/userfiles/bj.gif" width="250" height="50"></a>
+								<p>大西安国际海绵城市建设发展博览会</p>
+							</li>
 						</ul>
 					</div>
 					<ul class="newList">
@@ -525,56 +525,25 @@
 				<div class="paihangbang lf">
 					<ul class="title" id="ph">
 						<li>
-							<h4 class="current"><a href="#">周排行</a></h4></li>
+							<h4 class="current"><a href="/reports/recent/" target="_blank">最新报告</a></h4></li>
 						<li>
-							<h4><a href="#">月排行</a></h4></li>
+							<h4><a href="#">热点报告</a></h4></li>
 					</ul>
 					<ul class="newsListWeek" id="newsListWeek">
 						<li>
 							<a href="#"><img src="images/banner-1.jpg" width="70" height="70" /></a>
-							<h5><a href="#">周云计算市场风起云涌周云计算市场风起云涌</a></h5>
-							<p>
-								<a href="#">阿里云为扩大市场份额疯阿里,阿里云为扩大市场份额疯,云为扩大市场份额疯...</a>
-							</p>
+							<h5><a href="#">1周云计算市场风起云涌周云计算市场风起云涌</a></h5>
+							<p>阿里云为扩大市场份额疯阿里,阿里云为扩大市场份额疯,云为扩大市场份额疯...</p>
 						</li>
 						<li>
-							<a href="#">全国饭店行业“营改增”政策红利开始显现</a>
-						</li>
-						<li>
-							<a href="#">中国华电集团成为首家编制碳排放专项规划央企</a>
-						</li>
-						<li>
-							<a href="#">售电公司参与电力市场交易 请吃透这些注意事项</a>
-						</li>
-						<li>
-							<a href="#">京港澳高速公交道半月平均提速约65%</a>
-						</li>
-						<li>
-							<a href="#">天津自贸区对外投资持续倍增 占全市比重超8成</a>
-						</li>
-						<li>
-							<a href="#">中美可持续城镇化合作项目在京落地</a>
-						</li>
-						<li>
-							<a href="#">全国饭店行业“营改增”政策红利开始显现</a>
-						</li>
-						<li>
-							<a href="#">中国华电集团成为首家编制碳排放专项规划央企</a>
-						</li>
-						<li>
-							<a href="#">云计算市场风起云涌 阿里云为扩大市场份额疯狂</a>
-						</li>
-						<li>
-							<a href="#">售电公司参与电力市场交易 请吃透这些注意事项</a>
+							<a href="#">2017-2022年中国飞机漆行业市场需求与投资咨询报告</a>
 						</li>
 					</ul>
 					<ul class="newsListMonth" id="newsListMonth" style="display: none;">
 						<li>
 							<a href="#"><img src="images/banner-1.jpg" width="70" height="70" /></a>
 							<h5><a href="#">铜冠金源:美豆走出阴霾 豆油跨月正套</a></h5>
-							<p>
-								<a href="#"> 10月USDA供需报告显示,美国2016/17年度美豆单产预估为51.4蒲式耳/英亩,总产量...</a>
-							</p>
+							<p>10月USDA供需报告显示,美国2016/17年度美豆单产预估为51.4蒲式耳/英亩,总产量...</p>
 						</li>
 						<li>
 							<a href="#">浦上大道改造工程项目建议书获批 计划明年9月通车</a>
@@ -622,9 +591,7 @@
 						<li>
 							<a href="#"><img src="images/banner-1.jpg" width="70" height="70" /></a>
 							<h5><a href="#">周云计算市场风起云涌周云计算市场风起云涌</a></h5>
-							<p>
-								<a href="#">阿里云为扩大市场份额疯阿里,阿里云为扩大市场份额疯,云为扩大市场份额疯...</a>
-							</p>
+							<p>阿里云为扩大市场份额疯阿里,阿里云为扩大市场份额疯,云为扩大市场份额疯...</p>
 						</li>
 						<li><i>1</i>
 							<a href="#">全国饭店行业“营改增”政策红利开始显现</a>
@@ -757,9 +724,7 @@
 						<li>
 							<a href="#"><img src="http://img3.qianzhan123.com/analyst/photos/1708_180x180.gif" width="70" height="70" /></a>
 							<h5><a href="#">周云计算市场风起云涌周云计算市场风起云涌</a></h5>
-							<p>
-								<a href="#">徐志祥</a>
-							</p>
+							<p>徐志祥</p>
 						</li>
 						<li><i class="fa fa-comment"></i>
 							<a href="#">石墨烯或将入选十三五规划 探寻行业现状</a>
@@ -829,9 +794,7 @@
 						<li>
 							<a href="#"><img src="http://www.ocn.com.cn/uploadfile/picture/2015129103646227.jpg" width="100" height="130" /></a>
 							<h5><a href="#">【产业刊物】3D打印行业06期</a></h5>
-							<p>
-								<a href="#">研究刊物是中智研究中心结合多年产业研究经验，使用目前较先进的产业竞争情报监测系统，每月对行业紧密跟踪监测，经过专业严格筛选，整合形成行业简版报告。</a>
-							</p>
+							<p>研究刊物是中智研究中心结合多年产业研究经验，使用目前较先进的产业竞争情报监测系统，每月对行业紧密跟踪监测，经过专业严格筛选，整合形成行业简版报告。</p>
 						</li>
 						<li><i class="fa fa-book"></i>
 							<a href="#">【05期】石墨烯或将入选十三五规划 探寻行业现状</a>
@@ -896,5 +859,89 @@
 </section>
 {{>footer_index}} {{#contentFor "footJs"}}
 <script src="dist/lib/js/jquery-1.11.1.js" type="text/javascript"></script>
-<script src="dist/js/index.js" type="text/javascript"></script>
+<!--<script src="dist/js/index.js" type="text/javascript"></script>-->
+<script type="text/javascript">
+	$(function() {
+		var isIe = function(ver) {
+			var b = document.createElement("b");
+			b.innerHTML = "<!--[if IE " + ver + "]><i></i><![endif]-->";
+			return b.getElementsByTagName("i").length === 1
+		};
+		isIe(8) || isIe(7) || isIe(6) ? $("body").empty() && alert("本站不支持IE8及以下浏览器访问,请更新至IE9内核浏览器或chrome,火狐浏览器!") : "";
+
+		//报告树
+		$("#section-left>ul>li").on({
+			mouseenter: function(e) {
+				$(this).children("#sectionSubContent").show()
+			},
+			mouseleave: function(e) {
+				$(this).children("#sectionSubContent").hide()
+			}
+		});
+		//最新报告切换
+		$("#ph li h4").mouseover(function() {
+			$("#ph li h4").attr("class", "");
+			$(this).attr("class", "current");
+			$(this).text() == "最新报告" ? $("#newsListWeek").removeAttr("style") && $("#newsListMonth").attr("style", "display: none;") :
+				$("#newsListMonth").removeAttr("style") && $("#newsListWeek").attr("style", "display: none;")
+		});
+		//报告关键词作色
+		$("#hotKey>a").each(function(i, v) { $(v).attr("style", "color:" + "#" + (Math.random() * 16777215 << 0).toString(16) + ";font-size:" + Math.floor(Math.random() * (28 - 12 + 1) + 12) + "px") })
+	});
+	//加入收藏
+	function addFavorite(title, url) {
+		try {
+			window.external.addFavorite(url, title);
+		} catch(e) {
+			try {
+				window.sidebar.addPanel(title, url, "");
+			} catch(e) {
+				alert("抱歉，您所使用的浏览器无法完成此操作。\n\n加入收藏失败，您可以使用Ctrl+D进行手动添加!");
+			}
+		}
+	}
+	//幻灯片
+	autoPlay()
+
+	var autoPlay = function() {
+		var pictures = $("#pictures");
+		var items = $("#pictures li");
+		var newTitle = $("#bannerText .text");
+		var jump = $("#jump span");
+		var pre = $("#pre");
+		var next = $("#next");
+		var index = -1;
+		var ctrl = null;
+
+		function showItem(turn) {
+			items.attr("style", "opacity:0;");
+			if(turn) {
+				index--;
+				index < 0 && (index = items.length - 1)
+			} else {
+				index++ && index > items.length - 1 && (index = 0)
+			}
+			$(items[index]).attr("style", "opacity:1;");
+			newTitle.text($("#pictures li a img").eq(index).attr("alt"))
+		}
+
+		ctrl = setInterval(showItem, 2000);
+		pictures.add(pre).add(next).add(jump).mouseover(function() {
+			clearInterval(ctrl)
+		}).mouseout(function() {
+			ctrl = setInterval(showItem, 2000)
+		});
+		pre.click(function() {
+			showItem(true)
+		});
+		next.click(function() {
+			howItem(false)
+		});
+
+		jump.mouseover(function(e) {
+			showItem(index = $(this).index() + 1)
+		})
+
+	}
+</script>
 {{/contentFor}}
