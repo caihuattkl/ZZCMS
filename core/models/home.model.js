@@ -1,5 +1,5 @@
 var db = require("../../lib/db.lib.js");
-
+var logger = require('../../lib/logger.lib');
 
 //报告树子分类使用报告数据
 exports.reportTreeChildClass = function(callback) {

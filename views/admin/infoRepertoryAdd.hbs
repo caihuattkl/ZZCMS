@@ -122,7 +122,7 @@
 				fillUrl: function(val) {
 					$this=this;
 					$this.newsUrlKey = val.value ? ConvertPinyin(val.value.split(" ")[0]) : "";
-						$("input[name=newsUrl]").val(ConvertPinyin($this.newsUrlDirectory)+'/'+$this.newsUrlTime+'/'+ $this.newsUrlKey);
+						$("input[name=newsUrl]").val(ConvertPinyin($this.newsUrlDirectory)+'/'+$this.newsUrlTime+'/'+ $this.newsUrlKey+'.html');
 				},
 				fillRightInput: function() {
 					$('input[name="title"]').val($('input[name="subTitle"]').val());
@@ -136,7 +136,7 @@
 					$("#newsClassSelect").on("change", function() {
 						$this.newsUrlDirectory= $('#newsClassSelect  option:selected').parent().attr('label');
 						$("input[name=classFirstId]").val($('#newsClassSelect  option:selected').parent().attr('value'))
-						$("input[name=newsUrl]").val(ConvertPinyin($this.newsUrlDirectory)+'/'+$this.newsUrlTime+'/'+ $this.newsUrlKey);
+						$("input[name=newsUrl]").val(ConvertPinyin($this.newsUrlDirectory)+'/'+$this.newsUrlTime+'/'+ $this.newsUrlKey+'.html');
 					})
 				}
 			};

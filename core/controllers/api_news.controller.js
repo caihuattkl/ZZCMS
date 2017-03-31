@@ -70,6 +70,17 @@ exports.infoRepertoryAdd = function(req, res) {
 	})
 }
 
+//提交信息到信息仓库
+exports.infoRepertoryToNews = function(req, res) {
+	req.body.nContent.filterColon();
+	newsMod.infoRepertoryToNews(Object.assign(req.body,req.params), function(err, rows) {
+		if(err) {
+			logger[err.type]().error(__filename, err);
+			return res.status(500).end();
+		}
+		res.status(200).json(rows);
+	})
+}
 //添加信息仓库新闻
 exports.infoRepertoryList = function(req, res) {
 	//判断是否有参数,为空时 有值拿指定值分类,否则拿全部分类数据
@@ -94,7 +105,7 @@ exports.infoRepertoryList = function(req, res) {
 
 //添加信息仓库新闻详细信息
 exports.infoRepertoryDetail = function(req, res) {
-	console.log(req.params)
+	
 	newsMod.infoRepertoryDetail(req.params, function(err, rows) {
 		if(err) {
 			logger[err.type]().error(__filename, err);

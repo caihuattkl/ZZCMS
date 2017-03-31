@@ -22,12 +22,12 @@
 
 	<body onload="document.getElementById('time').value=getNowFormatDate()">
 		<div class="main">
-			<form id="newsForm" action="/api/news" method="post" name="newsForm">
+			<form id="newsForm" action="/api/infoRepertory/" method="post" name="newsForm">
 				<table class="table">
 					<tr>
 						<td width="100">新闻分类:</td>
 						<td>
-							<input type="hidden" class="form-control" name="newsId" value="{{newsId}}" placeholder="顶级分类" />
+							<input type="hidden" class="form-control" name="newsId" value="" placeholder="顶级分类" />
 							<input type="hidden" class="form-control" name="classFirstId" value="{{classFirstId}}" placeholder="顶级分类" />
 							<select name="classChildId" class="form-control" id="newsClassSelect"></select>
 						</td>
@@ -42,7 +42,7 @@
 					</tr>
 					<tr>
 						<td>页关键词:</td>
-						<td><input type="text" class="form-control" name="subKeywords" placeholder="页关键词" oninput="newsObj.fillRightInput()" /></td>
+						<td><input type="text" class="form-control" id="subKeywords" name="subKeywords" placeholder="页关键词" oninput="newsObj.fillRightInput()" onblur='newsObj.fillUrl(this)' /></td>
 						<td width="100">keywords:</td>
 						<td><input type="text" class="form-control" name="keywords" value="" placeholder="keywords(该项自动填写,如要手动输入,请点击此表单)" readonly="readonly" /></td>
 					</tr>
@@ -93,9 +93,18 @@
 			var newsObj = {
 				html: "",
 				children: "",
+				newsId: '{{newsId}}' ? '{{newsId}}' : '',
+				classChildId: '{{classChildId}}',
+				newsUrlKey: '',
+				newsUrlDirectory: function() {
+					return $('#newsClassSelect  option:selected').parent().attr('label');
+				},
+				newsUrlTime: getNowFormatDate().replace(/-/gm, '').substr(0, 8),
 				//获取新闻内容,填充表单
 				getNews: function() {
-					$.get('/api/infoRepertory/' + '{{newsId}}', function(res) {
+					$this = this;
+					if(!$this.newsId) return;
+					$.get('/api/infoRepertory/' + $this.newsId, function(res) {
 						if(res) {
 							$('input[name="newsUrl"]').val(res[0].newsUrl);
 							$('input[name="title"]').val(res[0].title);
@@ -110,9 +119,15 @@
 						}
 					})
 				},
+				fillUrl: function(val) {
+					$this = this;
+					$this.newsUrlKey = val.value ? ConvertPinyin(val.value.split(/\s+/)[0]) : "";
+					$("input[name=newsUrl]").val(ConvertPinyin($this.newsUrlDirectory()) + '/' + $this.newsUrlTime + '/' + $this.newsUrlKey + '.html');
+				},
 				//获取分类,填充下拉框
 				getNewsClass: function() {
 					$this = this;
+					$('input[name="newsId"]').val($this.newsId);
 					$.ajax({
 						url: ajaxConfig.newsClassList,
 						type: "get",
@@ -127,7 +142,7 @@
 									$this.html += $this.children + "</optgroup>";
 								})
 								$("#newsClassSelect").empty().append($this.html);
-								$("#newsClassSelect").val({{ classChildId }});
+								$("#newsClassSelect").val($this.classChildId);
 								return;
 							}
 							alert(res.message)
@@ -153,7 +168,9 @@
 				},
 				//提交新闻到真实库中
 				postNews: function() {
+					$this = this;
 					//提交表单
+					if(!$this.newsId) return;
 					$("#newsForm").validataForm({
 							rules: {
 								subTitle: "required",
@@ -197,13 +214,13 @@
 								return alert("新闻内容不能为空,且字符不能小于100个字符!")
 							}
 							$.ajax({
-								url: action,
+								url: action + $this.newsId,
 								type: method,
 								data: form,
 								success: function(res, success) {
-									if(res&&success=='success') {
-										alert('添加成功!');
-										window.location.reload();
+									if(res && success == 'success') {
+										alert('提交成功!');
+										self.location = './infoRepertorys.html';
 									}
 								},
 								error: function() {

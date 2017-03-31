@@ -3,6 +3,7 @@ var homeSev = require("../services/home.service");
 var async = require('async');
 var CacheAds = require("../services/CacheAds.service");
 var adsMod= require("../models/ads.model");
+var logger = require('../../lib/logger.lib');
 //首页渲染
 
 exports.home = function(req, res, next) {
@@ -21,7 +22,6 @@ exports.home = function(req, res, next) {
 		},
 	}, function(error, allData) {
 		if(error){return res.status(500).end('500 - Server Error')}
-		console.log(allData.homeClassList.zhengquancelue)
 		res.render('template/index', {  
 			reportTree:allData.reportTree,
 			yaowen: allData.homeClassList.yaowen,

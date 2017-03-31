@@ -2,7 +2,8 @@ var db = require("../../lib/db.lib.js");
 var logger = require('../../lib/logger.lib');
 //新增新闻
 exports.add=function(options,callback) {
-	var sql = 'insert into news(id,classFirstId,classChildId,newsUrl,subTitle,title,subKeywords,keywords,source,description,author,time,nContent)values("id","' + options.classFirstId + '","' + options.classChildId + '","' + options.newsUrl + '","' + options.subTitle + '","' + options.title + '","' + options.subKeywords + '","' + options.keywords + '","' + options.source + '","' + options.description + '","' + options.author + '","' + options.time + '","' + options.nContent + '")'
+	let newsUrl=options.newsUrl.split('/')[0]+'/'+options.newsUrl.split('/')[1]+'/'+options.newsUrl.split('/')[2].replace(/[0-9]+/gm,'');
+	let sql = 'insert into news(id,classFirstId,classChildId,newsUrl,subTitle,title,subKeywords,keywords,source,description,author,time,nContent)values("id","' + options.classFirstId + '","' + options.classChildId + '","' + newsUrl + '","' + options.subTitle + '","' + options.title + '","' + options.subKeywords + '","' + options.keywords + '","' + options.source + '","' + options.description + '","' + options.author + '","' + options.time + '","' + options.nContent + '")'
 	db.query(sql, function(err, rows) {
 		if(err) {
 			err.type = 'database';
@@ -82,14 +83,15 @@ exports.newsDetail=function(opts,callback) {
 
 //新增新闻
 exports.infoRepertoryAdd=function(options,callback) {
-	var sql = 'insert into inforepertory(id,classFirstId,classChildId,newsUrl,subTitle,title,subKeywords,keywords,source,description,author,time,nContent)values("id","' + options.classFirstId + '","' + options.classChildId + '","' + options.newsUrl + '","' + options.subTitle + '","' + options.title + '","' + options.subKeywords + '","' + options.keywords + '","' + options.source + '","' + options.description + '","' + options.author + '","' + options.time + '","' + options.nContent + '")'
+	let newsUrl=options.newsUrl.split('/')[0]+'/'+options.newsUrl.split('/')[1]+'/'+options.newsUrl.split('/')[2].replace(/[0-9]+/gm,'');
+	let sql = 'insert into inforepertory(id,classFirstId,classChildId,newsUrl,subTitle,title,subKeywords,keywords,source,description,author,time,nContent)values("id","' + options.classFirstId + '","' + options.classChildId + '","' + newsUrl+ '","' + options.subTitle + '","' + options.title + '","' + options.subKeywords + '","' + options.keywords + '","' + options.source + '","' + options.description + '","' + options.author + '","' + options.time + '","' + options.nContent + '")'
 	db.query(sql, function(err, rows) {
 		if(err) {
 			err.type="database";
 			logger.database().error(__filename, err);
 			return callback(err);
 		}
-		setAddNewsUrl(rows.insertId,callback)
+		callback(null,rows)
 	})
 }
 
@@ -117,5 +119,31 @@ exports.infoRepertoryDetail=function(opts,callback) {
 			return callback(err);
 		}
 		callback(null,rows)
+	})
+}
+
+//提交新闻,提交到真实表中,然后清除当前提交的新闻
+exports.infoRepertoryToNews=function(options,callback) {
+	let newsUrl=options.newsUrl.split('/')[0]+'/'+options.newsUrl.split('/')[1]+'/'+options.newsUrl.split('/')[2].replace(/[0-9]+/gm,'');
+	let sql = 'insert into news(id,classFirstId,classChildId,newsUrl,subTitle,title,subKeywords,keywords,source,description,author,time,nContent)values("id","' + options.classFirstId + '","' + options.classChildId + '","' + newsUrl+ '","' + options.subTitle + '","' + options.title + '","' + options.subKeywords + '","' + options.keywords + '","' + options.source + '","' + options.description + '","' + options.author + '","' + options.time + '","' + options.nContent + '")'
+	db.query(sql, function(err, rows) {
+		if(err) {
+			err.type = 'database';
+			logger.database().error(__filename, err);
+			return callback(err);
+		}
+		setAddNewsUrl(rows.insertId,callback)
+		clearInfoRepertoryNews(options.id);
+	})
+}
+
+function clearInfoRepertoryNews(id){
+	var sql="delete from infoRepertory where id=" + id
+	db.query(sql, function(err, rows) {
+		if(err) {
+			err.type="database";
+			logger.database().error(__filename, err || '清除信息库失败!');
+			return callback(err);
+		}
 	})
 }
