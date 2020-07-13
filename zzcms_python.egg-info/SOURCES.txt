@@ -1,0 +1,8 @@
+README.rst
+pyproject.toml
+setup.py
+zzcms_python/__init__.py
+zzcms_python.egg-info/PKG-INFO
+zzcms_python.egg-info/SOURCES.txt
+zzcms_python.egg-info/dependency_links.txt
+zzcms_python.egg-info/top_level.txt

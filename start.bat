@@ -1,1 +1,0 @@
-supervisor --ignore ./config,./logs/,./public,./views ./bin/www
