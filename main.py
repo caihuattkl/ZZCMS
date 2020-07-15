@@ -13,7 +13,7 @@ app.add_middleware(TrustedHostMiddleware, allowed_hosts=["localhost"])
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost", "http://localhost:3000", "http://localhost:8000"],
+    allow_origins=["http://admin.ocns.com.cn","http://www.ocns.com.cn","http://localhost","http://localhost:81", "http://localhost:3000", "http://localhost:8000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

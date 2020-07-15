@@ -1,8 +1,12 @@
-from fastapi import APIRouter, Depends, FastAPI, HTTPException, status, Request, Response, Security, Form,Body
-from fastapi.logger import logger as log
+from fastapi import APIRouter, Depends, FastAPI, HTTPException, status, Request, Response, Security, Form, Body,Header
+from libs.token import create_access_token, token_is_true
+from fastapi.logger import logger
 from fastapi.routing import APIRoute
+from fastapi.responses import JSONResponse
+from fastapi.encoders import jsonable_encoder
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
+from typing import List
 import time
 from typing import Callable
 
@@ -20,7 +24,6 @@ class TimedRoute(APIRoute):
             print(f"route response: {response}")
             print(f"route response headers: {response.headers}")
             return response
-
         return custom_route_handler
 
 

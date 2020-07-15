@@ -2,6 +2,7 @@ from typing import List, Optional
 from pydantic import BaseModel
 
 
+
 class ItemBase(BaseModel):
     title: str
     description: Optional[str] = None
@@ -12,9 +13,12 @@ class LoginUser(dict):
     password: str
 
 
-class Token(dict):
-    access_token: str
-    token_type: str
+# class Token(BaseModel):
+#     token: str
+
+# class Token(dict):
+#     access_token: str
+#     token_type: str
 
 
 class User(BaseModel):

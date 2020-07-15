@@ -1,8 +1,7 @@
-from apis import HTTPException, status, Body,log
+from apis import HTTPException, status, Header, Body
 from typing import Optional
 from datetime import datetime, timedelta
 import jwt
-# from jwt import PyJWTError
 from config.conf import JwtConfig
 from pydantic import BaseModel
 
@@ -30,7 +29,7 @@ class Tokens(BaseModel):
 
 
 # 校验token
-async def token_is_true(token: Tokens):
+async def token_is_true(token: Tokens = Body(..., description="token校验")):
     _tokens = token
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
@@ -40,8 +39,7 @@ async def token_is_true(token: Tokens):
     if _tokens.token is '':
         raise credentials_exception
     try:
-        user_info = jwt.decode(_tokens.token, JwtConfig.SECRET_KEY, algorithms=[JwtConfig.ALGORITHM])
-        return user_info
+        return jwt.decode(_tokens.token, JwtConfig.SECRET_KEY, algorithms=[JwtConfig.ALGORITHM])
     except Exception:
-        log.info('-------------------token验证失败----------------------')
+        print('-------------------token验证失败----------------------')
         raise credentials_exception

@@ -1,31 +1,14 @@
 from typing import List, Optional
-
-from pydantic import BaseModel
-
-
-class ItemBase(BaseModel):
-    title: str
-    description: Optional[str] = None
+from pydantic import BaseModel, Json, JsonWrapper
+from datetime import datetime
 
 
-class ItemCreate(ItemBase):
-    pass
+class Token(BaseModel):
+    token: str
 
 
-class Item(ItemBase):
-    id: int
-    owner_id: int
-
-    class Config:
-        orm_mode = True
-
-
-class UserBase(BaseModel):
-    email: str
-
-
-class UserCreate(UserBase):
-    password: str
+class NewsDtail(Token):
+    id: str
 
 
 class NewsClass(BaseModel):
@@ -40,10 +23,63 @@ class Channel(BaseModel):
     pass
 
 
-class User(UserBase):
-    id: int
-    is_active: bool
-    items: List[Item] = []
+class QueryNews(Token):
+    id: int = None
+    bigClass: str
+    smallClass: str = None
+    title: str = None
+    pageSize: int
+    pageNumber: int
 
-    class Config:
-        orm_mode = True
+
+class AddNews(Token):
+    classFirstId: str
+    classChildId: str
+    title: str
+    description: str
+    keywords: str
+    subTitle: str
+    subKeywords: str
+    newsUrl: str
+    source: str
+    author: str
+    nContent: str
+    pv: str
+    coverImg: str = None
+    time: datetime
+
+
+class EditNews(NewsDtail):
+    classFirstId: str
+    classChildId: str
+    title: str
+    description: str
+    keywords: str
+    subTitle: str
+    subKeywords: str
+    newsUrl: str
+    source: str
+    author: str
+    nContent: str
+    pv: str
+    coverImg: str = None
+    time: datetime
+
+# class ItemBase(BaseModel):
+#     title: str
+#     description: Optional[str] = None
+#
+#
+# class Item(ItemBase):
+#     id: int
+#     owner_id: int
+#
+#     class Config:
+#         orm_mode = True
+# class User(UserBase):
+#     id: int
+#     is_active: bool
+#     items: List[Item] = []
+#
+#     class Config:
+#         orm_mode = True

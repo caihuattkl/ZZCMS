@@ -26,6 +26,8 @@ class Cms_news(Base):
     id = Column(Integer, primary_key=True, index=True)
     classFirstId = Column(String(120), nullable=False)
     classChildId = Column(String(150), nullable=False)
+    first_directory = Column(String(150), nullable=False)
+    child_directory = Column(String(150), nullable=False)
     title = Column(String(150), nullable=False)
     description = Column(String(500))
     keywords = Column(String(150))

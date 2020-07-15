@@ -1,7 +1,8 @@
 from libs.error import APIException
+from apis import JSONResponse, jsonable_encoder, List
 
 
-class Response(APIException):
+class JSONResponses(APIException):
     code = 201
     msg = 'ok'
     errorCode = 0
@@ -21,3 +22,11 @@ class Response(APIException):
         msg = msg or '参数不正确,请检查'
         code = code or 4000
         return {"error_code": error_code, "msg": msg, "code": code}
+
+    def success(data: List[str], msg: str = None, code=None, error_code=None):
+        error_code = error_code or 0
+        msg = msg or '成功!'
+        code = code or 200
+        return JSONResponse(
+            content={"data": jsonable_encoder(data), "error_code": error_code, "msg": msg, "code": code},
+            status_code=200)
