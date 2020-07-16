@@ -10,8 +10,10 @@ class Token(BaseModel):
 class NewsDtail(Token):
     id: str
 
+
 class FrontNewsDtail(BaseModel):
     url: str
+
 
 class NewsClass(BaseModel):
     className: str = None
@@ -19,6 +21,11 @@ class NewsClass(BaseModel):
 
 class Channel_news(BaseModel):
     className: str = None
+
+
+class Class_news_list(BaseModel):
+    childClassName: str
+    firstClassName: str
 
 
 class HeaderTopNav(BaseModel):

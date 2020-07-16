@@ -151,3 +151,14 @@ def get_news_front_detail(db: Session, body: dict):
         data["classChildId"] == models.Cms_news_class.id).first().subTitle
 
     return data
+
+
+'''
+    获取栏目资讯列表
+'''
+
+
+def get_class_news_list(db: Session, body: dict, limit: int = 10):
+    if body.childClassName is '': return None
+    if body.firstClassName is '': return None
+    return
