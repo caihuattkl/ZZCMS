@@ -9,8 +9,8 @@ import urllib.request  # 导入urllib.request库
 sqlites.Base.metadata.create_all(bind=engine)
 
 
-# 获取所有分类数据
-@router.post("/news_class/item", response_model=[])
+# 获取所有资讯的分类
+@router.post("/class_news", response_model=[])
 def get_news_class(body: schemas.NewsClass, db: Session = Depends(get_db)):
     if body.className is None:
         return JSONResponses.error("className为必填字段")
@@ -21,25 +21,24 @@ def get_news_class(body: schemas.NewsClass, db: Session = Depends(get_db)):
     return JSONResponses(item, "获取分类成功!", 200, 0)
 
 
-# 获取频道页下子分类最新10条记录
-@router.post("/channel_news/item", response_model=[])
+# 获取频道页下各子栏目资讯最新10条记录
+@router.post("/channel_news", response_model=[])
 def get_news_class(body: schemas.Channel_news, db: Session = Depends(get_db)):
     if body.className is None:
         return JSONResponses.error("className为必填字段")
-
     item = crud.get_channel_news(db, className=body.className)
     if item is None:
         raise JSONResponses.error("获取数据失败!")
     return JSONResponses(item, "获取频道新闻列表成功!", 200, 0)
 
 
-# 获取公共头部顶级频道分类数据
-@router.post("/channels", response_model=[])
-def get_news_class(body: schemas.Channel, db: Session = Depends(get_db)):
-    item = crud.get_channel(db)
+# 获取公共头部顶级大分类数据
+@router.post("/header_top_nav", response_model=[])
+def get_news_class(body: schemas.HeaderTopNav, db: Session = Depends(get_db)):
+    item = crud.get_header_top_nav(db)
     if item is None:
-        raise JSONResponses.error("获取频道新闻列表失败!")
-    return JSONResponses(item, "获取频道新闻列表成功!", 200, 0)
+        raise JSONResponses.error("获取公共头部顶级大分类数据失败")
+    return JSONResponses(item, "获取公共头部顶级大分类数据成功!", 200, 0)
 
 
 # 获取新浪指数 上证指数,创业板 深圳综指等数据
@@ -62,6 +61,7 @@ async def get_news_class(body: schemas.QueryNews, db: Session = Depends(get_db))
         raise HTTPException(status_code=404, detail="newsClassItem not found")
     return JSONResponses.success(item, "获取新闻成功!")
 
+
 # 新增资讯
 @router.post("/add_news", response_model=List)
 async def get_news_class(body: schemas.AddNews, db: Session = Depends(get_db)):
@@ -80,10 +80,18 @@ async def get_news_class(body: schemas.EditNews, db: Session = Depends(get_db)):
     return JSONResponses.success(item, "编辑资讯成功!")
 
 
-# 获取某条资讯
+# 获取某条资讯详细信息
 @router.post("/news/detail", response_model=List)
 async def get_news_class(body: schemas.NewsDtail, db: Session = Depends(get_db)):
     await token_is_true(body)
     item = crud.get_news_detail(db, body)
+    if item is None: return JSONResponses.error("查询失败!")
+    return JSONResponses.success(item, "获取资讯成功!")
+
+
+# 获取前台某条资讯详细信息
+@router.post("/news_front_detail", response_model=List)
+async def get_news_class(body: schemas.FrontNewsDtail, db: Session = Depends(get_db)):
+    item = crud.get_news_front_detail(db, body)
     if item is None: return JSONResponses.error("查询失败!")
     return JSONResponses.success(item, "获取资讯成功!")

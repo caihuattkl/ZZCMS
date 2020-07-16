@@ -1,6 +1,6 @@
 TOKEN_EXPIRATION = 30 * 24 * 3600
 API_V1_STR = "/v1"
-
+API_V2_STR = "/v2"
 # sqllite数据地址
 SQLITEURI = 'sqlite:///./db/init_data.db'
 

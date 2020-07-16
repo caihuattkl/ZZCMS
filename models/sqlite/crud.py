@@ -20,17 +20,36 @@ def get_channel_news(db: Session, className: str, limit: int = 10):
     if className is '':
         return None
     else:
-        data_id = db.query(models.Cms_news_class).filter(models.Cms_news_class.title == className).one().id
-        if data_id:
-            channel_news_data = db.query(models.Cms_news).filter(models.Cms_news.classFirstId == data_id).limit(
-                limit).all()
-            return channel_news_data
-        return None
+        channel_id = db.query(models.Cms_news_class).filter(models.Cms_news_class.directoryName == className).one().id
+        if channel_id is None: return None
+        all_data: dict = {}
+
+        channels = db.query(models.Cms_news_class).filter(models.Cms_news_class.id == channel_id).first()
+        # 频道首页推荐 最新11条数据
+        all_data[channels.directoryName] = {"name": channels.title,
+                                            "url": channels.directoryName + '/',
+                                            "data": db.query(models.Cms_news.title,
+                                                             models.Cms_news.newsUrl).filter(
+                                                models.Cms_news.classFirstId == channel_id).order_by(
+                                                models.Cms_news.time.desc()).limit(10).all()}
+
+        # 循环各子栏目资讯数据,装入 all_data
+        channel_class_ids = db.query(models.Cms_news_class).filter(models.Cms_news_class.firstId == channel_id).all()
+        for item in channel_class_ids:
+            all_data[item.directoryName] = {"name": item.title,
+                                            "url": channels.directoryName + '/' + item.directoryName + '/',
+                                            "data": db.query(models.Cms_news.title,
+                                                             models.Cms_news.newsUrl).filter(
+                                                models.Cms_news.classChildId == item.id).order_by(
+                                                models.Cms_news.time.desc()).limit(10).all()
+                                            }
+        return all_data
 
 
 # 获取频道数据
-def get_channel(db: Session, limit: int = 100):
-    return db.query(models.Cms_news_class).filter(models.Cms_news_class.firstId == '0').all()
+def get_header_top_nav(db: Session, limit: int = 10):
+    return db.query(models.Cms_news_class.subTitle, models.Cms_news_class.directoryName).filter(
+        models.Cms_news_class.firstId == '0').all()
 
 
 # 根据条件获取新闻
@@ -105,3 +124,30 @@ def edit_news(db: Session, body: dict):
 # 根据条件新增新闻
 def get_news_detail(db: Session, body: dict):
     return db.query(models.Cms_news).filter(body.id == models.Cms_news.id).first()
+
+
+# 获取前台某条资讯详细信息
+def get_news_front_detail(db: Session, body: dict):
+    db_objs = db.query(models.Cms_news).filter(body.url == models.Cms_news.newsUrl).first()
+    if db_objs is None: return None
+
+    data: dict = {
+        "nContent": db_objs.nContent,
+        "time": db_objs.time,
+        "subTitle": db_objs.subTitle,
+        "source": db_objs.source,
+        "first_directory": db_objs.first_directory,
+        "child_directory": db_objs.child_directory,
+        "keywords": db_objs.keywords,
+        "description": db_objs.description,
+        "id": db_objs.id,
+        "classFirstId": db_objs.classFirstId,
+        "classChildId": db_objs.classChildId
+    }
+    data["firstClassName"] = db.query(models.Cms_news_class).filter(
+        data["classFirstId"] == models.Cms_news_class.id).first().subTitle
+
+    data["childClassName"] = db.query(models.Cms_news_class).filter(
+        data["classChildId"] == models.Cms_news_class.id).first().subTitle
+
+    return data
