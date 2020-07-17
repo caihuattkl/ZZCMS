@@ -20,10 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7925dbb-df97-44ad-8621-6757b31629b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/apis/v1/sqlites.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/v1/sqlites.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/response_code.py" beforeDir="false" afterPath="$PROJECT_DIR$/libs/response_code.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/sqlite/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/sqlite/crud.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/sqlite/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/sqlite/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,8 +47,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="17" column="16" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+            <state relative-caret-position="420">
+              <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -59,14 +56,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apis/v1/sqlites.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+            <state relative-caret-position="151">
+              <caret line="51" column="3" lean-forward="true" selection-start-line="51" selection-start-column="3" selection-end-line="51" selection-end-column="3" />
               <folding>
                 <element signature="e#0#109#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="77" column="19" lean-forward="true" selection-start-line="77" selection-start-column="19" selection-end-line="77" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -118,8 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>background</find>
-      <find>session</find>
       <find>create_engine</find>
       <find>list</find>
       <find>Optional</find>
@@ -148,6 +152,8 @@
       <find>success</find>
       <find>pageNumber</find>
       <find>获取资讯成功</find>
+      <find>uvicorn</find>
+      <find>mysql</find>
     </findStrings>
     <dirStrings>
       <dir>D:\git\zzcms-python</dir>
@@ -187,6 +193,7 @@
         <option value="$PROJECT_DIR$/models/sqlite/crud.py" />
         <option value="$PROJECT_DIR$/libs/response_code.py" />
         <option value="$PROJECT_DIR$/apis/v1/sqlites.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
   </component>
@@ -217,24 +224,6 @@
             <path>
               <item name="zzcms-python" type="b2602c69:ProjectViewProjectNode" />
               <item name="zzcms-python" type="47feb1d3:ProjectViewModuleNode" />
-            </path>
-            <path>
-              <item name="zzcms-python" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zzcms-python" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="zzcms-python" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zzcms-python" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zzcms-python" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="zzcms-python" type="462c0819:PsiDirectoryNode" />
-              <item name="apis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zzcms-python" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zzcms-python" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="zzcms-python" type="462c0819:PsiDirectoryNode" />
-              <item name="apis" type="462c0819:PsiDirectoryNode" />
-              <item name="v1" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -428,12 +417,12 @@
       <workItem from="1594620934337" duration="25538000" />
       <workItem from="1594702669352" duration="4082000" />
       <workItem from="1594707230224" duration="13283000" />
-      <workItem from="1594796599627" duration="34091000" />
+      <workItem from="1594796599627" duration="34981000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133968000" />
+    <option name="totallyTimeSpent" value="134858000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -445,14 +434,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1928" height="1060" extended-state="7" />
+    <frame x="-4" y="-4" width="1928" height="1060" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7474452" weight="0.16613418" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7474452" visible="true" weight="0.16613418" />
       <window_info id="Structure" order="1" sideWeight="0.25255474" side_tool="true" weight="0.14802982" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946752" visible="true" weight="0.41082802" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946752" visible="true" weight="0.41082802" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -693,13 +683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="388">
           <caret line="4697" lean-forward="true" selection-start-line="4697" selection-end-line="4697" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -946,16 +929,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="17" column="16" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/sqlite/schemas.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="302">
@@ -988,11 +961,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apis/v1/sqlites.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+        <state relative-caret-position="151">
+          <caret line="51" column="3" lean-forward="true" selection-start-line="51" selection-start-column="3" selection-end-line="51" selection-end-column="3" />
           <folding>
             <element signature="e#0#109#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="77" column="19" lean-forward="true" selection-start-line="77" selection-start-column="19" selection-end-line="77" selection-end-column="19" />
         </state>
       </provider>
     </entry>
