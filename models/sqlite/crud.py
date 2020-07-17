@@ -161,8 +161,7 @@ def get_class_news_list(db: Session, body: dict):
     if body.childClassName is '': return None
     if body.firstClassName is '': return None
     total = db.query(models.Cms_news).filter(body.childClassName == models.Cms_news.child_directory).count()
-    db_objs = db.query(models.Cms_news).filter(
-        body.firstClassName == models.Cms_news.first_directory and body.childClassName == models.Cms_news.child_directory).order_by(
+    db_objs = db.query(models.Cms_news).filter(body.childClassName == models.Cms_news.child_directory).order_by(
         models.Cms_news.time.desc()).limit(body.pageSize).offset(
         (int(body.pageNumber) - 1) * body.pageSize).all()
 
