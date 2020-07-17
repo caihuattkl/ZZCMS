@@ -59,7 +59,6 @@ def get_news(db: Session, body: dict):
     if body.smallClass == '':
         return db.query(models.Cms_news).filter_by(classFirstId=body.bigClass).limit(body.pageSize).offset(
             body.pageNumber * body.pageSize).all()
-    total = db.query(models.Cms_news).count()
     db_objs = db.query(models.Cms_news).order_by(models.Cms_news.time.desc()).limit(body.pageSize).offset(
         (int(body.pageNumber) - 1) * body.pageSize).all()
     total = db.query(models.Cms_news).count()
@@ -158,7 +157,24 @@ def get_news_front_detail(db: Session, body: dict):
 '''
 
 
-def get_class_news_list(db: Session, body: dict, limit: int = 10):
+def get_class_news_list(db: Session, body: dict):
     if body.childClassName is '': return None
     if body.firstClassName is '': return None
-    return
+    total = db.query(models.Cms_news).filter(body.childClassName == models.Cms_news.child_directory).count()
+    db_objs = db.query(models.Cms_news).filter(
+        body.firstClassName == models.Cms_news.first_directory and body.childClassName == models.Cms_news.child_directory).order_by(
+        models.Cms_news.time.desc()).limit(body.pageSize).offset(
+        (int(body.pageNumber) - 1) * body.pageSize).all()
+
+    data = [{
+        "id": obj.id,
+        "title": obj.title,
+        "url": obj.newsUrl,
+        "pv": obj.pv,
+        "keywords": obj.keywords,
+        "description": obj.description,
+        "nContent": obj.nContent,
+        "time": obj.time,
+    } for obj in db_objs]
+
+    return {"data": data, "pageNumber": body.pageNumber, "pageSize": body.pageSize, "total": total}

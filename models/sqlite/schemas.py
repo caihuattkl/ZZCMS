@@ -26,6 +26,8 @@ class Channel_news(BaseModel):
 class Class_news_list(BaseModel):
     childClassName: str
     firstClassName: str
+    pageSize: int
+    pageNumber: int
 
 
 class HeaderTopNav(BaseModel):

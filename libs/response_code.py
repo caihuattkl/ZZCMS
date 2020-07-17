@@ -5,8 +5,13 @@ from apis import JSONResponse, jsonable_encoder, List
 class JSONResponses(APIException):
     code = 201
     msg = 'ok'
-    errorCode = 0
+    error_code = 0
     data = {}
+    pages: dict = {
+        "pageSize": 10,
+        "pageNumber": 1,
+        "total": 0
+    }
 
     def __init__(self, data=None, msg=None, code=None, error_code=None):
         self.error_code = error_code or 0
@@ -23,10 +28,15 @@ class JSONResponses(APIException):
         code = code or 4000
         return {"error_code": error_code, "msg": msg, "code": code}
 
-    def success(data: List[str], msg: str = None, code=None, error_code=None):
+    def success(data: List[str], jump_page: dict = pages, msg: str = None,
+                code=None, error_code=None):
         error_code = error_code or 0
+        page_size = jump_page["pageSize"] or 10
+        page_number = jump_page["pageNumber"] or 1
+        total = jump_page["total"] or 0
         msg = msg or '成功!'
         code = code or 200
         return JSONResponse(
-            content={"data": jsonable_encoder(data), "error_code": error_code, "msg": msg, "code": code},
+            content={"data": jsonable_encoder(data), "error_code": error_code, "msg": msg, "code": code,
+                     "pageSize": page_size, "pageNumber": page_number, "total": total},
             status_code=200)

@@ -9,18 +9,6 @@ import urllib.request  # 导入urllib.request库
 sqlites.Base.metadata.create_all(bind=engine)
 
 
-#
-# # 获取所有资讯的分类
-# @router.post("/class_news", response_model=[])
-# def get_news_class(body: schemas.NewsClass, db: Session = Depends(get_db)):
-#     if body.className is None:
-#         return JSONResponses.error("className为必填字段")
-#     item = crud.get_news_class(db, className=body.className)
-#     if item is None:
-#         raise HTTPException(status_code=404, detail="newsClassItem not found")
-#     return JSONResponses(item, "获取分类成功!", 200, 0)
-
-
 # 获取频道页下各子栏目资讯最新10条记录
 @router.post("/channel_news", response_model=[])
 def get_news_class(body: schemas.Channel_news, db: Session = Depends(get_db)):
@@ -55,8 +43,8 @@ def get_sina_index():
 @router.post("/news_front_detail", response_model=List)
 async def get_news_class(body: schemas.FrontNewsDtail, db: Session = Depends(get_db)):
     item = crud.get_news_front_detail(db, body)
-    if item is None: return JSONResponses.error("查询失败!")
-    return JSONResponses.success(item, "获取资讯成功!")
+    if item is None: return JSONResponses.error(msg="查询失败!")
+    return JSONResponses.success(item, msg="获取资讯成功!")
 
 
 '''
@@ -66,9 +54,9 @@ async def get_news_class(body: schemas.FrontNewsDtail, db: Session = Depends(get
 
 @router.post("/class_news_list", response_model=[])
 def get_news_class(body: schemas.Class_news_list, db: Session = Depends(get_db)):
-    if body.childClassName is '': return JSONResponses.error("childClassName为必填字段")
-    if body.firstClassName is '': return JSONResponses.error("firstClassName为必填字段")
+    if body.childClassName is '': return JSONResponses.error(msg="childClassName为必填字段!")
+    if body.firstClassName is '': return JSONResponses.error(msg="firstClassName为必填字段!")
     item = crud.get_class_news_list(db, body)
     if item is None:
-        raise JSONResponses.error("获取数据失败!")
-    return JSONResponses(item, "获取栏目新闻列表成功!", 200, 0)
+        raise JSONResponses.error(msg="获取数据失败!")
+    return JSONResponses.success(item["data"], item, msg="获取栏目新闻列表成功!")
