@@ -92,8 +92,6 @@ def add_news(db: Session, body: dict):
     return add
 
 
-# first_directory
-# child_directory
 # 根据条件更新资讯
 def edit_news(db: Session, body: dict):
     firstDirectorys = db.query(models.Cms_news_class).filter_by(id=body.classFirstId).first()
