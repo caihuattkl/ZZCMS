@@ -23,7 +23,6 @@ def get_channel_news(db: Session, className: str, limit: int = 10):
         channel_id = db.query(models.Cms_news_class).filter(models.Cms_news_class.directoryName == className).one().id
         if channel_id is None: return None
         all_data: dict = {}
-
         channels = db.query(models.Cms_news_class).filter(models.Cms_news_class.id == channel_id).first()
         # 频道首页推荐 最新11条数据
         all_data[channels.directoryName] = {"name": channels.title,
