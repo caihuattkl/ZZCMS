@@ -39,7 +39,7 @@ def get_sina_index():
     return JSONResponses(html, "获取股票指数成功!", 200, 0)
 
 
-# 获取前台某条资讯详细信息
+# 获取前台某条资讯详细信息11212
 @router.post("/news_front_detail", response_model=List)
 async def get_news_class(body: schemas.FrontNewsDtail, db: Session = Depends(get_db)):
     item = crud.get_news_front_detail(db, body)

@@ -2,29 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74b0d342-edf4-4da3-bc31-e22a0d403301" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../apis/v1/reports.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../apis/v2/reports.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/db.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../models/reports/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../models/reports/crud.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../models/reports/schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sql_alchemys/reports.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../apis/v1/headlines.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../apis/v2/headlines.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../models/headlines/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../models/headlines/crud.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../models/headlines/schemas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sql_alchemys/headlines.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../apis/v1/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../apis/v1/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../apis/v1/sqlites.py" beforeDir="false" afterPath="$PROJECT_DIR$/../apis/v1/sqlites.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apis/v1/users.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../apis/v2/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../apis/v2/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apis/v2/sqlites.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/init_data.db" beforeDir="false" afterPath="$PROJECT_DIR$/init_data.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libs/response_code.py" beforeDir="false" afterPath="$PROJECT_DIR$/../libs/response_code.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../models/sqlite/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/../models/sqlite/crud.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../models/sqlite/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/../models/sqlite/schemas.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -169,7 +158,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1928" height="1060" extended-state="7" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.09797657" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
