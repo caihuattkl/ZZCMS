@@ -8,6 +8,7 @@ class Token(BaseModel):
 
 
 class CreatHeadline(Token):
+    id: int
     content: str
     description: str
     time: datetime

@@ -12,8 +12,6 @@ sqlites.Base.metadata.create_all(bind=engine)
 # 获取频道页下各子栏目资讯最新10条记录
 @router.post("/channel_news", response_model=[])
 def get_news_class(body: schemas.Channel_news, db: Session = Depends(get_db)):
-    if body.className is None:
-        return JSONResponses.error("className为必填字段")
     item = crud.get_channel_news(db, className=body.className)
     if item is None:
         raise JSONResponses.error("获取数据失败!")
@@ -39,7 +37,7 @@ def get_sina_index():
     return JSONResponses(html, "获取股票指数成功!", 200, 0)
 
 
-# 获取前台某条资讯详细信息11212
+# 获取前台某条资讯详细信息1111111
 @router.post("/news_front_detail", response_model=List)
 async def get_news_class(body: schemas.FrontNewsDtail, db: Session = Depends(get_db)):
     item = crud.get_news_front_detail(db, body)
@@ -50,8 +48,6 @@ async def get_news_class(body: schemas.FrontNewsDtail, db: Session = Depends(get
 '''
     获取栏目资讯列表 分页
 '''
-
-
 @router.post("/class_news_list", response_model=[])
 def get_news_class(body: schemas.Class_news_list, db: Session = Depends(get_db)):
     if body.childClassName is '': raise JSONResponses.error(msg="childClassName为必填字段!")
@@ -65,8 +61,6 @@ def get_news_class(body: schemas.Class_news_list, db: Session = Depends(get_db))
 '''
     获取首页所有渲染数据
 '''
-
-
 @router.post("/home", response_model=[])
 def get_news_class(body: schemas.HomeList, db: Session = Depends(get_db)):
     item = crud.get_home_list(db, body)

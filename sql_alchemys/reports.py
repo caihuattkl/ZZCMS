@@ -23,7 +23,7 @@ class CmsReportClass(Base):
 class CmsReport(Base):
     __tablename__ = 'cms_reports'
     _table_args__ = {"extend_existing=True": True}
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, index=True,autoincrement = True)
     first_class = Column(String(120), nullable=False)
     child_class = Column(String(150), nullable=False)
     first_class_text = Column(String(120), nullable=False)

@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, String, DateTime
+from sqlalchemy import create_engine, Column, Integer, String, DateTime,insert
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
@@ -82,6 +82,14 @@ class CmsReport(Base):
     post_time = Column(DateTime(datetime.now()), nullable=False, onupdate=datetime.now())
     report_summary = Column(String(2000))
     report_catalog = Column(String(1500))
+# 新闻分类表
+class CmsHeadlines(Base):
+    __tablename__ = 'cms_headlines'
+    _table_args__ = {"extend_existing=True": True}
+    id = Column(Integer, primary_key=True, index=True,autoincrement = True)
+    content = Column(String(1500))
+    description = Column(String(150))
+    time = Column(DateTime(datetime.now()), nullable=False, onupdate=datetime.now())
 
 
 class CmsReportClass(Base):
@@ -97,20 +105,6 @@ class CmsReportClass(Base):
     post_time = Column(DateTime(datetime.now()), nullable=False, onupdate=datetime.now())
 
 
-re_class = db_session.query(CmsReportClass).all()
-re_content = db_session.query(CmsReport).all()
+data = db_session.query(CmsHeadlines).filter_by(id=1).first()
 
-print(1 == int('1'))
-
-for b in re_class:
-    db_session.query(CmsReport).filter(CmsReport.child_class == str(b.id)).update({
-        "child_class_text": b.reports_directory,
-        "child_class_text_zh": b.title,
-    })
-    if b.first_class == '0':
-        db_session.query(CmsReport).filter(CmsReport.first_class == str(b.id)).update({
-            "first_class_text": b.reports_directory,
-            "first_class_text_zh": b.title,
-        })
-db_session.commit()
-db_session.close()
+print(data,'----------------------------')

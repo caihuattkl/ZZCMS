@@ -20,18 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7925dbb-df97-44ad-8621-6757b31629b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apis/v1/headlines.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apis/v2/headlines.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/headlines/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/headlines/crud.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/headlines/schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sql_alchemys/headlines.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis/v1/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/v1/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apis/v1/headlines.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/v1/headlines.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apis/v1/sqlites.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/v1/sqlites.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apis/v2/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/v2/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apis/v2/headlines.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/v2/headlines.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/db/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/init_data.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/init_data.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/headlines/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/headlines/crud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/headlines/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/headlines/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/sqlite/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/sqlite/crud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/sqlite/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/sqlite/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql_alchemys/headlines.py" beforeDir="false" afterPath="$PROJECT_DIR$/sql_alchemys/headlines.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql_alchemys/reports.py" beforeDir="false" afterPath="$PROJECT_DIR$/sql_alchemys/reports.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql_alchemys/sqlites.py" beforeDir="false" afterPath="$PROJECT_DIR$/sql_alchemys/sqlites.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql_alchemys/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/sql_alchemys/users.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,36 +60,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/headlines/crud.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
-              <folding>
-                <element signature="e#0#34#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apis/v2/headlines.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+            <state relative-caret-position="353">
+              <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
               <folding>
                 <element signature="e#0#77#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apis/v1/sqlites.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-              <folding>
-                <element signature="e#0#109#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,10 +74,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/headlines/schemas.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="10" column="11" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="11" />
+            <state relative-caret-position="84">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/models/headlines/crud.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/sqlite/crud.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="88" column="4" selection-start-line="88" selection-start-column="4" selection-end-line="90" selection-end-column="14" />
+            <state relative-caret-position="180">
+              <caret line="102" column="18" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
@@ -126,14 +118,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>news_class</find>
-      <find>classFirstId</find>
-      <find>get_header_top_nav</find>
-      <find>API_V1_STR</find>
-      <find>class_news</find>
-      <find>get_class_news_list</find>
-      <find>success</find>
-      <find>获取资讯成功</find>
       <find>uvicorn</find>
       <find>mysql</find>
       <find>pageNumber</find>
@@ -151,11 +135,19 @@
       <find>pageSize</find>
       <find>t_class</find>
       <find>获取公共头部顶级大分类数据成功</find>
-      <find>class_news_list</find>
       <find>news_front_detail</find>
       <find>header_top_nav</find>
       <find>schemas</find>
       <find>/news</find>
+      <find>jum</find>
+      <find>class_news</find>
+      <find>className</find>
+      <find>NewsClass</find>
+      <find>add_news</find>
+      <find>cms_news.id</find>
+      <find>add</find>
+      <find>class_news_list</find>
+      <find>update</find>
     </findStrings>
     <dirStrings>
       <dir>D:\git\zzcms-python</dir>
@@ -172,7 +164,6 @@
         <option value="$PROJECT_DIR$/apis/v1/test2.py" />
         <option value="$PROJECT_DIR$/apis/v1/tokens.py" />
         <option value="$PROJECT_DIR$/libs/tokens.py" />
-        <option value="$PROJECT_DIR$/sql_alchemys/users.py" />
         <option value="$PROJECT_DIR$/apis/auth.py" />
         <option value="$PROJECT_DIR$/middlewares/auth.py" />
         <option value="$PROJECT_DIR$/config/sqlite_engine.py" />
@@ -188,28 +179,30 @@
         <option value="$PROJECT_DIR$/apis/v2/users.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/Dockerfile" />
-        <option value="$PROJECT_DIR$/models/sqlite/schemas.py" />
         <option value="$PROJECT_DIR$/apis/v2/sqlites.py" />
         <option value="$PROJECT_DIR$/apis/v2/report.py" />
         <option value="$PROJECT_DIR$/libs/response_code.py" />
-        <option value="$PROJECT_DIR$/sql_alchemys/reports.py" />
         <option value="$PROJECT_DIR$/db/test.py" />
         <option value="$PROJECT_DIR$/models/reports/crud.py" />
         <option value="$PROJECT_DIR$/models/reports/schemas.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/models/sqlite/crud.py" />
         <option value="$PROJECT_DIR$/apis/v2/reports.py" />
         <option value="$PROJECT_DIR$/apis/v1/reports.py" />
         <option value="$PROJECT_DIR$/apis/v1/__init__.py" />
-        <option value="$PROJECT_DIR$/apis/v2/__init__.py" />
-        <option value="$PROJECT_DIR$/sql_alchemys/sqlites.py" />
-        <option value="$PROJECT_DIR$/sql_alchemys/headlines.py" />
-        <option value="$PROJECT_DIR$/apis/v1/headlines.py" />
-        <option value="$PROJECT_DIR$/models/headlines/schemas.py" />
-        <option value="$PROJECT_DIR$/models/headlines/crud.py" />
-        <option value="$PROJECT_DIR$/apis/v2/headlines.py" />
+        <option value="$USER_HOME$/AppData/Local/Temp/tmpE055.tmp.py" />
         <option value="$PROJECT_DIR$/apis/v2/news.py" />
+        <option value="$PROJECT_DIR$/apis/v2/__init__.py" />
+        <option value="$PROJECT_DIR$/apis/v1/headlines.py" />
+        <option value="$PROJECT_DIR$/models/sqlite/schemas.py" />
+        <option value="$PROJECT_DIR$/models/sqlite/crud.py" />
+        <option value="$PROJECT_DIR$/sql_alchemys/sqlites.py" />
+        <option value="$PROJECT_DIR$/sql_alchemys/users.py" />
+        <option value="$PROJECT_DIR$/sql_alchemys/reports.py" />
+        <option value="$PROJECT_DIR$/sql_alchemys/headlines.py" />
         <option value="$PROJECT_DIR$/apis/v1/sqlites.py" />
+        <option value="$PROJECT_DIR$/models/headlines/schemas.py" />
+        <option value="$PROJECT_DIR$/apis/v2/headlines.py" />
+        <option value="$PROJECT_DIR$/models/headlines/crud.py" />
       </list>
     </option>
   </component>
@@ -234,7 +227,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -268,12 +260,6 @@
               <item name="zzcms-python" type="b2602c69:ProjectViewProjectNode" />
               <item name="zzcms-python" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="headlines" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zzcms-python" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zzcms-python" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
               <item name="sqlite" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -285,6 +271,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -297,24 +284,24 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/apis/v2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/apis/v1" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\git\zzcms-python\apis\v1" />
       <recent name="D:\git\zzcms-python\apis\v2" />
       <recent name="D:\git\zzcms-python\models" />
       <recent name="D:\git\zzcms-python\sql_alchemys" />
-      <recent name="D:\git\zzcms-python\apis\v1" />
       <recent name="D:\git\zzcms-python\db" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\git\zzcms-python\apis\v2" />
       <recent name="D:\git\zzcms-python\libs" />
       <recent name="D:\git\zzcms-python\delete" />
       <recent name="D:\git\zzcms-python\apis" />
       <recent name="D:\git\zzcms-python\models" />
-      <recent name="D:\git\zzcms-python\sql_alchemys" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -475,12 +462,13 @@
       <workItem from="1594796599627" duration="39907000" />
       <workItem from="1595216494891" duration="18253000" />
       <workItem from="1595385487708" duration="35032000" />
-      <workItem from="1595741415711" duration="11624000" />
+      <workItem from="1595741415711" duration="12749000" />
+      <workItem from="1595832042014" duration="6460000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="204693000" />
+    <option name="totallyTimeSpent" value="212278000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -495,12 +483,12 @@
     <frame x="-4" y="-4" width="1928" height="1060" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7474452" visible="true" weight="0.17092651" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7474452" visible="true" weight="0.17252396" />
       <window_info id="Structure" order="1" sideWeight="0.25255474" side_tool="true" weight="0.14802982" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32908705" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6458999" visible="true" weight="0.37685776" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6453674" visible="true" weight="0.30785564" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39915073" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -508,7 +496,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.3541001" side_tool="true" weight="0.37685776" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.3546326" side_tool="true" weight="0.38428876" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49946752" weight="0.21974522" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32908705" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -636,50 +624,10 @@
     <SUITE FILE_PATH="coverage/zzcms_python$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1594709169767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Downloads/fastapi-master/docs_src/sql_databases/sql_app" />
     <SUITE FILE_PATH="coverage/zzcms_python$auth.coverage" NAME="auth Coverage Results" MODIFIED="1594551903609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/middlewares" />
     <SUITE FILE_PATH="coverage/zzcms_python$reports.coverage" NAME="reports Coverage Results" MODIFIED="1595746392438" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apis/v2" />
-    <SUITE FILE_PATH="coverage/zzcms_python$main.coverage" NAME="main Coverage Results" MODIFIED="1595830896923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/zzcms_python$main.coverage" NAME="main Coverage Results" MODIFIED="1595839931479" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/zzcms_python$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1594707594389" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Downloads/fastapi-master/docs_src/security/venv/Lib/site-packages/sqlalchemy/orm/session.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="1579" column="33" selection-start-line="1579" selection-start-column="33" selection-end-line="1579" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/fastapi-master/docs_src/sql_databases/sql_app/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/fastapi-master/docs_src/sql_databases/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/typing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="1232" column="33" selection-start-line="1232" selection-start-column="28" selection-end-line="1232" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/fastapi-master/docs_src/sql_databases/sql_app/apis/users.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="36" column="18" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/fastapi-master/docs_src/security/venv/Lib/site-packages/starlette/status.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/fastapi-master/docs_src/security/venv/Lib/site-packages/pydantic/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="87" column="9" selection-start-line="87" selection-start-column="5" selection-end-line="87" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/fastapi-master/docs_src/security/venv/Lib/site-packages/fastapi/routing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3528">
@@ -801,16 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sql_alchemys/users.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="48" lean-forward="true" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/fastapi-master/docs_src/security/venv/Lib/site-packages/sqlalchemy/sql/schema.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
@@ -828,39 +766,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apis/v2/sqlites.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apis/v1/users.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#77#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/apis/v2/sqlites.py" />
+    <entry file="file://$PROJECT_DIR$/apis/v1/users.py" />
     <entry file="file://$PROJECT_DIR$/libs/response_code.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="394">
           <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/sqlite/schemas.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="35" column="28" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -895,68 +808,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="23" column="47" lean-forward="true" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apis/v1/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="33" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apis/v2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#40#92#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sql_alchemys/sqlites.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sql_alchemys/reports.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sql_alchemys/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apis/v1/headlines.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="19" lean-forward="true" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#77#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/reports/crud.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -988,10 +841,166 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/tmpF43B.tmp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/tmpA381.tmp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/tmpDFC7.tmp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/tmpD9EE.tmp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="42" lean-forward="true" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/tmpB8DF.tmp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/tmpE055.tmp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1758">
+          <caret line="88" column="49" lean-forward="true" selection-start-line="53" selection-end-line="88" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apis/v2/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#40#92#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apis/v1/headlines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#0#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/sqlite/schemas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apis/v2/news.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql_alchemys/reports.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="25" column="74" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="74" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql_alchemys/users.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="9" column="49" lean-forward="true" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apis/v1/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apis/v1/sqlites.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+          <folding>
+            <element signature="e#0#109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql_alchemys/sqlites.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sql_alchemys/headlines.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="41" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="41" />
+        <state relative-caret-position="315">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
@@ -1000,8 +1009,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/sqlite/crud.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="88" column="4" selection-start-line="88" selection-start-column="4" selection-end-line="90" selection-end-column="14" />
+        <state relative-caret-position="180">
+          <caret line="102" column="18" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
           </folding>
@@ -1010,50 +1019,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/headlines/schemas.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="11" />
+        <state relative-caret-position="84">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/headlines/crud.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apis/v2/news.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#0#109#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apis/v2/headlines.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        <state relative-caret-position="353">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
           <folding>
             <element signature="e#0#77#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apis/v1/sqlites.py">
+    <entry file="file://$PROJECT_DIR$/models/headlines/crud.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="462">
+          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
           <folding>
-            <element signature="e#0#109#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>

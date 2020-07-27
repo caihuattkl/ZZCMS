@@ -2,18 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74b0d342-edf4-4da3-bc31-e22a0d403301" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../apis/v1/headlines.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../apis/v2/headlines.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../models/headlines/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../models/headlines/crud.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../models/headlines/schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sql_alchemys/headlines.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apis/v1/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../apis/v1/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apis/v1/headlines.py" beforeDir="false" afterPath="$PROJECT_DIR$/../apis/v1/headlines.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../apis/v1/sqlites.py" beforeDir="false" afterPath="$PROJECT_DIR$/../apis/v1/sqlites.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../apis/v2/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../apis/v2/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apis/v2/headlines.py" beforeDir="false" afterPath="$PROJECT_DIR$/../apis/v2/headlines.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/init_data.db" beforeDir="false" afterPath="$PROJECT_DIR$/init_data.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../models/headlines/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/../models/headlines/crud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../models/headlines/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/../models/headlines/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../models/sqlite/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/../models/sqlite/crud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../models/sqlite/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/../models/sqlite/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sql_alchemys/headlines.py" beforeDir="false" afterPath="$PROJECT_DIR$/../sql_alchemys/headlines.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sql_alchemys/reports.py" beforeDir="false" afterPath="$PROJECT_DIR$/../sql_alchemys/reports.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sql_alchemys/sqlites.py" beforeDir="false" afterPath="$PROJECT_DIR$/../sql_alchemys/sqlites.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sql_alchemys/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/../sql_alchemys/users.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,8 +30,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="109" column="28" selection-start-line="109" selection-start-column="28" selection-end-line="109" selection-end-column="28" />
+            <state relative-caret-position="286">
+              <caret line="107" column="7" selection-start-line="107" selection-start-column="7" selection-end-line="107" selection-end-column="61" />
               <folding>
                 <element signature="e#0#71#0" expanded="true" />
               </folding>
@@ -64,7 +68,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="181" />
     <option name="y" value="6" />
     <option name="width" value="1755" />
@@ -150,21 +154,23 @@
       <updated>1595739419099</updated>
       <workItem from="1595739420327" duration="1793000" />
       <workItem from="1595741416443" duration="4496000" />
+      <workItem from="1595832042610" duration="2370000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6289000" />
+    <option name="totallyTimeSpent" value="8659000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1928" height="1060" extended-state="7" />
+    <frame x="-4" y="-4" width="1928" height="1060" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.09797657" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09797657" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.507431" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5063694" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -186,13 +192,13 @@
     <option name="version" value="1" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/db$test.coverage" NAME="test Coverage Results" MODIFIED="1595745324722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/db$test.coverage" NAME="test Coverage Results" MODIFIED="1595837390274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="109" column="28" selection-start-line="109" selection-start-column="28" selection-end-line="109" selection-end-column="28" />
+        <state relative-caret-position="286">
+          <caret line="107" column="7" selection-start-line="107" selection-start-column="7" selection-end-line="107" selection-end-column="61" />
           <folding>
             <element signature="e#0#71#0" expanded="true" />
           </folding>

@@ -20,7 +20,7 @@ class NewsClass(BaseModel):
 
 
 class Channel_news(BaseModel):
-    className: str = None
+    className: str
 
 
 class Class_news_list(BaseModel):
@@ -31,7 +31,7 @@ class Class_news_list(BaseModel):
 
 class HomeList(BaseModel):
     pass
-    
+
 
 class HeaderTopNav(BaseModel):
     pass

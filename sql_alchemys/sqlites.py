@@ -9,7 +9,7 @@ metadata = MetaData()
 class Cms_news_class(Base):
     __tablename__ = 'cms_news_class'
     _table_args__ = {"extend_existing=True": True}
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     firstId = Column(String(120))
     url = Column(String(150))
     directoryName = Column(String(150))
@@ -24,7 +24,7 @@ class Cms_news_class(Base):
 class Cms_news(Base):
     __tablename__ = 'cms_news'
     _table_args__ = {"extend_existing=True": True}
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     classFirstId = Column(String(120), nullable=False)
     classChildId = Column(String(150), nullable=False)
     first_directory = Column(String(150), nullable=False)

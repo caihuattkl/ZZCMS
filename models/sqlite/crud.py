@@ -18,7 +18,7 @@ def get_news_class(db: Session, className: str, limit: int = 100):
 
 def get_channel_news(db: Session, className: str, limit: int = 10):
     if className is '':
-        return None
+        return {"data": db.query(models.Cms_news_class).all()}
     else:
         channel_id = db.query(models.Cms_news_class).filter(models.Cms_news_class.directoryName == className).one().id
         if channel_id is None: return None
@@ -72,7 +72,7 @@ def get_news(db: Session, body: dict):
         "time": obj.time,
         "author": obj.author
     } for obj in db_objs]
-    return {"data": data, "pageNumber": body.pageNumber, "pageSize": body.pageSize, "total": total}
+    return {"data": data,"jumpPage": {"pageNumber": body.pageNumber, "pageSize": body.pageSize, "total": total}}
 
 
 # 根据条件新增新闻

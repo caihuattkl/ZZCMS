@@ -5,7 +5,7 @@ from sqlalchemy import Table, MetaData, Column, Integer, String, Text, DateTime,
 class Cms_users(Base):
     __tablename__ = 'cms_users'
     _table_args__ = {"extend_existing=True": True}
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, index=True,autoincrement = True)
     name = Column(String(25), unique=True, index=True)
     password = Column(String(25), nullable=False)
     mobile = Column(String(25), unique=True, index=True)

@@ -7,10 +7,19 @@ from libs.response_code import JSONResponses
 headlines.Base.metadata.create_all(bind=engine)
 
 
-# 根据条件获取报告分类
-@router.post("/created_headline", response_model=List)
+# 设置首页头条
+@router.post("/set_headline", response_model=List)
 async def get_news_class(body: schemas.CreatHeadline, db: Session = Depends(get_db)):
     await token_is_true(body)
     item = crud.creat_home_headline(db, body)
     if item is None: raise JSONResponses.error(code=4000, msg="newsClassItem not found")
-    return JSONResponses.success(item["data"], msg="创建头条成功!")
+    return JSONResponses.success(item["data"], msg="设置头条成功!")
+
+
+# 获取首页头条
+@router.post("/get_headline", response_model=List)
+async def get_news_class(body: schemas.Token, db: Session = Depends(get_db)):
+    await token_is_true(body)
+    item = crud.get_home_headline(db, body)
+    if item is None: raise JSONResponses.error(code=4000, msg="newsClassItem not found")
+    return JSONResponses.success(item["data"], msg="获取头条数据成功!")
