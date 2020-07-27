@@ -3,11 +3,8 @@
 '''
 
 from fastapi import Header, HTTPException, APIRouter
-from apis import OAuth2PasswordBearer
-from apis.v2 import sqlites
-from apis.v2 import users
+from apis.v2 import reports, users
 
 routers2 = APIRouter()
-
-routers2.include_router(sqlites.router, prefix="/sqlites", tags=["sqlites"])
+routers2.include_router(reports.router, prefix="/reports", tags=["reports"])
 routers2.include_router(users.router, prefix="/users", tags=["users"])

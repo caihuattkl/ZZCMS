@@ -31,12 +31,8 @@ class JSONResponses(APIException):
     def success(data: List[str], jump_page: dict = pages, msg: str = None,
                 code=None, error_code=None):
         error_code = error_code or 0
-        page_size = jump_page["pageSize"] or 10
-        page_number = jump_page["pageNumber"] or 1
-        total = jump_page["total"] or 0
         msg = msg or '成功!'
         code = code or 200
         return JSONResponse(
-            content={"data": jsonable_encoder(data), "error_code": error_code, "msg": msg, "code": code,
-                     "pageSize": page_size, "pageNumber": page_number, "total": total},
+            content={"data": jsonable_encoder(data), "error_code": error_code, "msg": msg, "code": code, **jump_page},
             status_code=200)

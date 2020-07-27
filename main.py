@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from apis.v1 import routers
+from apis.v1 import routers1
 from apis.v2 import routers2
 from config.conf import API_V1_STR, API_V2_STR
 from fastapi.middleware.cors import CORSMiddleware
@@ -20,7 +20,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(routers, prefix=API_V1_STR)
+app.include_router(routers1, prefix=API_V1_STR)
 app.include_router(routers2, prefix=API_V2_STR)
 # # 启动服务器
 if __name__ == '__main__':

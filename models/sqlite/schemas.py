@@ -29,6 +29,9 @@ class Class_news_list(BaseModel):
     pageSize: int
     pageNumber: int
 
+class HomeList(BaseModel):
+    pass
+    
 
 class HeaderTopNav(BaseModel):
     pass

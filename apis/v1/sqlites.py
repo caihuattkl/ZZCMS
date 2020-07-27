@@ -17,7 +17,7 @@ def get_news_class(body: schemas.Channel_news, db: Session = Depends(get_db)):
     item = crud.get_channel_news(db, className=body.className)
     if item is None:
         raise JSONResponses.error("获取数据失败!")
-    return JSONResponses(item, "获取频道新闻列表成功!", 200, 0)
+    return JSONResponses(item["data"], "获取频道新闻列表成功!", 200, 0)
 
 
 # 获取公共头部顶级大分类数据
@@ -26,7 +26,7 @@ def get_news_class(body: schemas.HeaderTopNav, db: Session = Depends(get_db)):
     item = crud.get_header_top_nav(db)
     if item is None:
         raise JSONResponses.error("获取公共头部顶级大分类数据失败")
-    return JSONResponses(item, "获取公共头部顶级大分类数据成功!", 200, 0)
+    return JSONResponses(item["data"], "获取公共头部顶级大分类数据成功!", 200, 0)
 
 
 # 获取新浪指数 上证指数,创业板 深圳综指等数据
@@ -44,19 +44,31 @@ def get_sina_index():
 async def get_news_class(body: schemas.FrontNewsDtail, db: Session = Depends(get_db)):
     item = crud.get_news_front_detail(db, body)
     if item is None: return JSONResponses.error(msg="查询失败!")
-    return JSONResponses.success(item, msg="获取资讯成功!")
+    return JSONResponses.success(item["data"], msg="获取资讯成功!")
 
 
 '''
-    获取栏目资讯列表
+    获取栏目资讯列表 分页
 '''
 
 
 @router.post("/class_news_list", response_model=[])
 def get_news_class(body: schemas.Class_news_list, db: Session = Depends(get_db)):
-    if body.childClassName is '': return JSONResponses.error(msg="childClassName为必填字段!")
-    if body.firstClassName is '': return JSONResponses.error(msg="firstClassName为必填字段!")
+    if body.childClassName is '': raise JSONResponses.error(msg="childClassName为必填字段!")
+    if body.firstClassName is '': raise JSONResponses.error(msg="firstClassName为必填字段!")
     item = crud.get_class_news_list(db, body)
     if item is None:
         raise JSONResponses.error(msg="获取数据失败!")
+    return JSONResponses.success(item["data"], item["jumpPage"], msg="获取栏目新闻列表成功!")
+
+
+'''
+    获取首页所有渲染数据
+'''
+
+
+@router.post("/home", response_model=[])
+def get_news_class(body: schemas.HomeList, db: Session = Depends(get_db)):
+    item = crud.get_home_list(db, body)
+    if item is None: raise JSONResponses.error(msg="获取数据失败!")
     return JSONResponses.success(item["data"], item, msg="获取栏目新闻列表成功!")

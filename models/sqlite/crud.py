@@ -42,13 +42,14 @@ def get_channel_news(db: Session, className: str, limit: int = 10):
                                                 models.Cms_news.classChildId == item.id).order_by(
                                                 models.Cms_news.time.desc()).limit(10).all()
                                             }
-        return all_data
+        return {"data": all_data}
 
 
 # 获取频道数据
 def get_header_top_nav(db: Session, limit: int = 10):
-    return db.query(models.Cms_news_class.subTitle, models.Cms_news_class.directoryName).filter(
+    data = db.query(models.Cms_news_class.subTitle, models.Cms_news_class.directoryName).filter(
         models.Cms_news_class.firstId == '0').all()
+    return {"data": data}
 
 
 # 根据条件获取新闻
@@ -88,7 +89,7 @@ def add_news(db: Session, body: dict):
     db.add(add)
     db.commit()
     db.close()
-    return add
+    return {"data": add}
 
 
 # 根据条件更新资讯
@@ -126,7 +127,6 @@ def get_news_detail(db: Session, body: dict):
 def get_news_front_detail(db: Session, body: dict):
     db_objs = db.query(models.Cms_news).filter(body.url == models.Cms_news.newsUrl).first()
     if db_objs is None: return None
-
     data: dict = {
         "nContent": db_objs.nContent,
         "time": db_objs.time,
@@ -146,7 +146,7 @@ def get_news_front_detail(db: Session, body: dict):
     data["childClassName"] = db.query(models.Cms_news_class).filter(
         data["classChildId"] == models.Cms_news_class.id).first().subTitle
 
-    return data
+    return {"data": data}
 
 
 '''
@@ -173,4 +173,28 @@ def get_class_news_list(db: Session, body: dict):
         "time": obj.time,
     } for obj in db_objs]
 
-    return {"data": data, "pageNumber": body.pageNumber, "pageSize": body.pageSize, "total": total}
+    return {"data": data, "jumpPage": {"pageNumber": body.pageNumber, "pageSize": body.pageSize, "total": total}}
+
+
+'''
+    获取首页所有渲染数据
+'''
+
+def get_home_list(db: Session, body: dict):
+    total = db.query(models.Cms_news).filter(body.childClassName == models.Cms_news.child_directory).count()
+    db_objs = db.query(models.Cms_news).filter(body.childClassName == models.Cms_news.child_directory).order_by(
+        models.Cms_news.time.desc()).limit(body.pageSize).offset(
+        (int(body.pageNumber) - 1) * body.pageSize).all()
+
+    data = [{
+        "id": obj.id,
+        "title": obj.title,
+        "url": obj.newsUrl,
+        "pv": obj.pv,
+        "keywords": obj.keywords,
+        "description": obj.description,
+        "nContent": obj.nContent,
+        "time": obj.time,
+    } for obj in db_objs]
+
+    return {"data": data, "jumpPage": {"pageNumber": body.pageNumber, "pageSize": body.pageSize, "total": total}}
