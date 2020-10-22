@@ -1,3 +1,4 @@
+# coding:utf-8
 from fastapi import FastAPI
 from apis.v1 import routers1
 from apis.v2 import routers2

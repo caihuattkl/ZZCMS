@@ -20,11 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7925dbb-df97-44ad-8621-6757b31629b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/py-zzcms.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apis/v1/reports.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/v1/reports.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/reports/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/reports/crud.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +114,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/apis/v1" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -178,13 +177,10 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="zzcms-python" />
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <module name="py-zzcms" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -193,7 +189,7 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -326,10 +322,11 @@
       <screen x="0" y="23" width="1440" height="826" />
     </state>
     <state x="514" y="142" key="RollbackChangesDialog/0.23.1440.826/1440.23.3440.1417@0.23.1440.826" timestamp="1603244461886" />
-    <state x="229" y="72" key="SettingsEditor" timestamp="1603245941002">
+    <state x="229" y="72" key="SettingsEditor" timestamp="1603272238133">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
-    <state x="229" y="72" key="SettingsEditor/0.23.1440.826/1440.23.3440.1417@0.23.1440.826" timestamp="1603245941002" />
+    <state x="228" y="72" key="SettingsEditor/0.23.1440.825/1440.23.3440.1417@0.23.1440.825" timestamp="1603265054084" />
+    <state x="229" y="72" key="SettingsEditor/0.23.1440.826/1440.23.3440.1417@0.23.1440.826" timestamp="1603272238133" />
     <state x="229" y="72" key="SettingsEditor/0.23.1440.828/1440.23.3440.1417@0.23.1440.828" timestamp="1603242462479" />
   </component>
   <component name="XDebuggerManager">

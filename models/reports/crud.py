@@ -1,3 +1,4 @@
+# coding:utf-8
 from sqlalchemy.orm import Session
 from sql_alchemys import reports as models
 from apis import List
@@ -33,9 +34,16 @@ def get_report_list(db: Session, body: dict):
 '''
     获取报告分类
 '''
-
-
 def get_report_class(db: Session, body: dict):
+    data = db.query(models.CmsReportClass).all()
+    if data is None: return None
+    return {"data": data}
+
+
+'''
+    获取报告
+'''
+def get_reports(db: Session, body: dict):
     data = db.query(models.CmsReportClass).all()
     if data is None: return None
     return {"data": data}
